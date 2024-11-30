@@ -1,0 +1,23 @@
+:root{
+    --ll-primary: #FFBD59;
+    --ll-primary-light: #EE7573;
+    --ll-primary-dark: #970200;
+    --ll-primary-disabled: #EED1D1;
+    --ll-secondary: #FFF7E6;
+
+    --cc-secondary: #F8F8F0;
+    --cc-grey-text: #575757;
+    --cc-black: #000000;
+    --cc-green : #11d60b;
+    --cc-secondary-translucent: rgba(248, 248, 240, 0.85);
+}
+
+* {
+    font-family: 'Silka', sans-serif;
+}
+
+.lpblock1 {
+    background-color: var(--ll-primary);
+    width: 100%;
+    height: 10vh;
+}
