@@ -1,14 +1,14 @@
 :root{
-    --ll-primary: #FFBD59;
-    --ll-primary-light: #EE7573;
-    --ll-primary-dark: #970200;
-    --ll-primary-disabled: #EED1D1;
-    --ll-secondary: #FFF7E6;
+    --ll-primary: #f9b550;
+    --ll-primary-light: #f6d9af;
+    --ll-primary-dark: #da8d19;
+    --ll-primary-disabled: #fff0d9;
+    --ll-secondary: #fcfcf8;
+    --ll-grey: #575757;
+    --ll-black: #000000;
+    --ll-green : #11d60b;
+    --ll-red-button: #e3211e;
 
-    --cc-secondary: #F8F8F0;
-    --cc-grey-text: #575757;
-    --cc-black: #000000;
-    --cc-green : #11d60b;
     --cc-secondary-translucent: rgba(248, 248, 240, 0.85);
 }
 
@@ -19,5 +19,25 @@
 .lpblock1 {
     background-color: var(--ll-primary);
     width: 100%;
-    height: 10vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    background-color: var(--ll-secondary);
+    padding: 200px;
+}
+
+.lpblock2 {
+    background-color: var(--ll-secondary);
+    margin-bottom: 40vh;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

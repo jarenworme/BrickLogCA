@@ -1,8 +1,9 @@
 import {useRoutes} from "react-router-dom";
 
 import LandingPage from "../pages/LandingPage";
+import Auth from "../pages/Auth";
+import TestPage from "../pages/TestPage";
 
-// import Home from "../pages/Home";
 // import SetList from "../pages/SetList";
 // import SetDetail from "../pages/SetDetail";
 // import AddNewSet from "../pages/AddNewSet";
@@ -21,6 +22,8 @@ export default function Router (){
             path: '/',
             children: [
                 {path: '/', element: <LandingPage />},
+                {path: '/auth', element: <Auth />},
+                {path: '/test', element: <TestPage />},
             ]
             // children: [
             //     {path: '/', element: <LandingPage />},
