@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/LEGOLog/static/css/main.16ffcab5.css",
-    "main.js": "/LEGOLog/static/js/main.424dc73b.js",
+    "main.js": "/LEGOLog/static/js/main.4102a40c.js",
     "static/js/453.a10fc7c9.chunk.js": "/LEGOLog/static/js/453.a10fc7c9.chunk.js",
     "static/media/boxes5.JPG": "/LEGOLog/static/media/boxes5.09bef70c044d39c88a76.JPG",
     "static/media/Lego-Trend.jpg": "/LEGOLog/static/media/Lego-Trend.f63b91198d521e219f82.jpg",
@@ -10,11 +10,11 @@
     "static/media/Silka-Regular.otf": "/LEGOLog/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
     "index.html": "/LEGOLog/index.html",
     "main.16ffcab5.css.map": "/LEGOLog/static/css/main.16ffcab5.css.map",
-    "main.424dc73b.js.map": "/LEGOLog/static/js/main.424dc73b.js.map",
+    "main.4102a40c.js.map": "/LEGOLog/static/js/main.4102a40c.js.map",
     "453.a10fc7c9.chunk.js.map": "/LEGOLog/static/js/453.a10fc7c9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16ffcab5.css",
-    "static/js/main.424dc73b.js"
+    "static/js/main.4102a40c.js"
   ]
 }
