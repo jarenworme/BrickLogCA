@@ -6,6 +6,14 @@
 .pnp.js
 
 /scripts
+/Python-Scripts/virt
+/Python-Scripts/__pycache__
+/Python-Scripts/colors.csv
+/Python-Scripts/filtered_sets.csv
+/Python-Scripts/sets.csv
+/Python-Scripts/sets.json
+/Python-Scripts/themes.csv
+/Python-Scripts/themes.py
 
 .env
 
