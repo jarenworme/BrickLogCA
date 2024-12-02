@@ -5,6 +5,7 @@ import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPass
 
 export default function Auth() {
   const navigate = useNavigate();
+  const navigateLandingPage = () => navigate('/', { replace: false });
 
   // State for email/password login
   const [email, setEmail] = useState("");
@@ -95,6 +96,11 @@ export default function Auth() {
           </button>
         </p>
       </div>
+      <h1 className="title">auth</h1>
+      <h1 className="title">auth</h1>
+      <h1 className="title">auth</h1>
+      <button className="p404-button" onClick={navigateLandingPage}>Return to LEGOLog</button>
+
     </div>
   );
 }

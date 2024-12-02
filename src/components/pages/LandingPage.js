@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import '../styles/landing-page.css';
 
 export default function LandingPage () {
-
     const navigate = useNavigate();
     const routeLogin = () => navigate('/auth', { replace: false });
 
