@@ -2,6 +2,7 @@ import { useRoutes, Navigate } from "react-router-dom";
 
 import ProtectedRoute from "./ProtectedRoute";
 import About from "../pages/About";
+import Account from "../pages/Account";
 import AddCustomPiece from "../pages/AddCustomPiece";
 import AddCustomSet from "../pages/AddCustomSet";
 import Auth from "../pages/Auth";
@@ -27,6 +28,7 @@ export default function Router (){
             children: [
                 { path: '/', element: <LandingPage /> },
                 { path: '/about', element: <About /> },
+                { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>)},
                 { path: '/addCustomPiece', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
                 { path: '/auth', element: <Auth />},

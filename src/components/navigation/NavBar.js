@@ -5,12 +5,16 @@ export default function NavBar () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
     
-    const routeHome = () => navigate('/', { replace: false });
+    const navigateHome = () => navigate('/', { replace: false });
+    const navigateAccount = () => navigate('/account', { replace: false });
+    const navigateBrowseSets = () => navigate('/browseSets', { replace: false });
+    const navigateUserSets = () => navigate('/userSets', { replace: false });
+    
 
 
     return (
         <div className="outer-container">
-            <button onClick={routeHome}>Back</button>
+            <button onClick={navigateHome}>Back</button>
         </div>
     );
 }
