@@ -1,0 +1,127 @@
+:root{
+    --primary: #0587D0;
+    --primary-light: #64B4E2;
+    --primary-dark: #4F7292;
+    --primary-disabled: #DEEDF5;
+
+    --secondary: #222222;
+    --secondary-light: #555555;
+    --secondary-dark: #161616;
+    --secondary-disabled: #DBDBDB;
+
+    --background: #ECECEC;
+
+    --accent-crimson: #E23636;
+    --accent-saffron: #FFE601;
+    --accent-forest-green: #228B22;
+    --accent-lime: #54DD3E;
+    --accent-orange: #FFA800;
+    --accent-pink: #F351A9;
+    --accent-purple: #9E07FA;
+    --accent-cobalt: #0047AB;
+    --accent-sky-blue: #87CEEB;
+    --accent-titanium-white: #FFFFFF;	
+    --accent-black: #000000;
+    --accent-burnt-sienna: #AB4A13;
+    --accent-sand-green: #A0BCAC;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    height: 64px;
+    width: 100vw;
+    background-color: var(--secondary);
+}
+
+.nav-left-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 1vw;    
+}
+
+.nav-logo-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.nav-logo {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-right-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 10vh;
+    margin: 0 24px;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 36px;
+    width: fit-content;
+    margin: 0 8px;
+    padding: 4px 0;
+    border: 1px solid transparent;
+    background-color: transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-button:hover, .nav-icon:hover {
+    cursor: pointer;
+    /* undecided whether to use crimson or white here */
+    border-bottom: 2px solid var(--accent-crimson);
+}
+
+.nav-text {
+    margin: 2px 6px 0 0;
+    font-size: large;
+    color: var(--accent-titanium-white);
+}
+
+.nav-svg-wrapper {
+    height: 32px;
+    margin-bottom: 4px;
+    border: none;
+    background-color: transparent;
+}
+
+.nav-svg {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-icon {
+    margin: 8px;
+    padding: 2px 0;
+    border: 1px solid transparent;
+    color: var(--accent-titanium-white);
+    transition: border-bottom 0.3s ease;
+}
+
+.nav-icon-home {
+    height: 30px;
+}
+
+.nav-icon-nested {
+    height: 32px;
+    color: var(--accent-titanium-white);
+}

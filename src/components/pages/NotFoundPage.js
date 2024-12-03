@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import image404 from "../../assets/lego-404.jpeg";
 import '../styles/not-found-page.css'
+
+import image404 from "../../assets/images/lego-404.jpeg";
 
 
 export default function NotFoundPage() {
