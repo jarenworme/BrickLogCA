@@ -87,7 +87,7 @@
 .nav-button:hover, .nav-icon:hover {
     cursor: pointer;
     /* undecided whether to use crimson or white here */
-    border-bottom: 2px solid var(--accent-crimson);
+    border-bottom: 3px solid var(--accent-crimson);
 }
 
 .nav-text {
@@ -109,6 +109,12 @@
     width: 100%;
 }
 
+.nav-icon-nested {
+    height: 32px;
+    padding: 2px 0;    
+    color: var(--accent-titanium-white);
+}
+
 .nav-icon {
     margin: 8px;
     padding: 2px 0;
@@ -119,9 +125,4 @@
 
 .nav-icon-home {
     height: 30px;
-}
-
-.nav-icon-nested {
-    height: 32px;
-    color: var(--accent-titanium-white);
 }
