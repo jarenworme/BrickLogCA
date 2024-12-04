@@ -157,4 +157,7 @@
         height: 70%;
         width: 96%;
     }
+    .home-btn:hover {
+        font-size: x-large;
+    }
 }
