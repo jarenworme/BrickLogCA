@@ -27,3 +27,162 @@
     --accent-burnt-sienna: #AB4A13;
     --accent-sand-green: #A0BCAC;
 }
+
+.home-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-titanium-white);
+    height: 93vh;
+    padding-top: 7vh;
+}
+
+.home-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-titanium-white);
+    height: 86%;
+    width: 86%;
+}
+
+.home-left-ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    min-width: 500px;
+}
+
+.home-btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 96%;
+    width: 96%;
+    border: none;
+    border-radius: 16px;
+    background-image: url(/src/assets/images/boxes5.JPG);
+    background-position: center;
+    background-size: cover;
+    box-shadow: 4px 6px 5px rgba(0, 0, 0, 0.25);
+    transition: height 0.5s ease, width 0.5s ease;
+}
+
+.home-btn-primary:hover {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.home-text-wrapper {
+    background-color: var(--secondary-translucent);
+    width: 60%;
+    margin-top: 20%;
+    border-radius: 12px;
+    transition: background-color 0.7s ease-in;
+}
+
+.home-btn-primary:hover .home-text-wrapper{
+    background-color: var(--secondary);
+}
+
+.home-text {
+    color: var(--accent-titanium-white);
+    font-weight: lighter;
+    font-size: xx-large;
+    margin: 15px auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.home-right-ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    min-width: 500px;
+}
+
+.home-btn-wrapper {
+    width: 100%;
+    height: 24%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-btn {
+    border: none;
+    border-radius: 16px;
+    color: var(--accent-titanium-white);
+    font-size: x-large;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+    width: 94%;
+    height: 80%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: height 0.5s ease, width 0.5s ease;
+}
+
+.home-btn:hover {
+    cursor: pointer;
+    width: 98%;
+    height: 90%;
+    margin: 0;
+    font-size: xx-large;
+}
+
+.home-pieces-image {
+    background-image: url(/src/assets/images/blue-lego-bricks.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+
+.home-stats-image {
+    background-image: url(/src/assets/images/Lego-Trend.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/*
+.home-browse-image {
+    background-image: url(/src/assets/images/legostore.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+*/
+
+.home-online-image {
+    background-image: url(/src/assets/images/stormtrooper-computer-edited.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+
+@media screen and (max-width: 1000px) {
+    .home-left-ctr {
+        height: 300px; /* Reduced height for smaller screens */
+    }
+    .home-right-ctr {
+        height: 300px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .home-wrapper {
+        flex-direction: column;
+    }
+    .home-left-ctr {
+        height: 25%;
+        min-width: 0;
+    }
+    .home-right-ctr {
+        height: 60%;
+        min-width: 0;
+    }
+}

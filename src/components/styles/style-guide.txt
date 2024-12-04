@@ -3,6 +3,7 @@ the following is the ordering convention to stick to in all css files:
 
 display
 flex-direction
+flex-wrap
 align-items
 justify-content
 box-sizing
