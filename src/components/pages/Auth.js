@@ -24,7 +24,7 @@ export default function Auth() {
             isAuth: true,
         };
         localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/test", { replace: false });
+        navigate("/home", { replace: false });
         } catch (err) {
         console.error(err.message);
         }
@@ -40,7 +40,7 @@ export default function Auth() {
             isAuth: true,
         };
         localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/test", { replace: false });
+        navigate("/home", { replace: false });
         } catch (err) {
         console.error(err.message);
         }
@@ -56,7 +56,7 @@ export default function Auth() {
             isAuth: true,
         };
         localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/test", { replace: false });
+        navigate("/home", { replace: false });
         } catch (err) {
         console.error(err.message);
         }

@@ -1,29 +1,7 @@
 :root{
-    --primary: #0587D0;
-    --primary-light: #64B4E2;
-    --primary-dark: #4F7292;
-    --primary-disabled: #DEEDF5;
-
     --secondary: #222222;
-    --secondary-light: #555555;
-    --secondary-dark: #161616;
-    --secondary-disabled: #DBDBDB;
-
-    --background: #ECECEC;
-
     --accent-crimson: #E23636;
-    --accent-saffron: #FFE601;
-    --accent-forest-green: #228B22;
-    --accent-lime: #54DD3E;
-    --accent-orange: #FFA800;
-    --accent-pink: #F351A9;
-    --accent-purple: #9E07FA;
-    --accent-cobalt: #0047AB;
-    --accent-sky-blue: #87CEEB;
     --accent-titanium-white: #FFFFFF;	
-    --accent-black: #000000;
-    --accent-burnt-sienna: #AB4A13;
-    --accent-sand-green: #A0BCAC;
 }
 
 .nav-bar {
@@ -86,7 +64,6 @@
 
 .nav-button:hover, .nav-icon:hover {
     cursor: pointer;
-    /* undecided whether to use crimson or white here */
     border-bottom: 3px solid var(--accent-crimson);
 }
 
@@ -126,4 +103,16 @@
 
 .nav-icon-home {
     height: 30px;
+}
+
+@media screen and (max-width: 500px) {
+    .nav-text {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .nav-bar {
+        height: 44px;
+    }
 }
