@@ -2,98 +2,137 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, provider } from "../../config/firebase-config";
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import "../styles/auth.css"
 
 
 export default function Auth() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
-    // State for email/password login
+    // State variables
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
+    const [error, setError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const validatePassword = (password) => {
+        const hasNumber = /\d/;
+        if (password.length < 8) {
+            return "Password must be at least 8 characters long.";
+        }
+        if (!hasNumber.test(password)) {
+            return "Password must include at least one number.";
+        }
+        return null;
+    };
 
     // Google login
     const signInGoogle = async () => {
         try {
-        const results = await signInWithPopup(auth, provider);
-        const authInfo = {
-            userID: results.user.uid,
-            name: results.user.displayName,
-            profilePhoto: results.user.photoURL,
-            isAuth: true,
-        };
-        localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/home", { replace: false });
+            setError("");
+            const results = await signInWithPopup(auth, provider);
+            const authInfo = {
+                userID: results.user.uid,
+                name: results.user.displayName,
+                profilePhoto: results.user.photoURL,
+                isAuth: true,
+            };
+            localStorage.setItem("auth", JSON.stringify(authInfo));
+            navigate("/home", { replace: false });
         } catch (err) {
-        console.error(err.message);
+            setError("Google sign-in failed. Please try again.");
+            console.error(err.message);
         }
     };
 
-    // Email/password login
-    const signInEmailPassword = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const authInfo = {
-            userID: userCredential.user.uid,
-            name: userCredential.user.email,
-            isAuth: true,
-        };
-        localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/home", { replace: false });
+            setError("");
+            setError("");
+
+            if (isRegistering) {
+                const passwordError = validatePassword(password);
+                if (passwordError) return setError(passwordError);
+                if (password !== confirmPassword) return setError("Passwords do not match.");
+
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const authInfo = { userID: userCredential.user.uid, name: userCredential.user.email, isAuth: true };
+                localStorage.setItem("auth", JSON.stringify(authInfo));
+            } else {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const authInfo = { userID: userCredential.user.uid, name: userCredential.user.email, isAuth: true };
+                localStorage.setItem("auth", JSON.stringify(authInfo));
+            }
+
+            navigate("/home", { replace: false });
         } catch (err) {
-        console.error(err.message);
+            setError(isRegistering ? "Registration failed. Please try again." : "Login failed. Please check your credentials.");
         }
     };
 
-    // Email/password registration
-    const registerWithEmailPassword = async () => {
-        try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const authInfo = {
-            userID: userCredential.user.uid,
-            name: userCredential.user.email,
-            isAuth: true,
-        };
-        localStorage.setItem("auth", JSON.stringify(authInfo));
-        navigate("/home", { replace: false });
-        } catch (err) {
-        console.error(err.message);
-        }
-    };
+    const toggleRegister = () => {
+        setIsRegistering(!isRegistering);
+        setError("");
+    }
 
     return (
-        <div>
-        <div className="lpblock1">
-            <h1 className="title">auth</h1>
-
-            <button onClick={signInGoogle}>Login with Google</button>
-
-            <h2>{isRegistering ? "Register" : "Log in"} with Email</h2>
-            <input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
-            <button onClick={isRegistering ? registerWithEmailPassword : signInEmailPassword}>
-            {isRegistering ? "Register" : "Login"}
-            </button>
-
-            {/* Toggle between login and registration */}
-            <p>
-            {isRegistering ? "Already have an account?" : "Don't have an account?"}{" "}
-            <button onClick={() => setIsRegistering(!isRegistering)}>
-                {isRegistering ? "Log in" : "Register"}
-            </button>
-            </p>
-        </div>
+        <div className="auth-wrapper">
+            <div className="auth-card">
+                <div className="auth-title-wrapper">
+                    <h3 className="auth-title">Welcome to</h3>
+                    <div className="auth-title-span-wrapper">
+                        <span className="auth-span auth-l">L</span>
+                        <span className="auth-span auth-e">E</span>
+                        <span className="auth-span auth-g">G</span>
+                        <span className="auth-span auth-o">O</span>
+                        <span className="auth-span auth-log">log</span>
+                        <span className="auth-span auth-r">&#174;</span>
+                    </div>
+                </div>
+                <div className="auth-middle-divider"></div>
+                <div className="auth-content-wrapper">
+                    {error && <p className="auth-signin-error">{error}</p>} 
+                    <button className="auth-google-btn" onClick={signInGoogle}>
+                        Continue with Google
+                    </button>
+                    <div className="auth-spacer">
+                        <hr className="auth-hr" />
+                        <p className="auth-text">or</p>
+                        <hr className="auth-hr" />
+                    </div>
+                    <h2 className="auth-subtitle">{isRegistering ? "Register" : "Sign in"} with Email</h2>
+                    <form className="auth-form" onSubmit={handleSubmit}>
+                        <div className="auth-input-wrapper">
+                            <input className="auth-input" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        </div>
+                        <div className="auth-input-wrapper">
+                            <input className="auth-input" type={showPassword ? "text" : "password"} placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} className='auth-eye' size='xl' onClick={() => setShowPassword(!showPassword)}/>
+                        </div>
+                        {isRegistering && (
+                            <div className="auth-input-wrapper">
+                                <input
+                                    type={showConfirmPassword ? "text" : "password"}
+                                    placeholder="Confirm password"
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    className="auth-input"
+                                    required
+                                />
+                                    <FontAwesomeIcon icon={showConfirmPassword ? faEye : faEyeSlash} className='auth-eye' size='xl' onClick={() => setShowConfirmPassword(!showConfirmPassword)}/>
+                            </div>
+                        )}        
+                        <button type="submit" className="auth-submit-btn">{isRegistering ? "Register" : "Login"}</button>
+                        <button type="button" className="auth-toggle-register" onClick={toggleRegister}>or {isRegistering ? "sign in" : "register"} here</button>
+                    </form>       
+                </div>
+            </div>
         </div>
     );
 }

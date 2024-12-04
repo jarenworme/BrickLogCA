@@ -9,7 +9,7 @@ function App() {
   const location = useLocation();
 
   // paths for the navbar to disappear
-  const noNavBarRoutes = [ '/about', '/auth', '/404'];
+  const noNavBarRoutes = ['/', '/about', '/auth', '/404'];
 
   // set up variable to determine needing a nav bar based on provided routes
   const showNavBar = !noNavBarRoutes.includes(location.pathname);

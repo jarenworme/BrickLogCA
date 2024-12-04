@@ -9,12 +9,8 @@ export default function LandingPage () {
         return (
             <div>
                 <div className="lpblock1">
-                    <h1 className="title">Hello World</h1>
-                    <button onClick={routeLogin}>login</button>
-                </div>
-                <div className="lpblock2">
-                    <h1 className="title">Hello World</h1>
-                    <button onClick={routeLogin}>login</button>
+                    <h1 className="title">Legolog's landing page will be up soon!</h1>
+                    <button className="lp-cta" onClick={routeLogin}>sign in or register here</button>
                 </div>
             </div>
         )
