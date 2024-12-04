@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/LEGOLog/static/css/main.16ffcab5.css",
-    "main.js": "/LEGOLog/static/js/main.4102a40c.js",
+    "main.css": "/LEGOLog/static/css/main.37a75e07.css",
+    "main.js": "/LEGOLog/static/js/main.2bcc6a6f.js",
     "static/js/453.a10fc7c9.chunk.js": "/LEGOLog/static/js/453.a10fc7c9.chunk.js",
     "static/media/boxes5.JPG": "/LEGOLog/static/media/boxes5.09bef70c044d39c88a76.JPG",
     "static/media/Lego-Trend.jpg": "/LEGOLog/static/media/Lego-Trend.f63b91198d521e219f82.jpg",
     "static/media/blue-lego-bricks.jpeg": "/LEGOLog/static/media/blue-lego-bricks.58225e410c59e72b0ac9.jpeg",
+    "static/media/lego-404.jpeg": "/LEGOLog/static/media/lego-404.a356adb08c582c03a1fc.jpeg",
     "static/media/stormtrooper-computer-edited.jpeg": "/LEGOLog/static/media/stormtrooper-computer-edited.24edff53256c3f39638d.jpeg",
     "static/media/Silka-Regular.otf": "/LEGOLog/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
+    "static/media/pieces.svg": "/LEGOLog/static/media/pieces.f4b808853928a8c741c9596233718a85.svg",
     "index.html": "/LEGOLog/index.html",
-    "main.16ffcab5.css.map": "/LEGOLog/static/css/main.16ffcab5.css.map",
-    "main.4102a40c.js.map": "/LEGOLog/static/js/main.4102a40c.js.map",
+    "main.37a75e07.css.map": "/LEGOLog/static/css/main.37a75e07.css.map",
+    "main.2bcc6a6f.js.map": "/LEGOLog/static/js/main.2bcc6a6f.js.map",
     "453.a10fc7c9.chunk.js.map": "/LEGOLog/static/js/453.a10fc7c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.16ffcab5.css",
-    "static/js/main.4102a40c.js"
+    "static/css/main.37a75e07.css",
+    "static/js/main.2bcc6a6f.js"
   ]
 }
