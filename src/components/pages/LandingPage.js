@@ -9,7 +9,7 @@ export default function LandingPage () {
         return (
             <div>
                 <div className="lpblock1">
-                    <h1 className="title">Legolog's landing page will be up soon!</h1>
+                    <h3 className="title">Legolog is redeveloping using a different backend framework. You can still create an account and view our home page at the moment. Thank you for your patience!</h3>
                     <button className="lp-cta" onClick={routeLogin}>sign in or register here</button>
                 </div>
             </div>

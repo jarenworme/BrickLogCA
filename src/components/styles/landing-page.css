@@ -27,8 +27,10 @@
 }
 
 .title {
+    max-width: 70vw;
     background-color: var(--ll-secondary);
-    padding: 30vh 10vw;
+    padding: 30vh 3vw;
+    text-align: center;
 }
 
 .lp-cta {

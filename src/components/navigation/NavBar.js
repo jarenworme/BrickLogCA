@@ -28,13 +28,13 @@ export default function NavBar () {
                 </button>
             </div>
             <div className='nav-right-wrapper'>
-                <button className='nav-button' onClick={navigateUserPieces}>
+                <button className='nav-button' onClick={navigateUserPieces} disabled={true}>
                     <p className='nav-text'>Pieces</p>
                     <div className='nav-svg-wrapper'>
                         <img src={bricks} alt='LEGO Brick' className='nav-svg' />  
                     </div>                
                 </button>
-                <button className='nav-button' onClick={navigateUserSets}>
+                <button className='nav-button' onClick={navigateUserSets} disabled={true}>
                     <p className='nav-text'>Sets</p>
                     <FontAwesomeIcon icon={faTableList} className='nav-icon-nested' size='2x' />
                 </button>
