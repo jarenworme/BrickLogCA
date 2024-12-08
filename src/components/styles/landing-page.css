@@ -3,45 +3,374 @@
     --ll-primary-light: #f6d9af;
     --ll-primary-dark: #da8d19;
     --ll-primary-disabled: #fff0d9;
-    --ll-secondary: #fcfcf8;
+    --off-white: #fcfcf8;
     --ll-grey: #575757;
     --ll-black: #000000;
     --ll-green : #11d60b;
     --ll-red-button: #e3211e;
 
-    --cc-secondary-translucent: rgba(248, 248, 240, 0.85);
+    --primary: #0587D0;
+    --primary-light: #1e9be3;
+    --primary-dark: #0878ba;
+    --primary-disabled: #DEEDF5;
+
+    --secondary: #222222;
+    --secondary-light: #555555;
+    --secondary-dark: #161616;
+    --secondary-disabled: #DBDBDB;
+
+    --background: #ECECEC;
+
+    --accent-crimson: #E23636;
+    --accent-saffron: #FFE601;
+    --accent-forest-green: #228B22;
+    --accent-lime: #54DD3E;
+    --accent-orange: #FFA800;
+    --accent-pink: #F351A9;
+    --accent-purple: #9E07FA;
+    --accent-cobalt: #0047AB;
+    --accent-sky-blue: #87CEEB;
+    --accent-titanium-white: #FFFFFF;	
+    --accent-black: #000000;
+    --accent-burnt-sienna: #AB4A13;
+    --accent-sand-green: #A0BCAC;
 }
 
 * {
     font-family: 'Silka', sans-serif;
 }
 
-.lpblock1 {
-    background-color: var(--ll-primary);
-    width: 100%;
-    height: 100vh;
+
+/***************************************************************************************************************************************/
+/* code for the nav bar */
+/***************************************************************************************************************************************/
+
+
+.lp-nav-wrapper {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    position: fixed;
+    width: 97%;
+    height: 60px;
+    padding: 0.6% 1% 0.4% 2%;
+    transition: background-color 0.3s ease;
+}
+
+.lp-scrolled {
+    background-color: var(--secondary);
+}
+
+.lp-nav-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.lp-nav-logo {
+    height: 48px;
+    width: 48px;
+    margin-right: 12px;
+}
+
+.lp-scrolled-logo {
+    display: none;
+}
+
+.lp-span {
+    display: none;
+}
+
+.lp-scrolled-text {
+    display: contents;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.lp-l {
+    color: var(--accent-crimson);
+}
+
+.lp-e {
+    color: var(--accent-lime);
+}
+
+.lp-g {
+    color: var(--primary);
+}
+
+.lp-o {
+    color: var(--accent-saffron);
+}
+
+.lp-log {
+    color: var(--off-white);
+}
+
+.lp-nav-right {
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.title {
-    max-width: 70vw;
-    background-color: var(--ll-secondary);
-    padding: 30vh 3vw;
-    text-align: center;
+.lp-nav-btn, .lp-nav-btn-primary {
+    margin-right: 24px;
+    font-size: larger;
+    color: var(--off-white);
+    background-color: transparent;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.lp-nav-btn {
+    padding: 0;
+    border: 2px solid transparent;
+}
+
+.lp-nav-btn-primary {
+    padding: 8px 12px;
+    border: 2px solid var(--off-white);
+    border-radius: 8px;
+}
+
+.lp-nav-btn:hover {
+    cursor: pointer;
+    border-bottom: 3px solid var(--off-white);
+}
+
+.lp-nav-btn-primary:hover {
+    cursor: pointer;
+    border: 2px solid var(--primary-disabled);
+    color: var(--primary-disabled);
+}
+
+
+/***************************************************************************************************************************************/
+/* code for the body */
+/***************************************************************************************************************************************/
+
+
+.lp-block-1 {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url(/src/assets/images/train1.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.lp-block1-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 74vh;
+    width: 70vw;
+}
+
+.lp-block1-title {
+    font-size: 280%;
+    font-weight: normal;
+    color: var(--off-white);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .lp-cta {
-    border: none;
-    border-radius: 8px;
-    height: 8vh;
-    width: 15vw;
-    background-color: var(--ll-secondary);
-    font-size: larger;
+    height: 11%;
+    width: 22%;
+    border: 3px solid var(--primary);
+    font-size: x-large;
+    color: var(--off-white);
+    background-color: transparent;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    transition: background-color 1s ease;
 }
 
 .lp-cta:hover {
     cursor: pointer;
+    background-color: var(--primary);
+    text-shadow: none;
+}
+
+.lp-block-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70vh;
+    width: 80%;
+    padding: 0 10%;
+    background-color: var(--off-white);
+}
+
+.lp-block2-content-wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lp-block2-title {
+
+}
+
+.lp-block2-text {
+    
+}
+
+.lp-block2-img-wrapper {
+    height: 70%;
+    width: 44%;
+}
+
+.lp-block2-img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border: 3px solid var(--secondary-disabled);
+}
+
+.lp-block3-title-wrapper {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+}
+
+.lp-block3-title {
+    font-size: 270%;
+    margin: 0;
+    color: var(--off-white);
+}
+
+.lp-block3-subtitle {
+    font-size: large;
+    font-weight: normal;
+    color: var(--off-white);
+}
+
+.lp-block-3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 80vh;
+    width: 70%;
+    padding: 0 15%;
+    background-color: var(--primary);
+}
+
+.lp-tier-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 22%;
+    margin: 0 1%;
+    padding: 2% 3%;
+    border: 2px solid var(--primary-disabled);
+    border-radius: 16px;
+    background-color: var(--off-white);
+}
+
+.lp-tier-title {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: x-large;
+}
+
+.lp-tier-subtitle {
+    width: 100%;
+    margin: 0;
+    font-size: smaller;
+    text-align: left;
+}
+
+.lp-tier-span-wrapper {
+    margin: 2vh 0;
+}
+
+.lp-tier-span-small {
+    font-size: larger;
+}
+
+.lp-tier-span-large {
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.lp-tier-btn {
+    width: 100%;
+    height: 5.5vh;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+/* remove this section when all plan options are available and class from js */
+.lp-tier-btn-active {
+    width: 100%;
+    height: 5.5vh;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: transparent;
+    transition: background-color 1s ease;
+}
+
+/* remove '-active' when all plan options are available */
+.lp-tier-btn-active:hover {
+    cursor: pointer;
+    background-color: var(--primary);
+}
+
+.lp-tier-divider {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+    background-color: var(--secondary-light);
+    border: none;
+}
+
+.lp-tier-feature {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.lp-check {
+    margin-right: 2%;
+    color: var(--accent-lime);
+}
+
+.lp-minus {
+    margin-right: 2%;
+    color: var(--secondary-light);
+}
+
+.lp-greyed {
+    color: var(--secondary-light);
+}
+
+.lp-tier-text {
+    margin: 0;
+    font-size: medium;
 }

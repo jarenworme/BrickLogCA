@@ -70,19 +70,19 @@
 }
 
 .auth-l {
-    color: var(--primary);
-}
-
-.auth-e {
-    color: var(--accent-saffron);
-}
-
-.auth-g {
     color: var(--accent-crimson);
 }
 
-.auth-o {
+.auth-e {
     color: var(--accent-lime);
+}
+
+.auth-g {
+    color: var(--primary);
+}
+
+.auth-o {
+    color: var(--accent-saffron);
 }
 
 .auth-log {

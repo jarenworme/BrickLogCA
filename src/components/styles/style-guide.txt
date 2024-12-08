@@ -1,3 +1,7 @@
+some styling tips for the JavaScript files:
+- don't allow content to go past column 136
+- always leave two lines above the function declaration, one above the return, and one at the end of the file.
+
 the following is the ordering convention to stick to in all css files:
 (cursor)
 
