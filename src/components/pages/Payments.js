@@ -6,93 +6,27 @@ import { faCheck, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faMedium } from '@fortawesome/free-brands-svg-icons';
 
 import logo from "../../assets/logos/logo.png";
-import boxes from "../../assets/images/boxes6.JPG";
-import oldSet from "../../assets/images/old-set.jpg";
-import customSet from "../../assets/images/lego-404.jpeg";
-import missingPieces from "../../assets/images/lego-404.jpeg";
-import train2 from "../../assets/images/train2.png";
 
 
-export default function LandingPage () {
+export default function Payments () {
     const navigate = useNavigate();
-    const navigateLandingPage = () => navigate('/', { replace: false });
-    const navigateAboutUs = () => navigate('/about', { replace: false });
-    const navigatePayments = () => navigate('/payments', { replace: false });
     const navigateAuth = () => navigate('/auth/2', { replace: false });
+    const navigateAboutUs = () => navigate('/about', { replace: false });
+    const navigateLandingPage = () => navigate('/', { replace: false });
     const navigateAuthRegister = () => navigate('/auth/1', { replace: false });
-
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
 
     return (
-        <div className="lp-wrapper">
-            <div className={`lp-nav-wrapper ${isScrolled ? 'lp-scrolled' : ''}`}>
+        <div className="payments-wrapper">
+            <div className="lp-nav-wrapper lp-scrolled">
                 <button className="lp-nav-left" onClick={navigateLandingPage}>
-                    <img src={logo} alt="logo" className={`lp-nav-logo ${isScrolled ? 'lp-scrolled-logo' : ''}`} />
-                    <span className={`lp-span lp-l ${isScrolled ? 'lp-scrolled-text' : ''}`}>L</span>
-                    <span className={`lp-span lp-e ${isScrolled ? 'lp-scrolled-text' : ''}`}>E</span>
-                    <span className={`lp-span lp-g ${isScrolled ? 'lp-scrolled-text' : ''}`}>G</span>
-                    <span className={`lp-span lp-o ${isScrolled ? 'lp-scrolled-text' : ''}`}>O</span>
-                    <span className={`lp-span lp-log ${isScrolled ? 'lp-scrolled-text' : ''}`}>log</span>
+                    <img src={logo} alt="logo" className="lp-nav-logo" />
                 </button>
                 <div className="lp-nav-right">
                     <button className="lp-nav-btn" onClick={navigateAboutUs}>About Us</button>
-                    <button className="lp-nav-btn" onClick={navigatePayments}>Get Started</button>
+                    <button className="lp-nav-btn" onClick={navigateLandingPage}>Info</button>
                     <button className="lp-nav-btn-primary" onClick={navigateAuth}>Log In</button>
                 </div>
-            </div>
-            <div className="lp-block-1">
-                <div className="lp-block1-content-wrapper">
-                    <h2 className="lp-block1-title">Your LEGO collection, anytime, anywhere.</h2>
-                    <button className="lp-cta" onClick={navigatePayments}>Get Started</button>
-                </div>
-            </div>
-            <div className="lp-block-2">
-                <div className="lp-block2-content-wrapper">
-                    <h2 className="lp-block2-title">Your Virtual LEGO Room</h2>
-                    <p className="lp-block2-text">
-                        Track and explore your LEGO collection with LEGOlog. Organize your sets, uncover unique details, and enjoy fun 
-                        insights like your total piece count and other stats.
-                    </p>
-                </div>
-                <div className="lp-block2-img-wrapper">
-                    <img src={boxes} alt="LEGO Boxes" className="lp-block2-img"/>
-                </div>
-            </div>
-            <div className="lp-block-2 lp-reverse-display">
-                <div className="lp-block2-content-wrapper">
-                    <h2 className="lp-block2-title right-align">How it Works</h2>
-                    <p className="lp-block2-text right-align">
-                        Our extensive database features all mainline LEGO sets since 1970. Easily find sets by name or number and add 
-                        them to your personal collection.
-                    </p>
-                </div>
-                <div className="lp-block2-img-wrapper">
-                    <img src={oldSet} alt="LEGO Boxes" className="lp-block2-img"/>
-                </div>
-            </div>
-            <div className="lp-block-2">
-                <div className="lp-block2-content-wrapper">
-                    <h2 className="lp-block2-title">Customize to Your Desire</h2>
-                    <p className="lp-block2-text">
-                        Love building your own creations? Log your custom builds and explore unique creations shared by the community.
-                    </p>
-                </div>
-                <div className="lp-block2-img-wrapper">
-                    <img src={customSet} alt="LEGO Boxes" className="lp-block2-img"/>
-                </div>
-            </div>
-            <div className="lp-block3-title-wrapper">
-                <h2 className="lp-block3-title">Pick Your Perfect Plan</h2>
-                <h4 className="lp-block3-subtitle">Choose the plan that suits you best. Switch or cancel anytime with ease.</h4>
             </div>
             <div className="lp-block-3">
                 <div className="lp-tier-card">
@@ -233,30 +167,6 @@ export default function LandingPage () {
                         <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
                         <p className="lp-tier-text">Personal Agent to Order Your Missing Pieces</p>
                     </div>
-                </div>
-            </div>
-            <div className="lp-block-2">
-                <div className="lp-block2-content-wrapper">
-                    <h2 className="lp-block2-title">Track Your Missing Pieces</h2>
-                    <p className="lp-block2-text">
-                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the LEGO Enthusiast 
-                        plan, we'll source and order replacements for you at the best prices.
-                    </p>
-                </div>
-                <div className="lp-block2-img-wrapper">
-                    <img src={missingPieces} alt="LEGO Boxes" className="lp-block2-img"/>
-                </div>
-            </div>
-            <div className="lp-block-4">
-                <div className="lp-block4-img-wrapper">
-                    <img src={train2} alt="LEGO Boxes" className="lp-block2-img"/>
-                </div>
-                <div className="lp-block4-content-wrapper">
-                    <h2 className="lp-block2-title">Give It a Try</h2>
-                    <p className="lp-block2-text">
-                        Start your LEGOlog adventure with a free plan today and get the most out of your collection.
-                    </p>
-                    <button className="lp-cta-bottom" onClick={navigatePayments}>Get Started</button>
                 </div>
             </div>
             <div className="lp-footer">

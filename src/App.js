@@ -1,19 +1,27 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router-dom';
 import Router from './components/routes/routes';
 import NavBar from './components/navigation/NavBar';
 import ScrollToTop from './components/navigation/ScrollToTop';
 
 function App() {
-  // set up location variable to get pathname
+  // Paths for the navbar to disappear
+  const noNavBarRoutes = ['/', '/about', '/payments', '/404'];
+
+  // Dynamic paths to match
+  const dynamicRoutes = ['/auth/:register'];
+
   const location = useLocation();
 
-  // paths for the navbar to disappear
-  const noNavBarRoutes = ['/', '/about', '/auth', '/404'];
+  // Check if the current path matches any in the static list
+  const isStaticRoute = noNavBarRoutes.includes(location.pathname);
 
-  // set up variable to determine needing a nav bar based on provided routes
-  const showNavBar = !noNavBarRoutes.includes(location.pathname);
+  // Check if the current path matches any dynamic route
+  const isDynamicRoute = dynamicRoutes.some((route) => matchPath(route, location.pathname));
 
+  // Determine if the navbar should be shown
+  const showNavBar = !(isStaticRoute || isDynamicRoute);
+  
   return (
     <div className="App">
       <ScrollToTop />

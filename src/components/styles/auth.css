@@ -254,6 +254,14 @@
     }
 }
 
+@media screen and (max-height: 400px) {
+    .auth-title {
+        font-size: 22px;
+    }
+    .auth-span {
+        font-size: 44px;
+    }
+}
 
 @media (max-aspect-ratio: 1/1) {
     /* Styles for screens where width is less than height */
@@ -263,17 +271,16 @@
         width: 90%;
     }
     .auth-title-wrapper {
-        height: 32%;
+        height: 30%;
         width: 100%;
+        padding-top: 5vh;
     }
     .auth-middle-divider {
-        height: 3px;
-        width: 90%;
+        display: none;
     }
     .auth-content-wrapper{
-        height: 66%;
+        justify-content: center;
+        height: 70%;
         width: 90%;
     }
 }
-
-

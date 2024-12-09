@@ -14,6 +14,7 @@ import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import OnlineStats from "../pages/OnlineStats";
+import Payments from "../pages/Payments";
 import SetDetails from "../pages/SetDetails";
 import Stats from "../pages/Stats";
 import TestPage from "../pages/TestPage";
@@ -31,13 +32,14 @@ export default function Router (){
                 { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>)},
                 { path: '/addCustomPiece', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
-                { path: '/auth', element: <Auth />},
+                { path: '/auth/:register', element: <Auth />},
                 { path: '/browsePieces', element: (<ProtectedRoute><BrowsePieces /></ProtectedRoute>) },
                 { path: '/browseSets', element: (<ProtectedRoute><BrowseSets /></ProtectedRoute>) },
                 { path: '/editPiece', element: (<ProtectedRoute><EditPiece /></ProtectedRoute>) },
                 { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>)} ,
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
+                { path: '/payments', element: <Payments />},
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
                 //{ path: '/testpage', element: (<ProtectedRoute><TestPage /></ProtectedRoute>) },

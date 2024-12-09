@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { auth, provider } from "../../config/firebase-config";
 import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,8 @@ export default function Auth() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
+    const { register } = useParams();
+
     // State variables
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,6 +21,12 @@ export default function Auth() {
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    useEffect(() => {
+        if(register === "1"){
+            setIsRegistering(true);
+        }
+    }, [register]);
 
     const validatePassword = (password) => {
         const hasNumber = /\d/;
