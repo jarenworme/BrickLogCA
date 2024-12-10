@@ -109,39 +109,39 @@ export default function LandingPage () {
                     <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Choose Plan</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check'/>
                         <p className="lp-tier-text">Full Database Access</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Up To 15 Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">View Your Statistics</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Unlimited Missing Pieces</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Community Tab</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Minifigure Log</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Custom Picture Uploads</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Personal Agent to Order Your Missing Pieces</p>
                     </div>
                 </div>
@@ -156,39 +156,39 @@ export default function LandingPage () {
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Full Database Access</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Up To 30 Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">View Your Statistics</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Unlimited Missing Pieces</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Community Tab</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Minifigure Log</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Custom Picture Uploads</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' size='m' />
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Personal Agent to Order Your Missing Pieces</p>
                     </div>
                 </div>
@@ -203,39 +203,39 @@ export default function LandingPage () {
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='sm' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Full Database Access</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Unlimited Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">View Your Statistics</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Unlimited Missing Pieces</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Community Tab</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Minifigure Log</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Custom Picture Uploads</p>
                     </div>
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Personal Agent to Order Your Missing Pieces</p>
                     </div>
                 </div>

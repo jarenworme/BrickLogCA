@@ -93,7 +93,7 @@
 
 .auth-r {
     margin: 0;
-    font-size: large;
+    font-size: smaller;
     font-weight: lighter;
     color: var(--secondary);
 }
@@ -231,7 +231,7 @@
 
 .auth-toggle-register {
     height: 8%;
-    margin-top: 6px;
+    margin: 8px 0;
     border: none;
     font-size: small;
     color: var(--primary);
@@ -251,20 +251,27 @@
     }
     .auth-card {
         flex-direction: column;
+        justify-content: center;
         height: fit-content;
         width: 90%;
     }
     .auth-title-wrapper {
         height: fit-content;
         width: 100%;
-        padding-top: 5vh;
+        padding: 5vh 0;
+    }
+    .auth-span {
+        font-size: 380%;
+    }
+    .auth-r {
+        font-size: x-large;
     }
     .auth-middle-divider {
         display: none;
     }
     .auth-content-wrapper{
-        justify-content: center;
-        min-height: 70vh;
+        justify-content: flex-start;
+        min-height: 50vh;
         width: 90%;
     }
 }
