@@ -11,9 +11,10 @@ export default function Auth() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
+    // input parameters for determining if to load register or login on mount
     const { register } = useParams();
 
-    // State variables
+    // state variables
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,12 +23,14 @@ export default function Auth() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    // set isRegistered based on parameters
     useEffect(() => {
         if(register === "1"){
             setIsRegistering(true);
         }
     }, [register]);
 
+    // validation for password to contain at least 8 characters and a number
     const validatePassword = (password) => {
         const hasNumber = /\d/;
         if (password.length < 8) {
@@ -58,6 +61,7 @@ export default function Auth() {
         }
     };
 
+    // login / register logic
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -84,10 +88,12 @@ export default function Auth() {
         }
     };
 
+    // toggle between states to register or login
     const toggleRegister = () => {
         setIsRegistering(!isRegistering);
         setError("");
     }
+
 
     return (
         <div className="auth-wrapper">
@@ -103,7 +109,7 @@ export default function Auth() {
                         <span className="auth-span auth-r">&#174;</span>
                     </div>
                 </div>
-                <div className="auth-middle-divider"></div>
+                <div className="auth-middle-divider" />
                 <div className="auth-content-wrapper">
                     {error && <p className="auth-signin-error">{error}</p>} 
                     <button className="auth-google-btn" onClick={signInGoogle}>

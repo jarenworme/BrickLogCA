@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/landing-page.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faMedium } from '@fortawesome/free-brands-svg-icons';
+import '../styles/landing-page.css';
 
 import logo from "../../assets/logos/logo.png";
 import boxes from "../../assets/images/boxes6.JPG";
@@ -14,15 +14,20 @@ import train2 from "../../assets/images/train2.png";
 
 
 export default function LandingPage () {
+    // init navigate variable for page navigation
     const navigate = useNavigate();
-    const navigateLandingPage = () => navigate('/', { replace: false });
+
+    // routing functions
     const navigateAboutUs = () => navigate('/about', { replace: false });
-    const navigatePayments = () => navigate('/payments', { replace: false });
     const navigateAuth = () => navigate('/auth/2', { replace: false });
     const navigateAuthRegister = () => navigate('/auth/1', { replace: false });
+    const navigateLandingPage = () => navigate('/', { replace: false });
+    const navigatePayments = () => navigate('/payments', { replace: false });
 
+    // state variables
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // monitors if a user has scrolled any to trigger the alternate nav-bar styles
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
@@ -265,19 +270,23 @@ export default function LandingPage () {
                      at the moment. Thank you for your patience!
                 </h3>
                 <div className="lp-footer-top-wrapper">
-                <button className="lp-footer-btn" onClick={navigateAboutUs}>About Us</button>
-                <div className="lp-footer-a-wrapper">
-                    <a href="https://www.instagram.com/legologca/" className="lp-footer-a" target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faInstagram} className='lp-icon-footer' size='2x' />
-                    </a>
-                    <a href="https://www.instagram.com/legologca/" className="lp-footer-a" target="_blank" rel="noopener noreferrer">
-                        <FontAwesomeIcon icon={faMedium} className='lp-icon-footer' size='2x' />
-                    </a>
-                </div>
+                    <button className="lp-footer-btn" onClick={navigateAboutUs}>About Us</button>
+                    <div className="lp-footer-a-wrapper">
+                        <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            <FontAwesomeIcon icon={faInstagram} className='lp-icon-footer' size='2x' />
+                        </a>
+                        <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            <FontAwesomeIcon icon={faMedium} className='lp-icon-footer' size='2x' />
+                        </a>
+                    </div>
                 </div>
                 <h3 className="lp-footer-text">LEGOlog is in no way affiliated with the LEGO Group or any of its subsidiaries.</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>
-    )
+    );
 }

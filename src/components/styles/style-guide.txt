@@ -14,8 +14,12 @@ box-sizing
 
 object-fit
 position
+top
+left
 height
+min-height
 width
+min-width
 margin
 padding
 border

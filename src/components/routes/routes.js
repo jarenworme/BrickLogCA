@@ -42,7 +42,7 @@ export default function Router (){
                 { path: '/payments', element: <Payments />},
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
-                //{ path: '/testpage', element: (<ProtectedRoute><TestPage /></ProtectedRoute>) },
+                // { path: '/testpage', element: (<ProtectedRoute><TestPage /></ProtectedRoute>) },
                 { path: '/userPieces', element: (<ProtectedRoute><UserPieces /></ProtectedRoute>) },
                 { path: '/userSets', element: (<ProtectedRoute><UserSets /></ProtectedRoute>) },
                 { path: '/404', element: <NotFoundPage /> },

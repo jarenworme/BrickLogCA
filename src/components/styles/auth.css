@@ -3,6 +3,7 @@
     --primary-light: #1e9be3;
     --primary-dark: #0878ba;
     --secondary: #222222;
+    --off-white: #fcfcf8;
     --accent-crimson: #E23636;
     --accent-saffron: #FFE601;
     --accent-forest-green: #228B22;
@@ -18,12 +19,12 @@
 }
 
 @keyframes colorChangeGoogle {
-    0% { color: var(--accent-titanium-white); }
+    0% { color: var(--off-white); }
     20% { color: var(--accent-crimson) }
     40% { color: var(--accent-forest-green) }
     60% { color: var(--primary); }
     80% { color: var(--accent-saffron); }
-    100% { color: var(--accent-titanium-white); }
+    100% { color: var(--off-white); }
 }
 
 .auth-wrapper {
@@ -36,11 +37,11 @@
 }
 
 .auth-card {
-    width: 70%;
     height: 70%;
     min-height: 350px;
+    width: 70%;
     border-radius: 16px;
-    background-color: var(--accent-titanium-white);
+    background-color: var(--off-white);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -57,7 +58,8 @@
 
 .auth-title {
     margin: 0;
-    font-size: 2vw;
+    font-size: xx-large;
+    color: var(--secondary);
 }
 
 .auth-title-span-wrapper {
@@ -65,7 +67,7 @@
 }
 
 .auth-span {
-    font-size: 5.5vw;
+    font-size: 500%;
     font-weight: bolder;
 }
 
@@ -86,13 +88,14 @@
 }
 
 .auth-log {
-    color: var(--secondary-dark);
+    color: var(--secondary);
 }
 
 .auth-r {
     margin: 0;
     font-size: large;
     font-weight: lighter;
+    color: var(--secondary);
 }
 
 .auth-middle-divider {
@@ -108,21 +111,23 @@
     align-items: center;
     justify-content: flex-end;
     height: 80%;
-    width: 30%;
+    width: 40%;
 }
 
 .auth-signin-error {
     margin: 0 0 2% 0;
+    font-size: medium;
     color: var(--accent-crimson);
     text-align: center;
 }
 
 .auth-google-btn {
     height: 16%;
+    min-height: 48px;
     width: 100%;
     border: none;
     border-radius: 8px;
-    font-size: 1vw;
+    font-size: large;
     color: var(--accent-titanium-white);
     background-color: var(--secondary);
 }
@@ -137,7 +142,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 4%;
+    height: fit-content;
     width: 100%;
     margin: 2% 0;
 }
@@ -150,14 +155,16 @@
 }
 
 .auth-text {
-    height: 100%;
-    font-size: 0.9vw;
+    margin: 0;
+    font-size: medium;
+    color: var(--secondary);
 }
 
 .auth-subtitle {
     margin: 0 0 2% 0;
-    font-size: 1.3vw;
+    font-size: larger;
     font-weight: normal;
+    color: var(--secondary);
 }
 
 .auth-form {
@@ -176,8 +183,9 @@
     justify-content: space-between;
     box-sizing: border-box;
     height: 18%;
+    min-height: 48px;
     width: 100%;
-    margin: 0 0 6% 0;
+    margin: 0 0 5% 0;
     border: 1px solid var(--secondary);
     border-radius: 8px;
     padding: 1% 3%;
@@ -188,12 +196,15 @@
     margin: 0;
     padding: 0;
     border: none;
+    font-size: medium;
+    color: var(--secondary);
     background-color: transparent;
     outline: none;
 }
 
 .auth-eye {
     height: 50%;
+    max-width: 32px;
     color: var(--secondary);
 }
 
@@ -203,12 +214,13 @@
 
 .auth-submit-btn {
     height: 16%;
+    min-height: 48px;
     width: 100%;
     border: none;
     border-radius: 8px;
     padding: 1% 2%;
-    font-size: medium;
-    color: var(--accent-titanium-white);
+    font-size: large;
+    color: var(--off-white);
     background-color: var(--primary);
 }
 
@@ -219,8 +231,9 @@
 
 .auth-toggle-register {
     height: 8%;
+    margin-top: 6px;
     border: none;
-    font-size: 0.8vw;
+    font-size: small;
     color: var(--primary);
     background-color: transparent;
 }
@@ -230,48 +243,19 @@
     text-decoration: underline;
 }
 
-@media screen and (max-width: 1300px) {
-    .auth-title {
-        font-size: 28px;
+@media screen and (max-width: 1200px) {
+    .auth-wrapper {
+        height: fit-content;
+        min-height: 92vh;
+        padding: 4vh 0;
     }
-    .auth-span {
-        font-size: 60px;
-    }
-    .auth-google-btn {
-        font-size: 14px;
-    }
-    .auth-text {
-        font-size: 12px;
-    }
-    .auth-subtitle {
-        font-size: 16px;
-    }
-    .auth-submit-btn {
-        font-size: 14px;
-    }
-    .auth-toggle-register {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-height: 400px) {
-    .auth-title {
-        font-size: 22px;
-    }
-    .auth-span {
-        font-size: 44px;
-    }
-}
-
-@media (max-aspect-ratio: 1/1) {
-    /* Styles for screens where width is less than height */
     .auth-card {
         flex-direction: column;
-        height: 90%;
+        height: fit-content;
         width: 90%;
     }
     .auth-title-wrapper {
-        height: 30%;
+        height: fit-content;
         width: 100%;
         padding-top: 5vh;
     }
@@ -280,7 +264,7 @@
     }
     .auth-content-wrapper{
         justify-content: center;
-        height: 70%;
+        min-height: 70vh;
         width: 90%;
     }
 }
