@@ -523,7 +523,7 @@
 /***************************************************************************************************************************************/
 
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 500px) {
     .lp-block-2, .lp-block-4 {
         flex-direction: column;
         min-height: fit-content;
