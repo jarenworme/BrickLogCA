@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/LEGOLog/static/css/main.19416b63.css",
+    "main.css": "/LEGOLog/static/css/main.a7ee3c2d.css",
     "main.js": "/LEGOLog/static/js/main.ceedf320.js",
     "static/js/453.a10fc7c9.chunk.js": "/LEGOLog/static/js/453.a10fc7c9.chunk.js",
     "static/media/train1.png": "/LEGOLog/static/media/train1.7784009d66ac9c72b102.png",
@@ -15,12 +15,12 @@
     "static/media/old-set.jpg": "/LEGOLog/static/media/old-set.cde19bacd19889bffa98.jpg",
     "static/media/pieces.svg": "/LEGOLog/static/media/pieces.f4b808853928a8c741c9596233718a85.svg",
     "index.html": "/LEGOLog/index.html",
-    "main.19416b63.css.map": "/LEGOLog/static/css/main.19416b63.css.map",
+    "main.a7ee3c2d.css.map": "/LEGOLog/static/css/main.a7ee3c2d.css.map",
     "main.ceedf320.js.map": "/LEGOLog/static/js/main.ceedf320.js.map",
     "453.a10fc7c9.chunk.js.map": "/LEGOLog/static/js/453.a10fc7c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.19416b63.css",
+    "static/css/main.a7ee3c2d.css",
     "static/js/main.ceedf320.js"
   ]
 }
