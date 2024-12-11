@@ -76,7 +76,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title right-align">How it Works</h2>
                     <p className="lp-block2-text right-align">
-                        Our extensive database features all mainline LEGO sets since 1970. Easily find sets by name or number and add 
+                        Our extensive database features all mainline LEGO sets since 1955. Easily find sets by name or number and add 
                         them to your personal collection.
                     </p>
                 </div>

@@ -6,13 +6,15 @@ export const useAddSet = () => {
     const setCollectionRef = collection(db, "sets");
     const { userID } = useGetUserInfo();
 
-    const addSet = async ({ setName, theme, setNumber, pieceCount }) => {
+    const addSet = async ({ img_url, name, num_parts, set_num, theme_id, year }) => {
         await addDoc(setCollectionRef, {
             userID,
-            setName,
-            theme,
-            setNumber,
-            pieceCount,
+            img_url,
+            name,
+            num_parts,
+            set_num,
+            theme_id,
+            year,
             createdAt: serverTimestamp(),
         });
     };

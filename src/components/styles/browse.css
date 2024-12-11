@@ -9,7 +9,7 @@
     --secondary-dark: #161616;
     --secondary-disabled: #DBDBDB;
 
-    --background: #ECECEC;
+    --off-white: #fcfcf8;
 
     --accent-crimson: #E23636;
     --accent-saffron: #FFE601;
@@ -26,21 +26,14 @@
     --accent-sand-green: #A0BCAC;
 }
 
-.user-sets-page {
-    height: 100vh;
+* {
+    font-family: 'Silka', sans-serif;
+}
+
+.browse-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.us-img-wrapper {
-    height: 200px;
-    width: 200px;
-}
-
-.us-img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    padding-top: 7vh;
 }
