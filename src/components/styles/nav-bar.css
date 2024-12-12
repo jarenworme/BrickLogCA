@@ -10,7 +10,9 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    height: 7vh;
+    top: 0;
+    height: 9vh;
+    min-height: 48px;
     width: 100vw;
     background-color: var(--secondary);
 }
@@ -22,7 +24,7 @@
     justify-content: center;
     height: 40px;
     width: 40px;
-    margin: 0 1vw;    
+    margin: 0 24px;    
 }
 
 .nav-logo-wrapper {
@@ -44,7 +46,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    height: 10vh;
+    height: 100%;
     margin: 0 24px;
 }
 
@@ -113,7 +115,7 @@
 }
 
 @media screen and (max-height: 650px) {
-    .nav-bar {
-        height: 44px;
+    .nav-left-wrapper, .nav-right-wrapper {
+        margin: 0 18px;
     }
 }

@@ -15,18 +15,18 @@ export const usePaginatedUserSets = () => {
 
     const setCollectionRef = collection(db, "sets");
 
-    const fetchPage = async (direction = "next") => {
+    const fetchPage = async (direction = "next", currentLastDoc = lastDoc) => {
         setIsLoading(true);
         try {
             let q;
 
             if (direction === "next") {
-                q = lastDoc
+                q = currentLastDoc
                     ? query(
                           setCollectionRef,
                           where("userID", "==", userID),
                           orderBy("createdAt"),
-                          startAfter(lastDoc),
+                          startAfter(currentLastDoc),
                           limit(PAGE_SIZE)
                       )
                     : query(
@@ -93,7 +93,8 @@ export const usePaginatedUserSets = () => {
             }
         },
         isLoading,
-        hasNextPage: lastDoc !== null, // Determine if there’s a next page.
-        hasPrevPage: pageStack.length > 0, // Determine if there’s a previous page.
+        reset: () => fetchPage("next", null),
+        hasNextPage: lastDoc !== null, // Determine if there's a next page.
+        hasPrevPage: pageStack.length > 0, // Determine if there's a previous page.
     };
 };

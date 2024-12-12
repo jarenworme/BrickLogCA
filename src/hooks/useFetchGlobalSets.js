@@ -2,22 +2,24 @@ import { useState } from "react";
 import { query, collection, orderBy, limit, startAfter, where, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
-const LOAD_SIZE = 5; // Number of items per page.
+// Number of items per page.
+const LOAD_SIZE = 12; 
 
 
 export const useFetchGlobalSets = () => {
+    // state variables
     const [sets, setSets] = useState([]);
     const [lastDoc, setLastDoc] = useState(null);
     const [loading, setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [isSearchMode, setIsSearchMode] = useState(false);
-    const [searchByNumber, setSearchByNumber] = useState(false);
+    const [searchByNumber, setSearchByNumber] = useState(true);
     const [moreSetsAvailable, setMoreSetsAvailable] = useState(true);
 
     const setsCollectionRef = collection(db, "global-sets");
 
     // Fetch initial or paginated sets
-    const fetchSets = async (currSet = [], currentLastDoc = null) => {
+    const fetchSets = async (currentLastDoc = null) => {
         setLoading(true);
         try {
             // Adjust the query for pagination
@@ -46,7 +48,6 @@ export const useFetchGlobalSets = () => {
 
             // If fewer sets than LOAD_SIZE, there are no more sets to fetch
             if (snapshot.docs.length < LOAD_SIZE) {
-                console.log(snapshot.docs.length);
                 setLastDoc(null);
                 setMoreSetsAvailable(false);
             }
@@ -59,23 +60,25 @@ export const useFetchGlobalSets = () => {
 
 
     // Search by name or set_num
-    const searchSets = async (searchTerm, currentLastDoc = null) => {
+    const searchSets = async (searchTerm, currentLastDoc = null, isNewSearch = false) => {
+        if(isNewSearch){
+            setSets([]);
+        }
         setLoading(true);
         setSearchTerm(searchTerm); // Keep track of the search term
-        // clear data 
         if (!isSearchMode){
             setSets([]);
             setIsSearchMode(true);
         }
         
-        
         try {
+            // initialize query to a type query with content to be ignored, as it will be reassigned
             let searchQuery = query(
                 setsCollectionRef,
                 limit(LOAD_SIZE)
             );
 
-            if (currentLastDoc == null) {
+            if (currentLastDoc == null) { // new search
                 searchQuery = searchByNumber
                 ? query(
                     setsCollectionRef,
@@ -88,8 +91,7 @@ export const useFetchGlobalSets = () => {
                     where("name", "<=", searchTerm + "\uf8ff"),
                     limit(LOAD_SIZE)
                 );
-            } else {
-                console.log(lastDoc);
+            } else { // appending to search
                 searchQuery = searchByNumber
                 ? query(
                     setsCollectionRef,
@@ -115,7 +117,6 @@ export const useFetchGlobalSets = () => {
             if (snapshot.docs.length < LOAD_SIZE) {
                 setLastDoc(null);
                 setMoreSetsAvailable(false);
-                console.log(snapshot.docs.length );
             }   
         } catch (err) {
             console.error("Error searching sets:", err);
@@ -133,6 +134,7 @@ export const useFetchGlobalSets = () => {
         fetchSets(); // Call fetchSets with default parameters
     };
 
+    // set up search by num on its button press
     const toggleSearchByNum = () => {
         if (!searchByNumber && isSearchMode) {
             resetSets();
@@ -140,6 +142,7 @@ export const useFetchGlobalSets = () => {
         setSearchByNumber(true);
     }
 
+    // set up search by name on its button press
     const toggleSearchByName = () => {
         if (searchByNumber && isSearchMode) {
             resetSets();
@@ -147,6 +150,7 @@ export const useFetchGlobalSets = () => {
         setSearchByNumber(false);
     }
 
+    // query more sets when the load more button is clicked via fetch or search depending on the current state
     const loadMoreSets = () => {
         if (isSearchMode) {
             if (lastDoc !== null) {
@@ -154,24 +158,21 @@ export const useFetchGlobalSets = () => {
             }
         } else {
             if (lastDoc !== null) {
-                fetchSets([], lastDoc); // Pass current sets and lastDoc to load the next page
+                fetchSets(lastDoc);
             }
         }
     };
 
     return {
     sets,
-    lastDoc,
+    loading,
+    searchByNumber,
+    moreSetsAvailable,
     fetchSets,
     searchSets,
     resetSets,
-    loadMoreSets,
-    loading,
-    searchByNumber,
+    loadMoreSets,    
     toggleSearchByNum,
     toggleSearchByName,
-    moreSetsAvailable,
-    searchTerm,
-    setIsSearchMode
     };
 };

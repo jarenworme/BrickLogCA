@@ -27,7 +27,8 @@
 }
 
 .user-sets-page {
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 7vh;
     display: flex;
     flex-direction: column;
     align-items: center;

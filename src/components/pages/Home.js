@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useAddUserSubscriptionTier from "../../hooks/addUserSubscriptionTier";
 import "../styles/home.css"
 
 
@@ -13,6 +14,9 @@ export default function Home () {
     const navigateStats = () => navigate('/stats', { replace: false });
     const navigateBrowseSets = () => navigate('/browseSets', { replace: false });
     const navigateOnlineStats = () => navigate('/onlineStats', { replace: false });
+
+    // Ensure subscriptionTier is set
+    useAddUserSubscriptionTier();
 
 
     return (

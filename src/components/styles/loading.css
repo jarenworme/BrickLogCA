@@ -1,0 +1,33 @@
+:root{
+    --primary: #0587D0;
+    --primary-light: #1e9be3;
+}
+
+.loading-full-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 92vh;
+    width: 100%;
+    padding-top: 8vh;
+    margin: 0;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.loading-img {
+    height: 200px;
+    width: 200px;
+    background-image: url(/src/assets/icons/piece-primary.svg);
+    background-position: center;
+    background-size: cover;
+    animation: spin45 2s linear infinite;
+}
+
+@keyframes spin45 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
