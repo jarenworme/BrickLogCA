@@ -148,10 +148,22 @@ export default function BrowseSets() {
                 {sets.map(set => (
                     <div key={set.id} className="browse-set">
                         <div className="browse-img-wrapper">
-                            <img src={set.img_url} alt="set display" className="browse-img" />
-                            <hr className="browse-divider" />
+                            <img 
+                                src={set.img_url} 
+                                alt="set display" 
+                                className="browse-img" 
+                                onError={(e) => {
+                                e.target.style.display = "none"; // Hide the failed image
+                                const parent = e.target.parentNode; // Access the parent node
+                                const fallback = document.createElement("div"); // Create a fallback element
+                                fallback.className = "browse-no-image-message";
+                                fallback.innerText = "No image available";
+                                parent.appendChild(fallback); // Append fallback to the wrapper
+                                }}
+                            />
                         </div>
                         <div className="browse-set-title-wrapper">
+                            <hr className="browse-divider" />
                             <h2 className="browse-set-title">{set.name}</h2>
                         </div>
                         <div className="browse-set-content-wrapper">
