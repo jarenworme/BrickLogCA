@@ -6,3 +6,10 @@
     height: 100vh;
     width: 100%;
 }
+
+.account-temp-btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 40px;
+}

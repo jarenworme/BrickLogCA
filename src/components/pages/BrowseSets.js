@@ -122,7 +122,7 @@ export default function BrowseSets() {
                 <div className="sets-redirect-btn-wrapper" />
                 <h1 className="sets-title">Add a LEGO Set</h1>
                 <div className="sets-redirect-btn-wrapper">
-                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet}>Or Add Custom</button>
+                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet} disabled={true}>Or Add Custom</button>
                 </div>
             </div>
             <div className="browse-header-wrapper">

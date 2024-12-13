@@ -178,7 +178,7 @@ export default function Payments () {
                      at the moment. Thank you for your patience!
                 </h3>
                 <div className="lp-footer-top-wrapper">
-                    <button className="lp-footer-btn" onClick={navigateAboutUs}>About Us</button>
+                    <button className="lp-footer-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
                     <div className="lp-footer-a-wrapper">
                         <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
                             target="_blank" rel="noopener noreferrer"

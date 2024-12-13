@@ -20,9 +20,8 @@ export default function Account () {
 
         return (
             <div className="account-wrapper">
-                <h1>account</h1>
-                <button onClick={routeHome}>back</button>
-                <button onClick={signout}>Sign Out</button>
+                <button className="account-temp-btn" onClick={routeHome}>home</button>
+                <button className="account-temp-btn" onClick={signout}>Sign Out</button>
             </div>
         )
 }

@@ -54,7 +54,7 @@ const UserSetsPage = () => {
             fetchSets();
             fetchCalled.current = true;
         }
-    }, [fetchSets, sets.length]);
+    }, [loadArrays, fetchSets, sets.length]);
 
     // delete the selected set from user sets and reload sets with the same criteria
     const handleDelete = async (setId) => {

@@ -9,7 +9,7 @@ import logo from "../../assets/logos/logo.png";
 import boxes from "../../assets/images/boxes6.JPG";
 import oldSet from "../../assets/images/old-set.jpg";
 import customSet from "../../assets/images/lego-404.jpeg";
-import missingPieces from "../../assets/images/lego-404.jpeg";
+import missingPieces from "../../assets/images/blue-lego-bricks.jpeg";
 import train2 from "../../assets/images/train2.png";
 
 
@@ -49,7 +49,7 @@ export default function LandingPage () {
                     <span className={`lp-span lp-log ${isScrolled ? 'lp-scrolled-text' : ''}`}>log</span>
                 </button>
                 <div className="lp-nav-right">
-                    <button className="lp-nav-btn" onClick={navigateAboutUs}>About Us</button>
+                    <button className="lp-nav-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
                     <button className="lp-nav-btn" onClick={navigatePayments}>Get Started</button>
                     <button className="lp-nav-btn-primary" onClick={navigateAuth}>Log In</button>
                 </div>
@@ -270,7 +270,7 @@ export default function LandingPage () {
                      at the moment. Thank you for your patience!
                 </h3>
                 <div className="lp-footer-top-wrapper">
-                    <button className="lp-footer-btn" onClick={navigateAboutUs}>About Us</button>
+                    <button className="lp-footer-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
                     <div className="lp-footer-a-wrapper">
                         <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
                             target="_blank" rel="noopener noreferrer"

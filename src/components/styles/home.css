@@ -123,13 +123,11 @@
     background-size: cover;
 }
 
-/*
 .home-browse-image {
     background-image: url(/src/assets/images/legostore.jpeg);
     background-position: center;
     background-size: cover;
 }
-*/
 
 .home-online-image {
     background-image: url(/src/assets/images/stormtrooper-computer-edited.jpeg);
