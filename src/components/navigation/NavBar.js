@@ -34,7 +34,7 @@ export default function NavBar () {
                         <img src={bricks} alt='LEGO Brick' className='nav-svg' />  
                     </div>                
                 </button>
-                <button className='nav-button' onClick={navigateUserSets} disabled={true}>
+                <button className='nav-button' onClick={navigateUserSets}>
                     <p className='nav-text'>Sets</p>
                     <FontAwesomeIcon icon={faTableList} className='nav-icon-nested' size='2x' />
                 </button>

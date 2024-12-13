@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import {useFetchUserSets } from "../../hooks/useFetchUserSets";
-import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { faArrowUpWideShort, faArrowDownWideShort } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { useDeleteSet } from "../../hooks/useDeleteSet";
-import "../styles/usersetspieces.css"
+import { useGetFilterUserSets } from "../../hooks/useGetFilterUserSets";
+import "../styles/sets.css"
 
-import { useAddSet } from "../../hooks/useAddSet";
+import pieceIcon from "../../assets/icons/1x1-grey.svg";
 
 
-import { usePaginatedUserSets } from "../../hooks/usePaginatedUserSets";
-
-const UserSetsPage = () => {
+const UserSetsPage = () => { 
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
@@ -20,52 +18,241 @@ const UserSetsPage = () => {
     const navigateBrowseSets = () => navigate('/browseSets', { replace: false });
     const navigateSetDetails = (ID) => navigate(`/setDetails/${ID}`, { replace: false });
 
+    // ref variable to only call useEffect once in testing
+    const fetchCalled = useRef(false);
+
+    // state variables
+    const [selectedFilterCategory, setSelectedFilterCategory] = useState("");
+    const [selectedYear, setSelectedYear] = useState("");
+    const [selectedTheme, setSelectedTheme] = useState("");
+    const [selectedSort, setSelectedSort] = useState("createdAt");
+    const [isYear, setIsYear] = useState(true);
+
+    // custom hook items
     const { deleteSet, loading, error } = useDeleteSet();
 
-    const { sets, fetchNextPage, fetchPrevPage, reset, isLoading, hasNextPage, hasPrevPage} = usePaginatedUserSets();
+    const {
+        sets,
+        fetchFilterLoading,
+        moreSetsAvailable,
+        fetchSets,
+        updateSetsOnDelete,
+        loadMoreSets,
+        loadArrays,    
+        filterYears,
+        filterThemes,
+        filterCategory,
+        filterTerm,
+        sortDirection,
+        setSortDirection        
+    } = useGetFilterUserSets();
 
+    // fetch initial set batch on mount
+    useEffect(() => {
+        if (!fetchCalled.current && sets.length === 0) {
+            loadArrays();
+            fetchSets();
+            fetchCalled.current = true;
+        }
+    }, [fetchSets, sets.length]);
+
+    // delete the selected set from user sets and reload sets with the same criteria
     const handleDelete = async (setId) => {
         if (window.confirm("Are you sure you want to delete this set?")) {
             await deleteSet(setId);
-            reset();
+            updateSetsOnDelete();
         }
     };
-    
+
+    const handleFilter = (e) => {
+        e.preventDefault();
+        if (isYear){
+            fetchSets(true, null, selectedFilterCategory, parseInt(selectedYear));
+        } else {
+            fetchSets(true, null, selectedFilterCategory, selectedTheme);
+        }
+    };
+
+    const handleSort = (e) => {
+        e.preventDefault();
+        console.log(true, null, filterCategory, filterTerm, selectedSort, sortDirection);
+        fetchSets(true, null, filterCategory, filterTerm, selectedSort);
+    };
+
+    const handleFilterCategory = (e) => {
+        setSelectedFilterCategory(e.target.value); // Update state with selected year
+        setIsYear(e.target.value==="year");
+    };
+
+    const handleYearChange = (e) => {
+        setSelectedYear(e.target.value); // Update state with selected year
+        setIsYear(true);
+    };
+
+    const handleThemeChange = (e) => {
+        setSelectedTheme(e.target.value); // Update state with selected year
+        setIsYear(false);
+    };
+
+    const handleSortChange = (e) => {
+        setSelectedSort(e.target.value); // Update state with selected year
+    };
+
+    const clearFilter = () => {
+        setSelectedTheme("");
+        setSelectedYear("");
+        setSelectedFilterCategory("");
+        fetchSets(true, null, "none", "");
+    }
 
     return (
-        <div className="user-sets-page">
+        <div className="sets-wrapper">
             {error && <p style={{ color: "red" }}>Error: {error}</p>}
-            <button onClick={navigateBrowseSets}>add</button>
-            <h1>User Sets</h1>
-            {isLoading && <p>Loading...</p>}
-            <div>
-                {sets.map((lset) => (
-                    <div key={lset.id}>
-                        <div className="us-img-wrapper">
-                            <img src={lset.img_url} alt="set display" className="us-img" />
+            <div className="sets-title-wrapper">
+                <div className="sets-redirect-btn-wrapper" />
+                <h1 className="sets-title">Your Collection</h1>
+                <div className="sets-redirect-btn-wrapper">
+                    <button className="sets-redirect-btn sets-primary-btn" onClick={navigateBrowseSets}>Add New</button>
+                </div>
+            </div>
+            <div className="us-header-wrapper">
+                <div className="us-form-wrapper">
+                    <h3 className="us-form-title">Sort Your Sets</h3>
+                    <hr className="us-form-hr" />
+                    <form className="us-form" onSubmit={handleSort}>
+                        <select id="sort-select" className="us-select" value={selectedSort} onChange={handleSortChange}>
+                            <option value="createdAt">
+                            Date Added
+                            </option>
+                            <option value="num_parts">
+                            Piece Count
+                            </option>
+                            <option value="set_num">
+                            Set Number
+                            </option>
+                            <option value="name">
+                            Name
+                            </option>
+                            <option value="year">
+                            Year
+                            </option>
+                        </select>
+                        {sortDirection === "asc" ?
+                        <FontAwesomeIcon icon={faArrowUpWideShort} className="us-sort-icon" type="button" size="xl" onClick={() => setSortDirection("desc")}/>
+                        : <FontAwesomeIcon icon={faArrowDownWideShort} className="us-sort-icon" type="button" size="xl" onClick={() => setSortDirection("asc")}/>
+                        }
+                        <button type="submit" className="us-form-btn" >apply</button>
+                    </form>
+                </div>
+                <div className="us-form-wrapper">
+                    <h3 className="us-form-title">Filter Your Sets</h3>
+                    <hr className="us-form-hr" />
+                    <form className="us-form" onSubmit={handleFilter}>
+                        <select id="filter-select" className="us-select" value={selectedFilterCategory} onChange={handleFilterCategory}>
+                            <option value="" disabled>
+                            -- Select Filter --
+                            </option>
+                            <option value="year">
+                            year
+                            </option>
+                            <option value="theme_id">
+                            theme
+                            </option>
+                        </select>
+                        {selectedFilterCategory === "year" ? 
+                        (<select id="year-select" className="us-select" value={selectedYear} onChange={handleYearChange}>
+                        <option value="" disabled>
+                        -- Select year --
+                        </option>
+                        {filterYears.map((year) => (
+                            <option key={year} value={year}>
+                                {year}
+                            </option>
+                        ))}
+                        </select>) 
+                        :  selectedFilterCategory === "theme_id" ? 
+                            (<select id="theme-select" className="us-select" value={selectedTheme} onChange={handleThemeChange}>
+                            <option value="" disabled>
+                            -- Select Theme --
+                            </option>
+                            {filterThemes.map((theme) => (
+                                <option key={theme} value={theme}>
+                                    {theme}
+                                </option>
+                            ))}
+                            </select>) 
+                        : (<select id="theme-select" className="us-select" value={selectedTheme} onChange={handleThemeChange}>
+                            <option value="" disabled>
+                            -----
+                            </option>
+                            </select>)
+                        }
+                        <button type="submit" className="us-form-btn" disabled={(isYear && selectedYear === "") || (!isYear && selectedTheme === "")}>apply</button>
+                        <button type="button" className="us-form-btn us-secondary-btn" onClick={clearFilter}>clear</button>
+                    </form>
+                </div>
+            </div>
+            <div className="sets-sets-wrapper">
+                {sets.map(set => (
+                    <div key={set.id} className="sets-set">
+                        <div className="sets-img-wrapper">
+                            <img 
+                                src={set.img_url} 
+                                alt="set display" 
+                                className="sets-img" 
+                                onError={(e) => {
+                                e.target.style.display = "none"; // Hide the failed image
+                                const parent = e.target.parentNode; // Access the parent node
+                                const fallback = document.createElement("div"); // Create a fallback element
+                                fallback.className = "sets-no-image-message";
+                                fallback.innerText = "No image available";
+                                parent.appendChild(fallback); // Append fallback to the wrapper
+                                }}
+                            />
                         </div>
-                        <button onClick={() => navigateSetDetails(lset.id)}>{lset.name}</button>
-                        <h2 >{lset.theme_id}</h2>
-                        <h2 >{lset.year}</h2>
-                        <h2 >{lset.set_num}</h2>
-                        <button 
-                            onClick={() => handleDelete(lset.id)} 
-                            disabled={loading}
-                        >
-                            {loading ? "Deleting..." : "Delete"}
-                        </button>
+                        <div className="sets-set-content-wrapper">
+                            <hr className="sets-divider" />
+                            <div className="sets-set-text-wrapper">
+                                <p className="us-set-text">#{set.set_num}</p>
+                                <div className="us-set-text-icon-group">
+                                <div className="us-piece-icon-wrapper">
+                                    <img src={pieceIcon} alt="LEGO Piece" className="us-piece-icon"/>
+                                </div>
+                                <p className="us-set-text">{set.num_parts}</p>
+                                </div>
+                                <div className="us-set-text-icon-group">
+                                <FontAwesomeIcon icon={faCalendarDays} className="us-cal-icon" size="sm"/>
+                                <p className="us-set-text">{set.year}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="sets-set-title-wrapper">
+                            <h2 className="sets-set-title">{set.name}</h2>
+                        </div>
+                        <div className="us-set-bottom-wrapper">
+                            <div className="us-delete-btn-wrapper" />
+                            <button className="us-set-btn" onClick={() => navigateSetDetails(set.id)} disabled={true}>See Details</button>
+                            <div className="us-delete-btn-wrapper">
+                                <FontAwesomeIcon 
+                                    icon={faTrashCan} 
+                                    className="us-delete-icon" 
+                                    size="xl" 
+                                    onClick={() => handleDelete(set.id)} 
+                                    disabled={loading}
+                                />
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
-            <div>
-                <button onClick={() => console.log(hasPrevPage, isLoading)}>test</button>
-                <button onClick={fetchPrevPage} disabled={!hasPrevPage || isLoading}>
-                    Previous
-                </button>
-                <button onClick={fetchNextPage} disabled={!hasNextPage}>
-                    Next
-                </button>
-            </div>
+            {sets.length === 0 && <div className="sets-no-sets"><h2>{fetchFilterLoading ? "" : "You currently dont have any sets in your collection."}</h2></div>}
+            {fetchFilterLoading ? (
+                <p>Loading...</p>
+            ) : moreSetsAvailable ? (
+                <button className="sets-load-more-btn" onClick={loadMoreSets}>Load More</button>
+            ) : (
+                <br />
+            )}
         </div>
     );
 };

@@ -7,7 +7,7 @@ import { useFetchGlobalSets } from "../../hooks/useFetchGlobalSets";
 import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
-import '../styles/browse.css';
+import '../styles/sets.css';
 import '../styles/loading.css';
 
 export default function BrowseSets() {
@@ -94,7 +94,7 @@ export default function BrowseSets() {
 
 
     return (
-        <div className="browse-wrapper">
+        <div className="sets-wrapper">
             <Modal
                 isOpen={modalOpen}
                 onRequestClose={() => setModalOpen(false)}
@@ -118,14 +118,14 @@ export default function BrowseSets() {
                     <button className="browse-modal-button" onClick={() => setModalOpen(false)}>close</button>
                 </div>
             </Modal>
-            <div className="browse-title-wrapper">
-                <div className="browse-add-custom-btn-wrapper" />
-                <h1 className="browse-title">Add a LEGO Set</h1>
-                <div className="browse-add-custom-btn-wrapper">
-                    <button className="browse-add-custom-btn" onClick={navigateAddCustomSet}>Or Add Custom</button>
+            <div className="sets-title-wrapper">
+                <div className="sets-redirect-btn-wrapper" />
+                <h1 className="sets-title">Add a LEGO Set</h1>
+                <div className="sets-redirect-btn-wrapper">
+                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet}>Or Add Custom</button>
                 </div>
             </div>
-            <div className="browse-search-wrapper">
+            <div className="browse-header-wrapper">
                 <div className="browse-toggle-wrapper">
                     <p className="browse-toggle-text">Search by:</p>
                     <button className={`browse-toggle-search-btn ${searchByNumber ? '' : 'browse-toggle-active'}`} onClick={toggleSearchByName}>Set Name</button>
@@ -144,43 +144,43 @@ export default function BrowseSets() {
                     <button className="browse-search-btn" type="submit">search</button>
                 </form>               
             </div>
-            <div className="browse-sets-wrapper">
+            <div className="sets-sets-wrapper">
                 {sets.map(set => (
-                    <div key={set.id} className="browse-set">
-                        <div className="browse-img-wrapper">
+                    <div key={set.id} className="sets-set">
+                        <div className="sets-img-wrapper">
                             <img 
                                 src={set.img_url} 
                                 alt="set display" 
-                                className="browse-img" 
+                                className="sets-img" 
                                 onError={(e) => {
                                 e.target.style.display = "none"; // Hide the failed image
                                 const parent = e.target.parentNode; // Access the parent node
                                 const fallback = document.createElement("div"); // Create a fallback element
-                                fallback.className = "browse-no-image-message";
+                                fallback.className = "sets-no-image-message";
                                 fallback.innerText = "No image available";
                                 parent.appendChild(fallback); // Append fallback to the wrapper
                                 }}
                             />
                         </div>
-                        <div className="browse-set-title-wrapper">
-                            <hr className="browse-divider" />
-                            <h2 className="browse-set-title">{set.name}</h2>
+                        <div className="sets-set-title-wrapper">
+                            <hr className="sets-divider" />
+                            <h2 className="sets-set-title">{set.name}</h2>
                         </div>
-                        <div className="browse-set-content-wrapper">
-                            <div className="browse-set-text-wrapper">
-                                <p className="browse-set-text">#{set.set_num}</p>
-                                <p className="browse-set-text">{set.year}</p>
+                        <div className="sets-set-content-wrapper">
+                            <div className="sets-set-text-wrapper">
+                                <p className="sets-set-text">#{set.set_num}</p>
+                                <p className="sets-set-text">{set.year}</p>
                             </div>
-                            <button className="browse-set-btn" onClick={() => addToUserSets(set.img_url, set.name, set.num_parts, set.set_num, set.theme_id, set.year)}>Add to Collection</button>
+                            <button className="sets-set-btn" onClick={() => addToUserSets(set.img_url, set.name, set.num_parts, set.set_num, set.theme_id, set.year)}>Add to Collection</button>
                         </div>
                     </div>
                 ))}
             </div>
-            {sets.length === 0 && <div className="browse-no-sets"><h2>{loading ? "" : "no sets found"}</h2></div>}
+            {sets.length === 0 && <div className="sets-no-sets"><h2>{loading ? "" : "no sets found"}</h2></div>}
             {loading ? (
                 <p>Loading...</p>
             ) : moreSetsAvailable ? (
-                <button className="browse-load-more-btn" onClick={loadMoreSets}>Load More</button>
+                <button className="sets-load-more-btn" onClick={loadMoreSets}>Load More</button>
             ) : (
                 <br />
             )}
