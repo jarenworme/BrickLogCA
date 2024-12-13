@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/LEGOLog/static/css/main.a7ee3c2d.css",
-    "main.js": "/LEGOLog/static/js/main.344e5e36.js",
+    "main.css": "/LEGOLog/static/css/main.ef1476e7.css",
+    "main.js": "/LEGOLog/static/js/main.db88ce05.js",
     "static/js/453.a10fc7c9.chunk.js": "/LEGOLog/static/js/453.a10fc7c9.chunk.js",
     "static/media/train1.png": "/LEGOLog/static/media/train1.7784009d66ac9c72b102.png",
     "static/media/boxes6.JPG": "/LEGOLog/static/media/boxes6.4b9c50f5056b89bb5503.JPG",
@@ -13,14 +13,16 @@
     "static/media/stormtrooper-computer-edited.jpeg": "/LEGOLog/static/media/stormtrooper-computer-edited.24edff53256c3f39638d.jpeg",
     "static/media/Silka-Regular.otf": "/LEGOLog/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
     "static/media/old-set.jpg": "/LEGOLog/static/media/old-set.cde19bacd19889bffa98.jpg",
+    "static/media/1x1-grey.svg": "/LEGOLog/static/media/1x1-grey.646fa3b7190551eb91d89d2503142bbc.svg",
     "static/media/pieces.svg": "/LEGOLog/static/media/pieces.f4b808853928a8c741c9596233718a85.svg",
+    "static/media/piece-primary.svg": "/LEGOLog/static/media/piece-primary.fab5a45e80219681ed60.svg",
     "index.html": "/LEGOLog/index.html",
-    "main.a7ee3c2d.css.map": "/LEGOLog/static/css/main.a7ee3c2d.css.map",
-    "main.344e5e36.js.map": "/LEGOLog/static/js/main.344e5e36.js.map",
+    "main.ef1476e7.css.map": "/LEGOLog/static/css/main.ef1476e7.css.map",
+    "main.db88ce05.js.map": "/LEGOLog/static/js/main.db88ce05.js.map",
     "453.a10fc7c9.chunk.js.map": "/LEGOLog/static/js/453.a10fc7c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7ee3c2d.css",
-    "static/js/main.344e5e36.js"
+    "static/css/main.ef1476e7.css",
+    "static/js/main.db88ce05.js"
   ]
 }
