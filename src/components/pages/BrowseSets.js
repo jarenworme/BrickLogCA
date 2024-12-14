@@ -176,7 +176,10 @@ export default function BrowseSets() {
                     </div>
                 ))}
             </div>
-            {sets.length === 0 && <div className="sets-no-sets"><h2>{loading ? "" : "no sets found"}</h2></div>}
+            {sets.length === 0 && <div className="browse-no-sets">
+                <h2>{loading ? "" : "no sets found for that set "}{searchByNumber ? "number" : "name"}</h2>
+                <p>{searchByNumber ? "did you mean to search by name?" : "keep in mind searches are case-sensitive"}</p>
+            </div>}
             {loading ? (
                 <p>Loading...</p>
             ) : moreSetsAvailable ? (

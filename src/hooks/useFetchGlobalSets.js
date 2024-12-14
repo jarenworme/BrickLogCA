@@ -13,7 +13,7 @@ export const useFetchGlobalSets = () => {
     const [loading, setLoading] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [isSearchMode, setIsSearchMode] = useState(false);
-    const [searchByNumber, setSearchByNumber] = useState(true);
+    const [searchByNumber, setSearchByNumber] = useState(false);
     const [moreSetsAvailable, setMoreSetsAvailable] = useState(true);
 
     const setsCollectionRef = collection(db, "global-sets");

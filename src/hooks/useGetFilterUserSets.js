@@ -4,7 +4,7 @@ import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 // Number of items per page.
-const LOAD_SIZE = 16; 
+const LOAD_SIZE = 64; 
 
 
 export const useGetFilterUserSets = () => {
