@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetchSet } from "../../hooks/useFetchSet";
+// import { useEditSet } from "../../hooks/useEditSet";
 
 
 export default function SetDetails () {
@@ -7,6 +8,16 @@ export default function SetDetails () {
     const navigate = useNavigate();
     
     const routeHome = () => navigate('/', { replace: false });
+
+
+    // const { editSet } = useEditSet();
+
+    // const handleEdit = () => {
+    //     editSet("U3uY0ENyk3lE0A0ONUJz", {
+    //         setName: "Updated set",
+    //         pieceCount: 120,
+    //     });
+    // };
 
     const { setID } = useParams();
 

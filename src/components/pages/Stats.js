@@ -9,8 +9,14 @@ export default function Stats () {
 
 
     return (
-        <div className="outer-container">
-            <button onClick={routeHome}>Back</button>
+        <div className="stats-wrapper">
+            <div className="stats-title-wrapper">
+                <h1 className="stats-title">Your LEGO Statistics</h1>
+            </div>
+            <div className="stats-set-wrapper"></div>
+            <div className="stats-content-wrapper">
+                <h2 className="stats-content-title"></h2>
+            </div>
         </div>
     );
 }

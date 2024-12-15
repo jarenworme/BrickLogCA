@@ -17,7 +17,6 @@ import OnlineStats from "../pages/OnlineStats";
 import Payments from "../pages/Payments";
 import SetDetails from "../pages/SetDetails";
 import Stats from "../pages/Stats";
-import TestPage from "../pages/TestPage";
 import UserPieces from "../pages/UserPieces";
 import UserSets from "../pages/UserSets";
 
@@ -42,7 +41,6 @@ export default function Router (){
                 { path: '/payments', element: <Payments />},
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
-                // { path: '/testpage', element: (<ProtectedRoute><TestPage /></ProtectedRoute>) },
                 { path: '/userPieces', element: (<ProtectedRoute><UserPieces /></ProtectedRoute>) },
                 { path: '/userSets', element: (<ProtectedRoute><UserSets /></ProtectedRoute>) },
                 { path: '/404', element: <NotFoundPage /> },
