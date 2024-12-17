@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/LEGOLog/static/css/main.210e2465.css",
-    "main.js": "/LEGOLog/static/js/main.0f6b4f7e.js",
-    "static/js/453.a10fc7c9.chunk.js": "/LEGOLog/static/js/453.a10fc7c9.chunk.js",
-    "static/media/train1.png": "/LEGOLog/static/media/train1.7784009d66ac9c72b102.png",
-    "static/media/boxes6.JPG": "/LEGOLog/static/media/boxes6.4b9c50f5056b89bb5503.JPG",
-    "static/media/train2.png": "/LEGOLog/static/media/train2.c163d2938f5ce8f0c48e.png",
-    "static/media/boxes5.JPG": "/LEGOLog/static/media/boxes5.09bef70c044d39c88a76.JPG",
-    "static/media/legostore.jpeg": "/LEGOLog/static/media/legostore.6aa1da17ad76eea9a491.jpeg",
-    "static/media/Lego-Trend.jpg": "/LEGOLog/static/media/Lego-Trend.f63b91198d521e219f82.jpg",
-    "static/media/blue-lego-bricks.jpeg": "/LEGOLog/static/media/blue-lego-bricks.58225e410c59e72b0ac9.jpeg",
-    "static/media/lego-404.jpeg": "/LEGOLog/static/media/lego-404.a356adb08c582c03a1fc.jpeg",
-    "static/media/stormtrooper-computer-edited.jpeg": "/LEGOLog/static/media/stormtrooper-computer-edited.24edff53256c3f39638d.jpeg",
-    "static/media/Silka-Regular.otf": "/LEGOLog/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
-    "static/media/old-set.jpg": "/LEGOLog/static/media/old-set.cde19bacd19889bffa98.jpg",
-    "static/media/1x1-grey.svg": "/LEGOLog/static/media/1x1-grey.646fa3b7190551eb91d89d2503142bbc.svg",
-    "static/media/pieces.svg": "/LEGOLog/static/media/pieces.f4b808853928a8c741c9596233718a85.svg",
-    "static/media/piece-primary.svg": "/LEGOLog/static/media/piece-primary.fab5a45e80219681ed60.svg",
-    "index.html": "/LEGOLog/index.html",
-    "main.210e2465.css.map": "/LEGOLog/static/css/main.210e2465.css.map",
-    "main.0f6b4f7e.js.map": "/LEGOLog/static/js/main.0f6b4f7e.js.map",
-    "453.a10fc7c9.chunk.js.map": "/LEGOLog/static/js/453.a10fc7c9.chunk.js.map"
+    "main.css": "/BrickLogCA/static/css/main.5569c371.css",
+    "main.js": "/BrickLogCA/static/js/main.7d346c0b.js",
+    "static/js/453.a10fc7c9.chunk.js": "/BrickLogCA/static/js/453.a10fc7c9.chunk.js",
+    "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
+    "static/media/boxes6.JPG": "/BrickLogCA/static/media/boxes6.4b9c50f5056b89bb5503.JPG",
+    "static/media/train2.png": "/BrickLogCA/static/media/train2.c163d2938f5ce8f0c48e.png",
+    "static/media/boxes5.JPG": "/BrickLogCA/static/media/boxes5.09bef70c044d39c88a76.JPG",
+    "static/media/legostore.jpeg": "/BrickLogCA/static/media/legostore.6aa1da17ad76eea9a491.jpeg",
+    "static/media/Lego-Trend.jpg": "/BrickLogCA/static/media/Lego-Trend.f63b91198d521e219f82.jpg",
+    "static/media/blue-lego-bricks.jpeg": "/BrickLogCA/static/media/blue-lego-bricks.58225e410c59e72b0ac9.jpeg",
+    "static/media/lego-404.jpeg": "/BrickLogCA/static/media/lego-404.a356adb08c582c03a1fc.jpeg",
+    "static/media/stormtrooper-computer-edited.jpeg": "/BrickLogCA/static/media/stormtrooper-computer-edited.24edff53256c3f39638d.jpeg",
+    "static/media/Silka-Regular.otf": "/BrickLogCA/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
+    "static/media/old-set.jpg": "/BrickLogCA/static/media/old-set.cde19bacd19889bffa98.jpg",
+    "static/media/1x1-grey.svg": "/BrickLogCA/static/media/1x1-grey.646fa3b7190551eb91d89d2503142bbc.svg",
+    "static/media/pieces.svg": "/BrickLogCA/static/media/pieces.f4b808853928a8c741c9596233718a85.svg",
+    "static/media/piece-primary.svg": "/BrickLogCA/static/media/piece-primary.fab5a45e80219681ed60.svg",
+    "index.html": "/BrickLogCA/index.html",
+    "main.5569c371.css.map": "/BrickLogCA/static/css/main.5569c371.css.map",
+    "main.7d346c0b.js.map": "/BrickLogCA/static/js/main.7d346c0b.js.map",
+    "453.a10fc7c9.chunk.js.map": "/BrickLogCA/static/js/453.a10fc7c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.210e2465.css",
-    "static/js/main.0f6b4f7e.js"
+    "static/css/main.5569c371.css",
+    "static/js/main.7d346c0b.js"
   ]
 }
