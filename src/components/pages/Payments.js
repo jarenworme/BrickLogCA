@@ -26,7 +26,7 @@ export default function Payments () {
                     <img src={logo} alt="logo" className="lp-nav-logo" />
                 </button>
                 <div className="lp-nav-right">
-                    <button className="lp-nav-btn" onClick={navigateAboutUs}>About Us</button>
+                    <button className="lp-nav-btn" onClick={navigateAboutUs} disabled={true}>About Us</button>
                     <button className="lp-nav-btn" onClick={navigateLandingPage}>Info</button>
                     <button className="lp-nav-btn-primary" onClick={navigateAuth}>Log In</button>
                 </div>
@@ -36,9 +36,9 @@ export default function Payments () {
                     <h3 className="lp-tier-title">Brick Starter</h3>
                     <p className="lp-tier-subtitle">Everything you need to get started</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-large">Free</span>
+                        <span className="lp-tier-span-large">Phase 1</span>
                     </div>
-                    <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Choose Plan</button>
+                    <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Get Started</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' size='m' />
@@ -81,9 +81,7 @@ export default function Payments () {
                     <h3 className="lp-tier-title">Avid Collector</h3>
                     <p className="lp-tier-subtitle">Level up with additional features.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-small">US$ </span>
-                        <span className="lp-tier-span-large">1.99</span>
-                        <span className="lp-tier-span-small">/mo</span>
+                        <span className="lp-tier-span-large">Phase 2</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -125,12 +123,10 @@ export default function Payments () {
                     </div>
                 </div>
                 <div className="lp-tier-card">
-                    <h3 className="lp-tier-title">LEGO Enthusiast</h3>
-                    <p className="lp-tier-subtitle">The Ultimate LEGOlog experience.</p>
+                    <h3 className="lp-tier-title">Brick Enthusiast</h3>
+                    <p className="lp-tier-subtitle">The Ultimate BrickLog experience.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-small">US$ </span>
-                        <span className="lp-tier-span-large">7.99</span>
-                        <span className="lp-tier-span-small">/mo</span>
+                        <span className="lp-tier-span-large">Phase 3</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -174,8 +170,8 @@ export default function Payments () {
             </div>
             <div className="lp-footer">
                 <h3 className="lp-footer-text">
-                    Legolog is redeveloping using a different backend framework. You can still create an account and view our home page
-                     at the moment. Thank you for your patience!
+                    BrickLogCA is redeveloping using a different backend framework. You can still create an account and view our home page
+                        at the moment. Thank you for your patience!
                 </h3>
                 <div className="lp-footer-top-wrapper">
                     <button className="lp-footer-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
@@ -192,7 +188,8 @@ export default function Payments () {
                         </a>
                     </div>
                 </div>
-                <h3 className="lp-footer-text">LEGOlog is in no way affiliated with the LEGO Group or any of its subsidiaries.</h3>
+                <h3 className="lp-footer-text">BrickLogCa is in no way affiliated with the LEGO® Group or any of its subsidiaries.</h3>
+                <h3 className="lp-footer-text">LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>

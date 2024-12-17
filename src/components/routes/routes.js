@@ -38,7 +38,7 @@ export default function Router (){
                 { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>)} ,
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
-                { path: '/payments', element: <Payments />},
+                { path: '/phases', element: <Payments />},
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
                 { path: '/userPieces', element: (<ProtectedRoute><UserPieces /></ProtectedRoute>) },

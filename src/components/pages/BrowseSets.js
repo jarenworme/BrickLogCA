@@ -113,16 +113,16 @@ export default function BrowseSets() {
             >
                 <div className="browse-modal-wrapper">
                     <h2 className="browse-modal-text">
-                        You are at your limit of 15 sets. Upgrade your plan or delete one of your current sets to add more.
+                        Sorry, we currently cannot handle user loads of over 15 sets.
                     </h2>
                     <button className="browse-modal-button" onClick={() => setModalOpen(false)}>close</button>
                 </div>
             </Modal>
             <div className="sets-title-wrapper">
                 <div className="sets-redirect-btn-wrapper" />
-                <h1 className="sets-title">Add a LEGO Set</h1>
+                <h1 className="sets-title">Add a LEGO® Set</h1>
                 <div className="sets-redirect-btn-wrapper">
-                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet}>Or Add Your Own Creation</button>
+                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet} disabled={true}>Or Add Your Own Creation</button>
                 </div>
             </div>
             <div className="browse-header-wrapper">

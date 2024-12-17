@@ -101,12 +101,12 @@ export default function Auth() {
                 <div className="auth-title-wrapper">
                     <h3 className="auth-title">Welcome to</h3>
                     <div className="auth-title-span-wrapper">
-                        <span className="auth-span auth-l">L</span>
-                        <span className="auth-span auth-e">E</span>
-                        <span className="auth-span auth-g">G</span>
-                        <span className="auth-span auth-o">O</span>
-                        <span className="auth-span auth-log">log</span>
-                        <span className="auth-span auth-r">&#174;</span>
+                        <span className="auth-span auth-l">B</span>
+                        <span className="auth-span auth-e">r</span>
+                        <span className="auth-span auth-g">i</span>
+                        <span className="auth-span auth-o">c</span>
+                        <span className="auth-span auth-l">k</span>
+                        <span className="auth-span auth-log">Log</span>
                     </div>
                 </div>
                 <div className="auth-middle-divider" />

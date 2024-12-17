@@ -22,7 +22,7 @@ export default function LandingPage () {
     const navigateAuth = () => navigate('/auth/2', { replace: false });
     const navigateAuthRegister = () => navigate('/auth/1', { replace: false });
     const navigateLandingPage = () => navigate('/', { replace: false });
-    const navigatePayments = () => navigate('/payments', { replace: false });
+    const navigatePayments = () => navigate('/phases', { replace: false });
 
     // state variables
     const [isScrolled, setIsScrolled] = useState(false);
@@ -51,13 +51,13 @@ export default function LandingPage () {
             </div>
             <div className="lp-block-1">
                 <div className="lp-block1-content-wrapper">
-                    <h2 className="lp-block1-title">Your LEGO collection, anytime, anywhere.</h2>
+                    <h2 className="lp-block1-title">Your LEGO® collection, anytime, anywhere.</h2>
                     <button className="lp-cta" onClick={navigatePayments}>Get Started</button>
                 </div>
             </div>
             <div className="lp-block-2">
                 <div className="lp-block2-content-wrapper">
-                    <h2 className="lp-block2-title">Your Virtual LEGO Room</h2>
+                    <h2 className="lp-block2-title">Your Virtual LEGO® Room</h2>
                     <p className="lp-block2-text">
                         Track and explore your LEGO® collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy fun 
                         insights like your total piece count and other stats.
@@ -100,7 +100,7 @@ export default function LandingPage () {
                     <div className="lp-tier-span-wrapper">
                         <span className="lp-tier-span-large">Phase 1</span>
                     </div>
-                    <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Choose Plan</button>
+                    <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Get Started</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check'/>
