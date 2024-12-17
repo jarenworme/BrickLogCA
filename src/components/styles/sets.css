@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: flex-start;
     height: fit-content;
-    min-height: 94vh;
+    min-height: 91vh;
     padding-top: 9vh;
 }
 
@@ -151,26 +151,19 @@
 
 .browse-toggle-text {
     color: var(--off-white);
+    width: fit-content;
+    text-wrap-mode: nowrap;
 }
 
-.browse-toggle-search-btn {
-    margin: 4px 8px;
-    padding: 4px 0;
-    border: 3px solid transparent;
-    font-size: larger;
-    color: var(--off-white);
-    background-color: transparent;
+.browse-select {
+    padding: 4px 2%;
+    margin-left: 16px;
+    border: none;
+    font-size: large;
 }
 
-.browse-toggle-search-btn:hover {
+.browse-select:hover {
     cursor: pointer;
-}
-
-.browse-toggle-active {
-    padding: 4px 8px;
-    border: 3px solid var(--primary);
-    border-radius: 12px;
-    font-weight: bold;
 }
 
 .browse-form {
@@ -303,7 +296,7 @@
 
 .us-sort-icon:hover {
     cursor: pointer;
-    color: var(--primary-disabled);
+    color: var(--accent-orange-dark);
 }
 
 /***************************************************************************************************************************************/
@@ -501,6 +494,27 @@
     align-items: center;
     justify-content: center;
     margin-top: 100px;
+}
+
+/***************************************************************************************************************************************/
+/* code for the browse footer */
+/***************************************************************************************************************************************/
+
+.browse-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    min-height: fit-content;
+    width: 70%;
+    padding: 0 15%;
+}
+
+.browse-footer-text {
+    font-size: smaller;
+    color: var(--secondary-light);
+    text-align: center;
 }
 
 /***************************************************************************************************************************************/

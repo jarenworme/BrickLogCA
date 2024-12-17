@@ -58,10 +58,10 @@ const UserSetsPage = () => {
 
     // delete the selected set from user sets and reload sets with the same criteria
     const handleDelete = async (setId) => {
-        if (window.confirm("Are you sure you want to delete this set?")) {
+        //if (window.confirm("Are you sure you want to delete this set?")) {
             await deleteSet(setId);
             updateSetsOnDelete();
-        }
+        //}
     };
 
     const handleFilter = (e) => {
@@ -213,7 +213,9 @@ const UserSetsPage = () => {
                         <div className="sets-set-content-wrapper">
                             <hr className="sets-divider" />
                             <div className="sets-set-text-wrapper">
-                                <p className="us-set-text">#{set.set_num}</p>
+                                {set.theme_id === "MOC" 
+                                ? <p className="us-set-text">#MOC{set.set_num}</p>
+                                : <p className="us-set-text">#{set.set_num}</p> }
                                 <div className="us-set-text-icon-group">
                                 <div className="us-piece-icon-wrapper">
                                     <img src={pieceIcon} alt="LEGO Piece" className="us-piece-icon"/>

@@ -16,6 +16,7 @@ export const useAddSet = () => {
             theme_id,
             year,
             createdAt: serverTimestamp(),
+            missing_parts: 0
         });
     };
 

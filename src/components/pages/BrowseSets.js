@@ -35,8 +35,7 @@ export default function BrowseSets() {
         searchSets, 
         resetSets, 
         loadMoreSets,
-        toggleSearchByNum, 
-        toggleSearchByName
+        toggleSearchByNum
     } = useFetchGlobalSets();
 
     const { tier, loadingUser, error } = useGetUserSubscriptionTier();
@@ -94,6 +93,7 @@ export default function BrowseSets() {
 
 
     return (
+        <>
         <div className="sets-wrapper">
             <Modal
                 isOpen={modalOpen}
@@ -122,22 +122,23 @@ export default function BrowseSets() {
                 <div className="sets-redirect-btn-wrapper" />
                 <h1 className="sets-title">Add a LEGO Set</h1>
                 <div className="sets-redirect-btn-wrapper">
-                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet} disabled={true}>Or Add Custom</button>
+                    <button className="sets-redirect-btn" onClick={navigateAddCustomSet}>Or Add Your Own Creation</button>
                 </div>
             </div>
             <div className="browse-header-wrapper">
                 <div className="browse-toggle-wrapper">
                     <p className="browse-toggle-text">Search by:</p>
-                    <button className={`browse-toggle-search-btn ${searchByNumber ? '' : 'browse-toggle-active'}`} onClick={toggleSearchByName}>Set Name</button>
-                    <p className="browse-toggle-text">/</p>
-                    <button className={`browse-toggle-search-btn ${searchByNumber ? 'browse-toggle-active' : ''}`} onClick={toggleSearchByNum}>Set Number</button>
+                    <select id="filter-select" className="browse-select" value={searchByNumber} onChange={toggleSearchByNum}>
+                        <option value="true">set number</option>
+                        <option value="false">set name</option>
+                    </select>
                 </div>
                 <form className="browse-form" onSubmit={handleSearch}>
                     <input
                         className="browse-input"
                         type="text"
                         ref={inputRef}
-                        placeholder="Search by name or set number..."
+                        placeholder={`Search by [set ${searchByNumber ? "number" : "name"}]`}
                         onChange={(e) => setSearchContent(e.target.value)}
                     />
                     <FontAwesomeIcon icon={faCircleXmark} className="browse-icon" type="button" size="xl" onClick={clearSearch}/>
@@ -188,5 +189,9 @@ export default function BrowseSets() {
                 <br />
             )}
         </div>
+        <div className="browse-footer">
+            <p className="browse-footer-text">We update our database for new sets every couple weeks. If you are not seeing one, we'll have it up soon!</p>
+        </div>
+        </>
     );
 }

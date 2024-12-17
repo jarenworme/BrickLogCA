@@ -63,6 +63,7 @@ export const useFetchGlobalSets = () => {
     const searchSets = async (searchTerm, currentLastDoc = null, isNewSearch = false) => {
         if(isNewSearch){
             setSets([]);
+            setMoreSetsAvailable(true);
         }
         setLoading(true);
         setSearchTerm(searchTerm); // Keep track of the search term
@@ -135,19 +136,15 @@ export const useFetchGlobalSets = () => {
     };
 
     // set up search by num on its button press
-    const toggleSearchByNum = () => {
-        if (!searchByNumber && isSearchMode) {
+    const toggleSearchByNum = (e) => {
+        const tempValue = e.target.value;
+        const value = tempValue === "true" ? true : false; 
+        if (!searchByNumber && !value && isSearchMode) {
+            resetSets();
+        } else if (searchByNumber && value && isSearchMode) {
             resetSets();
         }
-        setSearchByNumber(true);
-    }
-
-    // set up search by name on its button press
-    const toggleSearchByName = () => {
-        if (searchByNumber && isSearchMode) {
-            resetSets();
-        }
-        setSearchByNumber(false);
+        setSearchByNumber(value);
     }
 
     // query more sets when the load more button is clicked via fetch or search depending on the current state
@@ -173,6 +170,5 @@ export const useFetchGlobalSets = () => {
     resetSets,
     loadMoreSets,    
     toggleSearchByNum,
-    toggleSearchByName,
     };
 };

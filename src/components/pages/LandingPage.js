@@ -41,12 +41,7 @@ export default function LandingPage () {
         <div className="lp-wrapper">
             <div className={`lp-nav-wrapper ${isScrolled ? 'lp-scrolled' : ''}`}>
                 <button className="lp-nav-left" onClick={navigateLandingPage}>
-                    <img src={logo} alt="logo" className={`lp-nav-logo ${isScrolled ? 'lp-scrolled-logo' : ''}`} />
-                    <span className={`lp-span lp-l ${isScrolled ? 'lp-scrolled-text' : ''}`}>L</span>
-                    <span className={`lp-span lp-e ${isScrolled ? 'lp-scrolled-text' : ''}`}>E</span>
-                    <span className={`lp-span lp-g ${isScrolled ? 'lp-scrolled-text' : ''}`}>G</span>
-                    <span className={`lp-span lp-o ${isScrolled ? 'lp-scrolled-text' : ''}`}>O</span>
-                    <span className={`lp-span lp-log ${isScrolled ? 'lp-scrolled-text' : ''}`}>log</span>
+                    <img src={logo} alt="logo" className="lp-nav-logo" />
                 </button>
                 <div className="lp-nav-right">
                     <button className="lp-nav-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
@@ -64,7 +59,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Your Virtual LEGO Room</h2>
                     <p className="lp-block2-text">
-                        Track and explore your LEGO collection with LEGOlog. Organize your sets, uncover unique details, and enjoy fun 
+                        Track and explore your LEGO collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy fun 
                         insights like your total piece count and other stats.
                     </p>
                 </div>
@@ -104,7 +99,7 @@ export default function LandingPage () {
                     <h3 className="lp-tier-title">Brick Starter</h3>
                     <p className="lp-tier-subtitle">Everything you need to get started</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-large">Free</span>
+                        <span className="lp-tier-span-large">Phase 1</span>
                     </div>
                     <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Choose Plan</button>
                     <hr className="lp-tier-divider" />
@@ -149,9 +144,7 @@ export default function LandingPage () {
                     <h3 className="lp-tier-title">Avid Collector</h3>
                     <p className="lp-tier-subtitle">Level up with additional features.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-small">US$ </span>
-                        <span className="lp-tier-span-large">1.99</span>
-                        <span className="lp-tier-span-small">/mo</span>
+                        <span className="lp-tier-span-large">Phase 2</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -193,12 +186,10 @@ export default function LandingPage () {
                     </div>
                 </div>
                 <div className="lp-tier-card">
-                    <h3 className="lp-tier-title">LEGO Enthusiast</h3>
-                    <p className="lp-tier-subtitle">The Ultimate LEGOlog experience.</p>
+                    <h3 className="lp-tier-title">Brick Enthusiast</h3>
+                    <p className="lp-tier-subtitle">The Ultimate BrickLogCA experience.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-small">US$ </span>
-                        <span className="lp-tier-span-large">7.99</span>
-                        <span className="lp-tier-span-small">/mo</span>
+                        <span className="lp-tier-span-large">Phase 3</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -244,7 +235,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Track Your Missing Pieces</h2>
                     <p className="lp-block2-text">
-                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the LEGO Enthusiast 
+                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the Brick Enthusiast 
                         plan, we'll source and order replacements for you at the best prices.
                     </p>
                 </div>
@@ -259,14 +250,14 @@ export default function LandingPage () {
                 <div className="lp-block4-content-wrapper">
                     <h2 className="lp-block2-title">Give It a Try</h2>
                     <p className="lp-block2-text">
-                        Start your LEGOlog adventure with a free plan today and get the most out of your collection.
+                        Start your BrickLogCa adventure with a free plan today and get the most out of your collection.
                     </p>
                     <button className="lp-cta-bottom" onClick={navigatePayments}>Get Started</button>
                 </div>
             </div>
             <div className="lp-footer">
                 <h3 className="lp-footer-text">
-                    Legolog is redeveloping using a different backend framework. You can still create an account and view our home page
+                    BrickLogCA is redeveloping using a different backend framework. You can still create an account and view our home page
                      at the moment. Thank you for your patience!
                 </h3>
                 <div className="lp-footer-top-wrapper">
@@ -284,9 +275,15 @@ export default function LandingPage () {
                         </a>
                     </div>
                 </div>
-                <h3 className="lp-footer-text">LEGOlog is in no way affiliated with the LEGO Group or any of its subsidiaries.</h3>
+                <h3 className="lp-footer-text">BrickLogCa is in no way affiliated with the LEGO Group or any of its subsidiaries.</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>
     );
 }
+
+/* 
+<span className="lp-tier-span-small">US$ </span>
+<span className="lp-tier-span-large">1.99</span>
+<span className="lp-tier-span-small">/mo</span>
+*/
