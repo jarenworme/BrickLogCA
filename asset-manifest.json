@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BrickLogCA/static/css/main.5569c371.css",
-    "main.js": "/BrickLogCA/static/js/main.ea564a1a.js",
+    "main.js": "/BrickLogCA/static/js/main.c129bc45.js",
     "static/js/453.438a9bc3.chunk.js": "/BrickLogCA/static/js/453.438a9bc3.chunk.js",
     "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
     "static/media/boxes6.JPG": "/BrickLogCA/static/media/boxes6.4b9c50f5056b89bb5503.JPG",
@@ -19,11 +19,11 @@
     "static/media/piece-primary.svg": "/BrickLogCA/static/media/piece-primary.fab5a45e80219681ed60.svg",
     "index.html": "/BrickLogCA/index.html",
     "main.5569c371.css.map": "/BrickLogCA/static/css/main.5569c371.css.map",
-    "main.ea564a1a.js.map": "/BrickLogCA/static/js/main.ea564a1a.js.map",
+    "main.c129bc45.js.map": "/BrickLogCA/static/js/main.c129bc45.js.map",
     "453.438a9bc3.chunk.js.map": "/BrickLogCA/static/js/453.438a9bc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5569c371.css",
-    "static/js/main.ea564a1a.js"
+    "static/js/main.c129bc45.js"
   ]
 }
