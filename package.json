@@ -1,7 +1,7 @@
 {
   "name": "legologv2",
   "version": "0.1.0",
-  "homepage": "https://jarenworme.github.io/LEGOLog",
+  "homepage": "https://jarenworme.github.io/BrickLogCA",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
