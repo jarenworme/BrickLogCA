@@ -59,7 +59,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Your Virtual LEGO Room</h2>
                     <p className="lp-block2-text">
-                        Track and explore your LEGO collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy fun 
+                        Track and explore your LEGO® collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy fun 
                         insights like your total piece count and other stats.
                     </p>
                 </div>
@@ -71,7 +71,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title right-align">How it Works</h2>
                     <p className="lp-block2-text right-align">
-                        Our extensive database features all mainline LEGO sets since 1955. Easily find sets by name or number and add 
+                        Our extensive database features all mainline LEGO® sets since 1955. Easily find sets by name or number and add 
                         them to your personal collection.
                     </p>
                 </div>
@@ -83,7 +83,7 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Customize to Your Desire</h2>
                     <p className="lp-block2-text">
-                        Love building your own creations? Log your custom builds and explore unique creations shared by the community.
+                        Love building your own creations? Log your MOCs and explore unique creations shared by the community.
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
@@ -91,8 +91,7 @@ export default function LandingPage () {
                 </div>
             </div>
             <div className="lp-block3-title-wrapper">
-                <h2 className="lp-block3-title">Pick Your Perfect Plan</h2>
-                <h4 className="lp-block3-subtitle">Choose the plan that suits you best. Switch or cancel anytime with ease.</h4>
+                <h2 className="lp-block3-title">Our Development Schedule</h2>
             </div>
             <div className="lp-block-3">
                 <div className="lp-tier-card">
@@ -235,8 +234,8 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Track Your Missing Pieces</h2>
                     <p className="lp-block2-text">
-                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the Brick Enthusiast 
-                        plan, we'll source and order replacements for you at the best prices.
+                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the Brick Enthusiast's 
+                        release, we'll source and order replacements for you at the best prices.
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
@@ -275,7 +274,8 @@ export default function LandingPage () {
                         </a>
                     </div>
                 </div>
-                <h3 className="lp-footer-text">BrickLogCa is in no way affiliated with the LEGO Group or any of its subsidiaries.</h3>
+                <h3 className="lp-footer-text">BrickLogCa is in no way affiliated with the LEGO® Group or any of its subsidiaries.</h3>
+                <h3 className="lp-footer-text">LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>
