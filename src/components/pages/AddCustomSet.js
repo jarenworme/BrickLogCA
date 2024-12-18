@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { useFetchGlobalSets } from "../../hooks/useFetchGlobalSets";
 import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
+import { useGetNumMOCs } from "../../hooks/useGetNumMOCs";
 import '../styles/sets.css';
+import '../styles/add.css';
 
 
 export default function AddCustomSet () {
@@ -20,26 +19,20 @@ export default function AddCustomSet () {
     // variable to hold the user-entered set name
     const [name, setName] = useState("");
 
-    // variable to hold the user-entered set theme
-    const [theme_id, setTheme_id] = useState("");
-
-    // variable to hold the user-entered set number
-    const [set_num, setSet_num] = useState("");
-    // variable to hold conditionally rendered error message for invalid set number
-    const [setNumError, setSetNumError] = useState("");
-
     // variable to hold the user-entered number of pieces for the set
     const [num_parts, setNum_parts] = useState("");
     // variable to hold conditionally rendered error message for invalid set number
     const [numPartsError, setNumPartsError] = useState("");
 
-    const [year, setYear] = useState("");
-
-    const [isMOC, setIsMOC] = useState(true);
-
 
 
     const [modalOpen, setModalOpen] = useState(false);
+
+    const {
+        numMOCs,
+        loading,
+        fetchMOCs
+    } = useGetNumMOCs();
 
 
 
@@ -48,21 +41,11 @@ export default function AddCustomSet () {
     const { addSet } = useAddSet();
 
     useEffect(() => {
-        const extractedYear = new Date().getFullYear();
-        setYear(extractedYear);
-    }, []);
-     
-    
-
-    // validation function to ensure a correct set number in a valid range
-    const validateSetNum = () => {
-        // checks for a valid LEGO set number
-        if(set_num < -1 || set_num > 99999){
-            setSetNumError('Please enter a valid LEGO set number');
-        } else {
-            setSetNumError('');
+        if(numMOCs === -1){
+            fetchMOCs();
         }
-    }
+    }, [fetchMOCs]);
+    
 
     // validation function to ensure a correct piece count in a valid range
     const validatePieceNum = () => {
@@ -88,9 +71,12 @@ export default function AddCustomSet () {
             return;
         }
 
+        const set_num = numMOCs + 1;
+        const theme_id = "MOC";
+        const year = new Date().getFullYear();
+
         try {
             await addSet({ img_url, name, num_parts, set_num, theme_id, year });
-            // change to user sets once that page is implemented
             navigate('/userSets', { replace: false });
         } catch (err) {
             console.error(err.message);
@@ -98,10 +84,10 @@ export default function AddCustomSet () {
     };
 
     // navigates back to the set list page when a user clicks the cancel button
-    const handleCancel = () => navigate('/SetList', { replace: false });
+    const handleCancel = () => navigate('/browseSets', { replace: false });
 
     // loading screen while it calculates subscription tier
-    if (loadingUser) return <div className="loading-full-screen"><div className="loading-img" /></div>;
+    if (loadingUser || loading) return <div className="loading-full-screen"><div className="loading-img" /></div>;
     if (error) return <p>Error: {error}</p>;
 
 
@@ -130,53 +116,27 @@ export default function AddCustomSet () {
                     <button className="browse-modal-button" onClick={() => setModalOpen(false)}>close</button>
                 </div>
             </Modal>
-            <div className="add-title-wrapper">
-                <h1 className="add-title">Add a New Set</h1>
-                <h3 className="add-subtitle">subtitle</h3>
-            </div>
-            <p>{year}</p>
-            <div className="add-middle-container">
-                <form className="add-form" onSubmit={handleSubmit}>
-                    <div className="add-field">
-                        <label className="add-field-title">Name</label>
-                        <input className="add-field-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    </div>
-                    <div className="add-checkbox-wrapper">
-                        <label className="add-field-title">
-                            Is this set a MOC (My Own Creation)?
-                            <input className="add-checkbox" type="checkbox" checked={isMOC} onChange={(e) => setIsMOC(e.target.checked)} />
-                        </label>
-                    </div>
-                    {!isMOC && (
-                    <div className="add-field">
-                        <label className="add-field-title">Theme</label>
-                        <input className="add-field-input" type="text" value={theme_id} onChange={(e) => setTheme_id(e.target.value)} />
-                    </div>
-                    )}
-                    {!isMOC && (
-                    <div className="add-field">
-                        <label className="add-field-title">Set Number</label>
-                        <input className="add-field-input" type="number" value={set_num} onChange={(e) => setSet_num(e.target.value)} onBlur={validateSetNum} />
-                        { setNumError && (<p className="add-field-error">{setNumError}</p>) }
-                    </div>
-                    )}
-                    <div className="add-field">
-                        <label className="add-field-title">Piece Count</label>
-                        <input className="add-field-input" type="number" value={num_parts} onChange={(e) => setNum_parts(e.target.value)} onBlur={validatePieceNum} />
-                        {isMOC && (<p className="add-text">lorem ipsum dolor</p>)}
-                        { numPartsError && (<p className="add-field-error">{numPartsError}</p>) }
-                    </div>
-                    <div className="add-field">
-                        <label className="add-field-title">Display Image</label>
-                        <input className="add-field-input" type="text" value={img_url} onChange={(e) => setImg_url(e.target.value)} />
-                        <p className="add-text">lorem ipsum dolor</p>
-                    </div>
-                    <div className="add-buttons">
-                        <button className="add-cancel-button" type="button" onClick={handleCancel}>Cancel</button>
-                        <button className="add-submit-button" type="submit" disabled={name.length == 0 || set_num.length == 0 || numPartsError.length > 0 || setNumError.length > 0}>Add New Set!</button>
-                    </div>
-                </form>
-            </div>
+            <h1 className="add-title">Add a New MOC (My Own Creation)</h1>
+            <h3 className="add-subtitle">Log your unique LEGO® creations to view them in your collection.</h3>
+            <form className="add-form" onSubmit={handleSubmit}>
+                <label className="add-field-title">Name</label>
+                <input className="add-field-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <label className="add-field-title">Piece Count</label>
+                <p className="add-field-text">
+                    You can track missing pieces for your MOC. Enter an overestimate if your are still building!
+                </p>
+                <input className="add-field-input" type="number" value={num_parts} 
+                onChange={(e) => setNum_parts(e.target.value)} onBlur={validatePieceNum} />
+                { numPartsError && (<p className="add-field-error">{numPartsError}</p>) }
+                <label className="add-field-title">Display Image</label>
+                <p className="add-field-text">
+                    We are still building an image upload feature. Consider using an online tool like ImageBB and pasting the link 
+                    here if you would like a display image
+                </p>
+                <input className="add-field-input" type="text" value={img_url} onChange={(e) => setImg_url(e.target.value)} />
+                <button className="add-submit-btn" type="submit" disabled={name.length === 0 || num_parts.length === 0 || numPartsError.length > 0}>Add New Set!</button>
+                <button className="add-cancel-btn" type="button" onClick={handleCancel}>Cancel</button>
+            </form>
         </div>
     );
 }

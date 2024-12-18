@@ -1,0 +1,167 @@
+:root{
+    --primary: #0587D0;
+    --primary-dark: #0878ba;
+    --primary-disabled: #DEEDF5;
+    --secondary: #222222;
+    --secondary-light: #555555;
+    --secondary-dark: #161616;
+    --off-white: #fcfcf8;
+    --accent-crimson: #E23636;
+}
+
+.add-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 88vh;
+    min-height: fit-content;
+    width: 60%;
+    min-width: fit-content;
+    margin-top: 12vh;
+    padding: 0 20%;
+}
+
+.add-title {
+    margin: 0;
+    font-size: 240%;
+    text-align: center;
+}
+
+.add-subtitle {
+    margin-top: 4px;
+    font-size: larger;
+    font-weight: normal;
+    text-align: center;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: fit-content;
+}
+
+.add-field-title {
+    margin-top: 16px;
+    font-size: x-large;
+}
+
+.add-field-text {
+    width: 85%;
+    margin: 4px 0;
+    font-size: medium;
+    color: var(--secondary-light);
+    text-align: center;
+}
+
+.add-field-input {
+    height: 32px;
+    width: 60%;
+}
+
+.add-field-error {
+    margin: 4px 0 0 0;
+    color: var(--accent-crimson);
+}
+
+.add-submit-btn, .add-cancel-btn {
+    width: fit-content;
+    margin-top: 16px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 20px;
+    font-size: large;
+}
+
+.add-submit-btn {
+    color: var(--off-white);
+    background-color: var(--primary);
+}
+
+.add-submit-btn:hover {
+    cursor: pointer;
+    background-color: var(--primary-dark);
+}
+
+.add-submit-btn:disabled {
+    cursor: not-allowed;
+    background-color: var(--primary-disabled);
+}
+
+.add-cancel-btn {
+    color: var(--off-white);
+    background-color: var(--secondary);
+}
+
+.add-cancel-btn:hover {
+    cursor: pointer;
+    background-color: var(--secondary-dark);
+}
+
+
+@media screen and (max-height: 500px) {
+    .add-wrapper {
+        width: 90%;
+        padding: 0 5%;
+    }
+    .add-title {
+        margin-top: 24px;
+        font-size: xx-large;
+    }
+    .add-subtitle {
+        font-size: large;
+        margin-bottom: 8px;
+    }
+    .add-field-title {
+        font-size: large;
+    }
+    .add-field-text {
+        width: 90%;
+        font-size: smaller;
+    }
+    .add-field-input {
+        height: 28px;
+        width: 80%;
+    }
+    .add-field-error {
+        font-size: smaller;
+    }
+    .add-cancel-btn {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) { 
+    .add-wrapper {
+        width: 90%;
+        padding: 0 5%;
+    }
+    .add-title {
+        font-size: xx-large;
+    }
+    .add-subtitle {
+        font-size: large;
+        margin-bottom: 8px;
+    }
+    .add-field-title {
+        font-size: large;
+    }
+    .add-field-text {
+        width: 90%;
+        font-size: smaller;
+    }
+    .add-field-input {
+        height: 28px;
+        width: 80%;
+    }
+    .add-field-error {
+        font-size: smaller;
+    }
+    .add-cancel-btn {
+        margin-bottom: 24px;
+    }
+}
+

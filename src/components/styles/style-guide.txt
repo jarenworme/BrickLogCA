@@ -38,6 +38,3 @@ background-size
 box-shadow
 animation
 transition
-
-https://ibb.co/WvcPmzP
-https://ibb.co/BNdwn1f
