@@ -4,11 +4,11 @@ import { useState } from "react";
 
 
 export const useDeleteSet = () => {
-    const [loading, setLoading] = useState(false);
+    const [loadingDelete, setLoadingDelete] = useState(false);
     const [error, setError] = useState(null);
 
     const deleteSet = async (setId) => {
-        setLoading(true);
+        setLoadingDelete(true);
         setError(null);
         try {
             if (!setId) {
@@ -22,9 +22,9 @@ export const useDeleteSet = () => {
             console.error("Error deleting set:", err);
             setError(err.message);
         } finally {
-            setLoading(false);
+            setLoadingDelete(false);
         }
     };
 
-    return { deleteSet, loading, error };
+    return { deleteSet, loadingDelete, error };
 };

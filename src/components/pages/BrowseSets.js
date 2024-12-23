@@ -10,6 +10,7 @@ import { useAddSet } from "../../hooks/useAddSet";
 import '../styles/sets.css';
 import '../styles/loading.css';
 
+
 export default function BrowseSets() {
     // init navigate variable for page navigation
     const navigate = useNavigate();

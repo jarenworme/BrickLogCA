@@ -76,7 +76,7 @@ export default function AddCustomSet () {
         const year = new Date().getFullYear();
 
         try {
-            await addSet({ img_url, name, num_parts, set_num, theme_id, year });
+            await addSet({ img_url, name, num_parts: parseInt(num_parts), set_num, theme_id, year });
             navigate('/userSets', { replace: false });
         } catch (err) {
             console.error(err.message);

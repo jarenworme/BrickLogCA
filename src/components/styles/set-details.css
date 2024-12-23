@@ -27,3 +27,68 @@
     --accent-burnt-sienna: #AB4A13;
     --accent-sand-green: #A0BCAC;
 }
+
+.sd-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 85vh;
+    min-height: fit-content;
+    width: 100%;
+    padding-top: 15vh;
+    background-color: var(--primary-light);
+}
+
+.sd-set-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50vh;
+    min-height: 400px;
+    width: 70%;
+    margin-bottom: 5vh;
+    border-radius: 24px;
+    background-color: var(--accent-titanium-white);
+}
+
+.sd-img-wrapper {
+    width: 40%;
+    height: 80%;
+}
+
+.sd-img {
+    height: 100%;
+    width: 90%;
+    object-fit: contain;
+}
+
+.sd-set-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 30%;
+    background-color:#54DD3E;
+}
+
+.sd-subtitle {
+    margin-bottom: 0;
+    font-size: xx-large;
+    font-weight: normal;
+    text-align: center;
+}
+
+.sd-piece-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 70%;
+    padding: 24px;
+    border-radius: 24px;
+    background-color: var(--accent-titanium-white);
+}

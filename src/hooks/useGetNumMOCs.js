@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { query, collection, orderBy, where, getDocs, doc, getDoc } from "firebase/firestore";
+import { query, collection, where, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 

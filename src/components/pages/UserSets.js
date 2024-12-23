@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpWideShort, faArrowDownWideShort } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays, faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { useDeleteSet } from "../../hooks/useDeleteSet";
 import { useGetFilterUserSets } from "../../hooks/useGetFilterUserSets";
+import { useDeleteSet } from "../../hooks/useDeleteSet";
 import "../styles/sets.css"
 
 import pieceIcon from "../../assets/icons/1x1-grey.svg";
 
 
-const UserSetsPage = () => { 
+export default function UserSetsPage () { 
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const UserSetsPage = () => {
     const [isYear, setIsYear] = useState(true);
 
     // custom hook items
-    const { deleteSet, loading, error } = useDeleteSet();
+    const { deleteSet, loadingDelete, error } = useDeleteSet();
 
     const {
         sets,
@@ -47,7 +47,7 @@ const UserSetsPage = () => {
         setSortDirection        
     } = useGetFilterUserSets();
 
-    // fetch initial set batch on mount
+    // fetch initial set batch on mount and load filter arrays
     useEffect(() => {
         if (!fetchCalled.current && sets.length === 0) {
             loadArrays();
@@ -64,6 +64,7 @@ const UserSetsPage = () => {
         //}
     };
 
+    // fetches a new set list based on filter type with form submission
     const handleFilter = (e) => {
         e.preventDefault();
         if (isYear){
@@ -73,37 +74,42 @@ const UserSetsPage = () => {
         }
     };
 
+    // fetches a new set list based on sort type with form submission
     const handleSort = (e) => {
         e.preventDefault();
         console.log(true, null, filterCategory, filterTerm, selectedSort, sortDirection);
         fetchSets(true, null, filterCategory, filterTerm, selectedSort);
     };
 
+    // change filter category based on first select input data
     const handleFilterCategory = (e) => {
         setSelectedFilterCategory(e.target.value); // Update state with selected year
         setIsYear(e.target.value==="year");
     };
 
+    // functions to update variables with select inputs on change
     const handleYearChange = (e) => {
-        setSelectedYear(e.target.value); // Update state with selected year
+        setSelectedYear(e.target.value);
         setIsYear(true);
     };
 
     const handleThemeChange = (e) => {
-        setSelectedTheme(e.target.value); // Update state with selected year
+        setSelectedTheme(e.target.value);
         setIsYear(false);
     };
 
     const handleSortChange = (e) => {
-        setSelectedSort(e.target.value); // Update state with selected year
+        setSelectedSort(e.target.value);
     };
 
+    // function to reset the filter select inputs
     const clearFilter = () => {
         setSelectedTheme("");
         setSelectedYear("");
         setSelectedFilterCategory("");
         fetchSets(true, null, "none", "");
     }
+
 
     return (
         <div className="sets-wrapper">
@@ -138,8 +144,10 @@ const UserSetsPage = () => {
                             </option>
                         </select>
                         {sortDirection === "asc" ?
-                        <FontAwesomeIcon icon={faArrowUpWideShort} className="us-sort-icon" type="button" size="xl" onClick={() => setSortDirection("desc")}/>
-                        : <FontAwesomeIcon icon={faArrowDownWideShort} className="us-sort-icon" type="button" size="xl" onClick={() => setSortDirection("asc")}/>
+                        <FontAwesomeIcon icon={faArrowUpWideShort} className="us-sort-icon" type="button" size="xl" 
+                        onClick={() => setSortDirection("desc")}/>
+                        : <FontAwesomeIcon icon={faArrowDownWideShort} className="us-sort-icon" type="button" size="xl" 
+                        onClick={() => setSortDirection("asc")}/>
                         }
                         <button type="submit" className="us-form-btn" >apply</button>
                     </form>
@@ -148,7 +156,8 @@ const UserSetsPage = () => {
                     <h3 className="us-form-title">Filter Your Sets</h3>
                     <hr className="us-form-hr" />
                     <form className="us-form" onSubmit={handleFilter}>
-                        <select id="filter-select" className="us-select" value={selectedFilterCategory} onChange={handleFilterCategory}>
+                        <select id="filter-select" className="us-select" value={selectedFilterCategory} 
+                        onChange={handleFilterCategory}>
                             <option value="" disabled>
                             -- Select Filter --
                             </option>
@@ -187,7 +196,8 @@ const UserSetsPage = () => {
                             </option>
                             </select>)
                         }
-                        <button type="submit" className="us-form-btn" disabled={(isYear && selectedYear === "") || (!isYear && selectedTheme === "")}>apply</button>
+                        <button type="submit" className="us-form-btn" 
+                        disabled={(isYear && selectedYear === "") || (!isYear && selectedTheme === "")}>apply</button>
                         <button type="button" className="us-form-btn us-secondary-btn" onClick={clearFilter}>clear</button>
                     </form>
                 </div>
@@ -233,21 +243,23 @@ const UserSetsPage = () => {
                         </div>
                         <div className="us-set-bottom-wrapper">
                             <div className="us-delete-btn-wrapper" />
-                            <button className="us-set-btn" onClick={() => navigateSetDetails(set.id)} disabled={true}>See Details</button>
+                            <button className="us-set-btn" onClick={() => navigateSetDetails(set.id)}>See Details</button>
                             <div className="us-delete-btn-wrapper">
                                 <FontAwesomeIcon 
                                     icon={faTrashCan} 
                                     className="us-delete-icon" 
                                     size="xl" 
                                     onClick={() => handleDelete(set.id)} 
-                                    disabled={loading}
+                                    disabled={loadingDelete}
                                 />
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-            {sets.length === 0 && <div className="sets-no-sets"><h2>{fetchFilterLoading ? "" : "You currently dont have any sets in your collection."}</h2></div>}
+            {sets.length === 0 && <div className="sets-no-sets">
+                <h2>{fetchFilterLoading ? "" : "You currently dont have any sets in your collection."}</h2>
+            </div>}
             {fetchFilterLoading ? (
                 <p>Loading...</p>
             ) : moreSetsAvailable ? (
@@ -257,6 +269,4 @@ const UserSetsPage = () => {
             )}
         </div>
     );
-};
-
-export default UserSetsPage;
+}

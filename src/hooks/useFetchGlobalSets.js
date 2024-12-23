@@ -24,17 +24,17 @@ export const useFetchGlobalSets = () => {
         try {
             // Adjust the query for pagination
             const baseQuery = currentLastDoc
-                ? query(
-                    setsCollectionRef,
-                    orderBy("year", "desc"),
-                    startAfter(currentLastDoc),
-                    limit(LOAD_SIZE)
-                )
-                : query(
-                    setsCollectionRef,
-                    orderBy("year", "desc"),
-                    limit(LOAD_SIZE)
-                );
+            ? query(
+                setsCollectionRef,
+                orderBy("year", "desc"),
+                startAfter(currentLastDoc),
+                limit(LOAD_SIZE)
+            )
+            : query(
+                setsCollectionRef,
+                orderBy("year", "desc"),
+                limit(LOAD_SIZE)
+            );
 
             const snapshot = await getDocs(baseQuery);
 

@@ -29,7 +29,7 @@ export default function Router (){
                 { path: '/', element: <LandingPage /> },
                 { path: '/about', element: <About /> },
                 { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>)},
-                { path: '/addCustomPiece', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
+                { path: '/addCustomPiece/:setID', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
                 { path: '/auth/:register', element: <Auth />},
                 { path: '/browsePieces', element: (<ProtectedRoute><BrowsePieces /></ProtectedRoute>) },
