@@ -9,7 +9,7 @@ export const useAddPiece = () => {
     const addPiece = async ({ setID, set_num, set_name, name, color, quantity, missing_parts }) => {
         try {
             // Validate input numbers
-            console.log(set_num, quantity, missing_parts);
+            // console.log(set_num, quantity, missing_parts);
             const parsedQuantity = Number(quantity);
             const parsedMissingParts = Number(missing_parts);
 

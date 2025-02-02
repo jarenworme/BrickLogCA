@@ -10,10 +10,23 @@ export default function AddCustomPiece () {
 
     // ref variable to only call useEffect once in testing
     const fetchCalled = useRef(false);    
+
+
+    // variable to hold the user-entered piece name
+    const [name, setName] = useState("");
+
+    // variable to hold the user-entered color
+    const [color, setColor] = useState("");
+
+    // variable to hold the user-entered number of missing pieces for the set
+    const [quantity, setQuantity] = useState(1);
+    // variable to hold conditionally rendered error message for invalid missing pieces amount
+    const [quantityError, setQuantityError] = useState("");
     
     
     
     const routeHome = () => navigate('/', { replace: false });
+    const routeSetDetails = () => navigate(`/setDetails/${setID}`, { replace: false });
 
     const { setID } = useParams();
 
@@ -28,6 +41,21 @@ export default function AddCustomPiece () {
         }
     }, [fetchSet]);
 
+    // validation function to ensure a correct missing piece quantity in a valid range
+    const validatePieceNum = (value) => {
+        let maxMissing = set.num_parts - set.missing_parts - 1;
+        console.log(maxMissing)
+
+        // gives an error for 0 or less pieces, or too many pieces for the set
+        if(parseInt(value) < 1){
+            setQuantityError('Please enter a valid amount of pieces');
+        } else if (parseInt(value) > maxMissing) {
+            setQuantityError('Quantity exceeds set piece count');
+        } else {
+            setQuantityError('');
+        }
+    }
+
     const handleAddPiece = async () => {
         let tempSetNum = set.set_num;
         if(set.theme_id === "MOC") {
@@ -37,9 +65,9 @@ export default function AddCustomPiece () {
             setID,
             set_num: tempSetNum,
             set_name: set.name,
-            name: "test", // Replace with dynamic input
-            color: "red", // Replace with dynamic input
-            quantity: 3,  // Replace with dynamic input
+            name,
+            color,
+            quantity,  
             missing_parts: set.missing_parts,
         };
 
@@ -60,8 +88,27 @@ export default function AddCustomPiece () {
         <div className="outer-container">
             <h1>add piece</h1>
             <h1>spacer text</h1>
-            <h1>{set.name}</h1>
-            <button onClick={handleAddPiece}>Add</button>
+            <h1>Add a missing piece to your {set.name}</h1>
+            <form className="add-form" onSubmit={handleAddPiece}>
+                <label>Name</label>
+                <input className="add-field-input" type="text" value={name} placeholder="example: 2x4 flat brick" onChange={(e) => setName(e.target.value)} />
+                <label>Color</label>
+                <input className="add-field-input" type="text" value={color} onChange={(e) => setColor(e.target.value)} />
+                <label>Quantity</label>
+                <input 
+                    className="add-field-input" 
+                    type="number" 
+                    value={quantity} 
+                    onChange={(e) => {
+                        const newValue = e.target.value;
+                        setQuantity(newValue); 
+                        validatePieceNum(newValue);
+                    }} 
+                />
+                { quantityError && (<p className="add-field-error">{quantityError}</p>) }
+                <button className="add-submit-btn" type="submit" disabled={name.length === 0 || color.length === 0 || quantityError.length > 0}>Add Piece</button>
+                <button className="add-cancel-btn" type="button" onClick={routeSetDetails}>Cancel</button>
+            </form>
         </div>
     );
 }

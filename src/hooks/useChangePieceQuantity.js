@@ -19,8 +19,7 @@ export const useChangePieceQuantity = () => {
                 missing_parts: increment(incrementValue),
             });
 
-
-            console.log(`Successful`);
+            //console.log(`Successful`);
         } catch (err) {
             console.error("Error adding piece or updating set:", err);
         }

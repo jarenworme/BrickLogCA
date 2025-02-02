@@ -88,7 +88,7 @@
     justify-content: flex-start;
     height: fit-content;
     width: 70%;
-    padding: 24px;
+    padding: 24px 0;
     border-radius: 24px;
     background-color: var(--accent-titanium-white);
 }

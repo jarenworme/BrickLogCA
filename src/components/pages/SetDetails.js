@@ -28,6 +28,7 @@ export default function SetDetails () {
     const { setID } = useParams();
 
     const navigateHome = () => navigate('/home', { replace: false });
+    const navigateUserSets = () => navigate('/userSets', { replace: false });
     const navigateAddPiece = () => navigate(`/addCustomPiece/${setID}`, { replace: false });
 
     const { set, loading, error, fetchSet } = useFetchSet();
@@ -101,13 +102,17 @@ export default function SetDetails () {
                             <p className="sd-piece-text">{piece.quantity}</p>
                         </div>
                         <button onClick={() => handleChangePieceQuantity(piece.id, "down")} disabled={piece.quantity === 1}>minus</button>                        
-                        <button className="sd-increment-btn" onClick={() => handleChangePieceQuantity(piece.id, "up")} disabled={set.missing_parts  >= set.num_parts}>plus</button>
+                        <button 
+                            className="sd-increment-btn" 
+                            onClick={() => handleChangePieceQuantity(piece.id, "up")} 
+                            disabled={(set.num_parts - set.missing_parts) <= 1}
+                        >plus</button>
                         <button onClick={() => handleDeletePiece(piece.id, piece.quantity)}>delete</button> 
                     </div>
                 ))}
-                <button onClick={navigateAddPiece}>Add a Missing Piece</button>
+                <button onClick={navigateAddPiece} disabled={(set.num_parts - set.missing_parts) <= 1}>Add a Missing Piece</button>
             </div>            
-            <button onClick={navigateHome}>Back</button>
+            <button onClick={navigateUserSets}>Back</button>
         </div>
     );
 }

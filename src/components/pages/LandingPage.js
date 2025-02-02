@@ -9,7 +9,7 @@ import logo from "../../assets/logos/logo.png";
 import boxes from "../../assets/images/boxes6.JPG";
 import oldSet from "../../assets/images/old-set.jpg";
 import customSet from "../../assets/images/lego-404.jpeg";
-import missingPieces from "../../assets/images/blue-lego-bricks.jpeg";
+import missingPieces from "../../assets/images/missing-pieces.JPG";
 import train2 from "../../assets/images/train2.png";
 
 
