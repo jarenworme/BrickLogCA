@@ -87,10 +87,12 @@ export default function SetDetails () {
                 <div className="sd-set-content-wrapper">
                     <h2 className="sd-subtitle">LEGO® {set.name}</h2>
                     <p className="sd-text">{set.theme_id}</p>
-                    <p className="sd-text">{set.theme_id === "MOC" ? "MOC" : "Set"} Number: {set.set_num}</p>
-                    <p className="sd-text">Year: {set.year}</p>
-                    <p className="sd-text">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</p>
-                    <button>Edit Set</button>
+                    <ul className="sd-set-info-wrapper">
+                        <li className="sd-li">{set.theme_id === "MOC" ? "MOC" : "Set"} Number: {set.set_num}</li>
+                        <li className="sd-li">Year Released: {set.year}</li>
+                        <li className="sd-li">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</li>
+                    </ul>
+                    <button className="sd-edit-btn">Edit Set</button>
                 </div>
             </div>
             <div className="sd-piece-card">

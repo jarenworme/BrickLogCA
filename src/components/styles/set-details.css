@@ -33,11 +33,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 85vh;
+    height: 87vh;
     min-height: fit-content;
     width: 100%;
-    padding-top: 15vh;
-    background-color: var(--primary-light);
+    padding-top: 13vh;
+    background-color: var(--primary-disabled);
 }
 
 .sd-set-card {
@@ -45,10 +45,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    height: 50vh;
-    min-height: 400px;
+    height: fit-content;
+    min-height: 50vh;
     width: 70%;
     margin-bottom: 5vh;
+    padding: 5vh 0;
     border-radius: 24px;
     background-color: var(--accent-titanium-white);
 }
@@ -60,7 +61,7 @@
 
 .sd-img {
     height: 100%;
-    width: 90%;
+    width: 100%;
     object-fit: contain;
 }
 
@@ -69,16 +70,49 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: fit-content;
+    min-height: 80%;
     width: 30%;
-    background-color:#54DD3E;
 }
 
 .sd-subtitle {
-    margin-bottom: 0;
+    margin: 0 0 4px 0;
     font-size: xx-large;
-    font-weight: normal;
+    font-weight: bold;
     text-align: center;
+}
+
+.sd-text {
+    margin: 0;
+    font-size: x-large;
+}
+
+.sd-set-info-wrapper {
+    width: 75%;
+}
+
+.sd-li {
+    margin: 4px 0;
+    font-size: large;
+}
+
+.sd-edit-btn {
+    height: fit-content;
+    min-height: 40px;
+    width: fit-content;
+    min-width: 50%;
+    margin-top: 8px;
+    padding: 4px;
+    border: none;
+    border-radius: 12px;
+    font-size: larger;
+    color: var(--off-white);
+    background-color: var(--secondary-dark);
+}
+
+.sd-edit-btn:hover {
+    cursor: pointer;
+    background-color: var(--secondary-light);
 }
 
 .sd-piece-card {
