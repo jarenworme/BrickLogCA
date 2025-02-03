@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { useFetchSet } from "../../hooks/useFetchSet";
 import { useFetchSetPieces } from "../../hooks/useFetchSetPieces";
 import { useChangePieceQuantity } from "../../hooks/useChangePieceQuantity";
@@ -25,13 +28,16 @@ export default function SetDetails () {
     //     });
     // };
 
+    // state variables
+    
+
     const { setID } = useParams();
 
     const navigateHome = () => navigate('/home', { replace: false });
     const navigateUserSets = () => navigate('/userSets', { replace: false });
     const navigateAddPiece = () => navigate(`/addCustomPiece/${setID}`, { replace: false });
 
-    const { set, loading, error, fetchSet } = useFetchSet();
+    const { set, loading, error, isMissingPieces, fetchSet } = useFetchSet();
 
     const { pieces, loadingPieces, fetchPieces } = useFetchSetPieces();
 
@@ -92,29 +98,47 @@ export default function SetDetails () {
                         <li className="sd-li">Year Released: {set.year}</li>
                         <li className="sd-li">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</li>
                     </ul>
-                    <button className="sd-edit-btn">Edit Set</button>
+                    <button className="sd-btn">Edit Set</button>
                 </div>
             </div>
             <div className="sd-piece-card">
-                {pieces.map(piece => (
-                    <div key={piece.id} className="">
-                        <div className="sd-piece-text-wrapper">
-                            <p className="sd-piece-text">#{piece.set_num}</p>
-                            <p className="sd-piece-text">{piece.name}</p>
-                            <p className="sd-piece-text">{piece.quantity}</p>
-                        </div>
-                        <button onClick={() => handleChangePieceQuantity(piece.id, "down")} disabled={piece.quantity === 1}>minus</button>                        
-                        <button 
-                            className="sd-increment-btn" 
-                            onClick={() => handleChangePieceQuantity(piece.id, "up")} 
-                            disabled={(set.num_parts - set.missing_parts) <= 1}
-                        >plus</button>
-                        <button onClick={() => handleDeletePiece(piece.id, piece.quantity)}>delete</button> 
-                    </div>
-                ))}
-                <button onClick={navigateAddPiece} disabled={(set.num_parts - set.missing_parts) <= 1}>Add a Missing Piece</button>
-            </div>            
-            <button onClick={navigateUserSets}>Back</button>
+                {isMissingPieces && <h2 className="sd-piece-card-title">Missing Pieces</h2>}
+                <ul className="sd-piece-ul">
+                    {pieces.map(piece => (
+                        <li key={piece.id} className="sd-piece-li">
+                            <div className="sd-piece-content">
+                                <p className="sd-piece-text">{piece.color} {piece.name} ({piece.quantity})</p>
+                                <div className="sd-icon-wrapper">
+                                    <FontAwesomeIcon 
+                                        icon={faCirclePlus} 
+                                        className={`sd-icon ${(set.num_parts - set.missing_parts) <= 1 ? "sd-disabled-icon" : ""}`} 
+                                        size="xl" 
+                                        onClick={(set.num_parts - set.missing_parts) > 1 ? () => handleChangePieceQuantity(piece.id, "up") : undefined} 
+                                    />
+                                    <FontAwesomeIcon 
+                                        icon={faCircleMinus} 
+                                        className={`sd-icon ${piece.quantity <= 1 ? "sd-disabled-icon" : ""}`} 
+                                        size="xl" 
+                                        onClick={piece.quantity > 1 ? () => handleChangePieceQuantity(piece.id, "down") : undefined} 
+                                    />
+                                    <FontAwesomeIcon 
+                                        icon={faTrashCan} 
+                                        className="sd-icon sd-icon-trash" 
+                                        size="xl" 
+                                        onClick={() => handleDeletePiece(piece.id, piece.quantity)} 
+                                    />
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+                <button className="sd-btn" onClick={navigateAddPiece} disabled={(set.num_parts - set.missing_parts) <= 1}>
+                    Add a Missing Piece
+                </button>
+            </div>  
+            <div className="sd-back-btn-wrapper">       
+                <button className="sd-back-btn" onClick={navigateUserSets}>Back</button>
+            </div>   
         </div>
     );
 }

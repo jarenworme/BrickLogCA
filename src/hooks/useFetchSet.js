@@ -6,6 +6,7 @@ export const useFetchSet = () => {
     const [set, setSet] = useState(null); // Holds the fetched set data
     const [loading, setLoading] = useState(false); // Indicates loading state
     const [error, setError] = useState(null); // Handles potential errors
+    const [isMissingPieces, setIsMissingPieces] = useState(false);
 
     const fetchSet = async (setID) => {
         if (!setID) return; // Do nothing if setId is not provided
@@ -18,6 +19,11 @@ export const useFetchSet = () => {
 
             if (setDoc.exists()) {
                 setSet({ id: setDoc.id, ...setDoc.data() });
+                if (setDoc.data().missing_parts > 0) {
+                    setIsMissingPieces(true);
+                } else {
+                    setIsMissingPieces(false);
+                }
             } else {
                 throw new Error(`Set with ID ${setID} does not exist.`);
             }
@@ -29,5 +35,5 @@ export const useFetchSet = () => {
         }
     };
 
-    return { set, loading, error, fetchSet };
+    return { set, loading, error, isMissingPieces, fetchSet };
 };

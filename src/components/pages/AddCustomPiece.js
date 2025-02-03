@@ -44,7 +44,6 @@ export default function AddCustomPiece () {
     // validation function to ensure a correct missing piece quantity in a valid range
     const validatePieceNum = (value) => {
         let maxMissing = set.num_parts - set.missing_parts - 1;
-        console.log(maxMissing)
 
         // gives an error for 0 or less pieces, or too many pieces for the set
         if(parseInt(value) < 1){
