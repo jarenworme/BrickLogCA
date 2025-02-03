@@ -127,6 +127,10 @@
     background-color: var(--accent-titanium-white);
 }
 
+.sd-piece-card-title {
+    font-size: x-large;
+}
+
 .sd-piece-ul {
     display: flex;
     flex-direction: column;
@@ -202,4 +206,83 @@
     background-color: var(--primary-dark);
 }
 
+/***************************************************************************************************************************************/
+/* code for different screen sizes */
+/***************************************************************************************************************************************/
 
+@media screen and (max-height: 500px) {
+    .sd-wrapper {
+        height: 83vh;
+        padding-top: 17vh;
+    }
+    .sd-set-card {
+        flex-direction: column;
+        width: 90%;
+    }
+    .sd-img-wrapper {
+        height: fit-content;
+        width: 70%;
+    }    
+    .sd-set-content-wrapper {
+        min-height: 0;
+        width: 80%;
+    }
+    .sd-set-info-wrapper {
+        width: 60%;
+    }
+    .sd-btn:hover {
+        background-color: var(--secondary);
+    }
+    .sd-piece-card {
+        width: 90%;
+    }
+    .sd-piece-card-title {
+        margin: 8px 0;
+    }
+    .sd-piece-ul {
+        width: 80%;
+    }    
+    .sd-back-btn-wrapper {
+        justify-content: center;
+        width: 90%;
+    }
+    .sd-back-btn {
+        padding: 4px 72px;
+        margin: 12px 0 48px 0;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) {    
+    .sd-set-card {
+        flex-direction: column;
+        width: 90%;
+    }
+    .sd-img-wrapper {
+        width: 80%;
+        height: fit-content;
+    }
+    .sd-set-content-wrapper {
+        min-height: 0;
+        width: 80%;
+    }    
+    .sd-li {
+        margin: 4px 0;
+        font-size: large;
+    }    
+    .sd-btn:hover {
+        background-color: var(--secondary);
+    }
+    .sd-piece-card {
+        width: 90%;
+    }    
+    .sd-piece-card-title {
+        margin: 4px 0;
+    }
+    .sd-back-btn-wrapper {
+        justify-content: center;
+        width: 90%;
+    }   
+    .sd-back-btn {
+        margin: 0 0 40px 0;
+    }
+}
