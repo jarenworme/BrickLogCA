@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
@@ -8,44 +8,35 @@ import { useGetNumMOCs } from "../../hooks/useGetNumMOCs";
 import '../styles/sets.css';
 import '../styles/add.css';
 
+import image from "../../assets/images/assembling-moc.JPEG";
 
 export default function AddCustomSet () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
-    // variable to hold the user-entered set name
+    // state variables
     const [img_url, setImg_url] = useState("");
-
-    // variable to hold the user-entered set name
     const [name, setName] = useState("");
-
-    // variable to hold the user-entered number of pieces for the set
     const [num_parts, setNum_parts] = useState("");
     // variable to hold conditionally rendered error message for invalid set number
     const [numPartsError, setNumPartsError] = useState("");
-
-
-
+    // set up state for modal
     const [modalOpen, setModalOpen] = useState(false);
 
-    const {
-        numMOCs,
-        loading,
-        fetchMOCs
-    } = useGetNumMOCs();
+    // get number of MOCs to be used for calculating the "set num" of the new MOC
+    const { numMOCs, loading, fetchMOCs } = useGetNumMOCs();
 
-
-
+    // get info from hooks to determine if a user can add a new set given their sub tier
     const { tier, loadingUser, error } = useGetUserSubscriptionTier();
     const { setCount } = useGetUserSetCount();
     const { addSet } = useAddSet();
 
+    // ensures to fetch MOCs once only
     useEffect(() => {
         if(numMOCs === -1){
             fetchMOCs();
         }
     }, [fetchMOCs]);
-    
 
     // validation function to ensure a correct piece count in a valid range
     const validatePieceNum = () => {
@@ -57,7 +48,7 @@ export default function AddCustomSet () {
         }
     }
 
-    // post request to api to add a new set for the logged in user
+    // post request to firebase to add a new set for the logged in user
     const handleSubmit = async (e) => {
         // prevent default form submission
         e.preventDefault();
@@ -83,7 +74,7 @@ export default function AddCustomSet () {
         }
     };
 
-    // navigates back to the set list page when a user clicks the cancel button
+    // navigate back to the set list page when a user clicks the cancel button
     const handleCancel = () => navigate('/browseSets', { replace: false });
 
     // loading screen while it calculates subscription tier
@@ -118,25 +109,55 @@ export default function AddCustomSet () {
             </Modal>
             <h1 className="add-title">Add a New MOC (My Own Creation)</h1>
             <h3 className="add-subtitle">Log your unique LEGO® creations to view them in your collection.</h3>
-            <form className="add-form" onSubmit={handleSubmit}>
-                <label className="add-field-title">Name</label>
-                <input className="add-field-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                <label className="add-field-title">Piece Count</label>
-                <p className="add-field-text">
-                    You can track missing pieces for your MOC. Enter an overestimate if your are still building!
-                </p>
-                <input className="add-field-input" type="number" value={num_parts} 
-                onChange={(e) => setNum_parts(e.target.value)} onBlur={validatePieceNum} />
-                { numPartsError && (<p className="add-field-error">{numPartsError}</p>) }
-                <label className="add-field-title">Display Image</label>
-                <p className="add-field-text">
-                    We are still building an image upload feature. Consider using an online tool like ImageBB and pasting the link 
-                    here if you would like a display image
-                </p>
-                <input className="add-field-input" type="text" value={img_url} onChange={(e) => setImg_url(e.target.value)} />
-                <button className="add-submit-btn" type="submit" disabled={name.length === 0 || num_parts.length === 0 || numPartsError.length > 0}>Add New Set!</button>
-                <button className="add-cancel-btn" type="button" onClick={handleCancel}>Cancel</button>
-            </form>
+            <div className="add-content-wrapper">
+                <div className="add-img-wrapper">
+                    <img src={image} alt="Assembling a MOC" className="add-img"/>
+                </div>
+                <form className="add-form" onSubmit={handleSubmit}>
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Name</label>
+                    </div>
+                    <input className="add-field-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Piece Count</label>
+                    </div>
+                    <input 
+                        className="add-field-input" 
+                        type="number" 
+                        value={num_parts} 
+                        placeholder="Give a good estimate!"
+                        onChange={(e) => setNum_parts(e.target.value)} 
+                        onBlur={validatePieceNum} 
+                    />
+                    { numPartsError && (<p className="add-field-error">{numPartsError}</p>) }
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Display Image</label>
+                    </div>
+                    <input 
+                        className="add-field-input" 
+                        type="text" 
+                        value={img_url} 
+                        placeholder="Optional - copy an ImageBB link here"
+                        onChange={(e) => setImg_url(e.target.value)} 
+                    />
+                    <div className="add-btn-wrapper">
+                        <button 
+                            className="add-submit-btn" 
+                            type="submit" 
+                            disabled={name.length === 0 || num_parts.length === 0 || numPartsError.length > 0}
+                        >
+                            Add New Set!
+                        </button>
+                        <button 
+                            className="add-cancel-btn" 
+                            type="button" 
+                            onClick={handleCancel}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

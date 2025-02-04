@@ -1,31 +1,16 @@
 :root{
     --primary: #0587D0;
-    --primary-light: #1e9be3;
     --primary-dark: #0878ba;
     --primary-disabled: #DEEDF5;
 
     --secondary: #222222;
     --secondary-light: #555555;
     --secondary-dark: #161616;
-    --secondary-disabled: #DBDBDB;
 
     --off-white: #fcfcf8;
 
     --accent-crimson: #E23636;
-    --accent-saffron: #FFE601;
-    --accent-forest-green: #228B22;
-    --accent-lime: #54DD3E;
-    --accent-orange: #FFA800;
-    --accent-orange-dark: #ff9100;
-    --accent-orange-disabled: #ffe4ab;
-    --accent-pink: #F351A9;
-    --accent-purple: #9E07FA;
-    --accent-cobalt: #0047AB;
-    --accent-sky-blue: #87CEEB;
     --accent-titanium-white: #FFFFFF;	
-    --accent-black: #000000;
-    --accent-burnt-sienna: #AB4A13;
-    --accent-sand-green: #A0BCAC;
 }
 
 .sd-wrapper {
@@ -192,8 +177,8 @@
     height: fit-content;
     min-height: 40px;
     width: fit-content;
-    margin: 0 32px 12px 0;
-    padding: 4px 48px;
+    margin: 0 48px 12px 0;
+    padding: 4px 64px;
     border: none;
     border-radius: 12px;
     font-size: larger;
@@ -265,6 +250,9 @@
         min-height: 0;
         width: 80%;
     }    
+    .sd-set-info-wrapper {
+        width: 60%;
+    }
     .sd-li {
         margin: 4px 0;
         font-size: large;

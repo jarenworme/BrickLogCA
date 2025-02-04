@@ -98,7 +98,7 @@ export default function SetDetails () {
                         <li className="sd-li">Year Released: {set.year}</li>
                         <li className="sd-li">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</li>
                     </ul>
-                    <button className="sd-btn">Edit Set</button>
+                    {set.theme_id === "MOC" && <button className="sd-btn" onClick={() => {console.log(set)}}>Edit Set</button>}
                 </div>
             </div>
             <div className="sd-piece-card">

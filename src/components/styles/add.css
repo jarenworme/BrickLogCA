@@ -13,13 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 88vh;
     min-height: fit-content;
-    width: 60%;
+    width: 70%;
     min-width: fit-content;
     margin-top: 12vh;
-    padding: 0 20%;
+    padding: 0 15%;
 }
 
 .add-title {
@@ -35,44 +35,80 @@
     text-align: center;
 }
 
+.add-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70vh;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.add-img-wrapper {
+    height: 100%;
+    width: fit-content;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.add-img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
 .add-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    min-width: fit-content;
+    height: 100%;
+    width: 50%;
+}
+
+.add-field-title-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 74%;
+    margin-top: 24px;
+    margin-bottom: 4px;
 }
 
 .add-field-title {
-    margin-top: 16px;
-    font-size: x-large;
-}
-
-.add-field-text {
-    width: 85%;
-    margin: 4px 0;
-    font-size: medium;
-    color: var(--secondary-light);
-    text-align: center;
+    font-size: larger;
 }
 
 .add-field-input {
-    height: 32px;
-    width: 60%;
+    height: 48px;
+    width: 80%;
+    padding-left: 16px;
+    font-size: medium;
 }
 
 .add-field-error {
-    margin: 4px 0 0 0;
+    margin: 8px 0 0 0;
+    font-size: medium;
     color: var(--accent-crimson);
+}
+
+.add-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-top: 24px;
 }
 
 .add-submit-btn, .add-cancel-btn {
     width: fit-content;
-    margin-top: 16px;
-    padding: 8px 24px;
+    min-width: 45%;
+    margin-bottom: 8px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 20px;
+    border-radius: 12px;
     font-size: large;
 }
 
@@ -104,64 +140,73 @@
 
 @media screen and (max-height: 500px) {
     .add-wrapper {
-        width: 90%;
-        padding: 0 5%;
+        height: fit-content;
+        width: 92%;
+        margin-top: 15vh;
+        padding: 0 4%;
     }
     .add-title {
-        margin-top: 24px;
         font-size: xx-large;
+        margin-bottom: 8px;
     }
     .add-subtitle {
         font-size: large;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
     }
-    .add-field-title {
-        font-size: large;
+    .add-img-wrapper {
+        display: none;
     }
-    .add-field-text {
-        width: 90%;
-        font-size: smaller;
+    .add-content-wrapper {
+        height: fit-content;
+        margin-top: 0;
     }
-    .add-field-input {
-        height: 28px;
+    .add-form {
+        height: fit-content;
+        width: 100%;
+    }
+    .add-field-title-wrapper {
         width: 80%;
+    }    
+    .add-btn-wrapper {
+        margin-bottom: 48px;
     }
-    .add-field-error {
-        font-size: smaller;
-    }
-    .add-cancel-btn {
-        margin-bottom: 24px;
+    .add-submit-btn, .add-cancel-btn {
+        padding: 12px 4px;
     }
 }
 
 @media (max-aspect-ratio: 1/1) { 
     .add-wrapper {
-        width: 90%;
-        padding: 0 5%;
+        width: 92%;
+        padding: 0 4%;
     }
     .add-title {
         font-size: xx-large;
+        margin-bottom: 8px;
     }
     .add-subtitle {
         font-size: large;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
     }
-    .add-field-title {
-        font-size: large;
+    .add-img-wrapper {
+        display: none;
     }
-    .add-field-text {
-        width: 90%;
-        font-size: smaller;
+    .add-content-wrapper {
+        height: fit-content;
+        margin-top: 0;
     }
-    .add-field-input {
-        height: 28px;
+    .add-form {
+        height: fit-content;
+        width: 100%;
+    }
+    .add-field-title-wrapper {
         width: 80%;
+    }    
+    .add-btn-wrapper {
+        margin-bottom: 48px;
     }
-    .add-field-error {
-        font-size: smaller;
-    }
-    .add-cancel-btn {
-        margin-bottom: 24px;
+    .add-submit-btn, .add-cancel-btn {
+        padding: 12px 4px;
     }
 }
 
