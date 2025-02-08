@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAddPiece } from "../../hooks/useAddPiece";
 import { useFetchSet } from "../../hooks/useFetchSet";
+import '../styles/add.css';
+
+import image from "../../assets/images/missing-part-img-car.JPEG";
 
 
 export default function AddCustomPiece () {
@@ -84,30 +87,65 @@ export default function AddCustomPiece () {
 
 
     return (
-        <div className="outer-container">
-            <h1>add piece</h1>
-            <h1>spacer text</h1>
-            <h1>Add a missing piece to your {set.name}</h1>
-            <form className="add-form" onSubmit={handleAddPiece}>
-                <label>Name</label>
-                <input className="add-field-input" type="text" value={name} placeholder="example: 2x4 flat brick" onChange={(e) => setName(e.target.value)} />
-                <label>Color</label>
-                <input className="add-field-input" type="text" value={color} onChange={(e) => setColor(e.target.value)} />
-                <label>Quantity</label>
-                <input 
-                    className="add-field-input" 
-                    type="number" 
-                    value={quantity} 
-                    onChange={(e) => {
-                        const newValue = e.target.value;
-                        setQuantity(newValue); 
-                        validatePieceNum(newValue);
-                    }} 
-                />
-                { quantityError && (<p className="add-field-error">{quantityError}</p>) }
-                <button className="add-submit-btn" type="submit" disabled={name.length === 0 || color.length === 0 || quantityError.length > 0}>Add Piece</button>
-                <button className="add-cancel-btn" type="button" onClick={routeSetDetails}>Cancel</button>
-            </form>
+        <div className="add-wrapper">
+            <h1 className="add-title">Add a missing piece to {set.name}</h1>
+            <h3 className="add-subtitle">Try to describe the piece as best you can</h3>
+            <div className="add-content-wrapper">
+                <div className="add-img-wrapper">
+                    <img src={image} alt="Assembling a MOC" className="add-img"/>
+                </div>
+                <form className="add-form" onSubmit={handleAddPiece}>
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Name</label>
+                    </div>
+                    <input 
+                        className="add-field-input" 
+                        type="text" 
+                        value={name} 
+                        placeholder="example: 2x4 flat brick" 
+                        onChange={(e) => setName(e.target.value)} 
+                    />
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Color</label>
+                    </div>
+                    <input 
+                        className="add-field-input" 
+                        type="text" 
+                        value={color} 
+                        onChange={(e) => setColor(e.target.value)} 
+                    />
+                    <div className="add-field-title-wrapper">
+                        <label className="add-field-title">Quantity</label>
+                    </div>
+                    <input 
+                        className="add-field-input" 
+                        type="number" 
+                        value={quantity} 
+                        onChange={(e) => {
+                            const newValue = e.target.value;
+                            setQuantity(newValue); 
+                            validatePieceNum(newValue);
+                        }} 
+                    />
+                    { quantityError && (<p className="add-field-error">{quantityError}</p>) }
+                    <div className="add-btn-wrapper">
+                        <button 
+                            className="add-submit-btn" 
+                            type="submit" 
+                            disabled={name.length === 0 || color.length === 0 || quantityError.length > 0}
+                        >
+                            Add Piece
+                        </button>
+                        <button 
+                            className="add-cancel-btn" 
+                            type="button" 
+                            onClick={routeSetDetails}
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
