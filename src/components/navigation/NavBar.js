@@ -28,7 +28,7 @@ export default function NavBar () {
                 </button>
             </div>
             <div className='nav-right-wrapper'>
-                <button className='nav-button' onClick={navigateUserPieces} disabled={true}>
+                <button className='nav-button' onClick={navigateUserPieces}>
                     <p className='nav-text'>Pieces</p>
                     <div className='nav-svg-wrapper'>
                         <img src={bricks} alt='LEGO Brick' className='nav-svg' />  

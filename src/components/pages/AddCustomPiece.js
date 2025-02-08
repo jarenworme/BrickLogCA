@@ -67,6 +67,7 @@ export default function AddCustomPiece () {
             setID,
             set_num: tempSetNum,
             set_name: set.name,
+            set_image: set.img_url,
             name,
             color,
             quantity,  

@@ -31,7 +31,7 @@ export default function Home () {
                 </div>
                 <div className="home-right-ctr">
                     <div className="home-btn-wrapper">
-                        <button className="home-btn home-pieces-image" onClick={navigatePieces} disabled={true}>
+                        <button className="home-btn home-pieces-image" onClick={navigatePieces}>
                             Your Missing Pieces
                         </button>
                     </div>

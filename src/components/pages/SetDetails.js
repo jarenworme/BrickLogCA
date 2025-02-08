@@ -33,7 +33,6 @@ export default function SetDetails () {
 
     const { setID } = useParams();
 
-    const navigateHome = () => navigate('/home', { replace: false });
     const navigateUserSets = () => navigate('/userSets', { replace: false });
     const navigateAddPiece = () => navigate(`/addCustomPiece/${setID}`, { replace: false });
 

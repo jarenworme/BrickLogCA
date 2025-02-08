@@ -6,7 +6,7 @@ export const useAddPiece = () => {
     const setCollectionRef = collection(db, "pieces");
     const { userID } = useGetUserInfo();
 
-    const addPiece = async ({ setID, set_num, set_name, name, color, quantity, missing_parts }) => {
+    const addPiece = async ({ setID, set_num, set_name, set_image, name, color, quantity, missing_parts }) => {
         try {
             // Validate input numbers
             // console.log(set_num, quantity, missing_parts);
@@ -23,6 +23,7 @@ export const useAddPiece = () => {
                 setID,
                 set_num,
                 set_name,
+                set_image,
                 name,
                 color,
                 quantity: parsedQuantity,
