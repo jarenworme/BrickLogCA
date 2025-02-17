@@ -10,6 +10,7 @@ import "../styles/auth.css"
 export default function Auth() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
+    const routeForgotPassword = () => navigate('/forgotPassword', { replace: false });
 
     // input parameters for determining if to load register or login on mount
     const { register } = useParams();
@@ -129,6 +130,7 @@ export default function Auth() {
                             <input className="auth-input" type={showPassword ? "text" : "password"} placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                             <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} className='auth-eye' size='xl' onClick={() => setShowPassword(!showPassword)}/>
                         </div>
+                        <button type="button" className="auth-forgot-password-link" onClick={routeForgotPassword}>forgot password?</button>
                         {isRegistering && (
                             <div className="auth-input-wrapper">
                                 <input

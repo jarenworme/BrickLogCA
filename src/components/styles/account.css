@@ -1,10 +1,8 @@
 :root{
     --primary: #0587D0;
     --primary-dark: #0878ba;
-
     --secondary: #222222;
     --secondary-dark: #161616;
-
     --accent-black: #000000;
 }
 
@@ -118,12 +116,6 @@
     cursor: pointer;
     border: 3px solid var(--primary-dark);
 }
-
-
-/***************************************************************************************************************************************/
-/* corrections for other screen sizes */
-/***************************************************************************************************************************************/
-
 
 @media screen and (max-height: 500px) {
     .account-wrapper, .edit-profile-wrapper {

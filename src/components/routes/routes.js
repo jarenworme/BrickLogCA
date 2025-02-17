@@ -13,6 +13,7 @@ import ChangePlan from "../pages/ChangePlan";
 import EditPiece from "../pages/EditPiece";
 import EditProfile from "../pages/EditProfile";
 import EditSet from "../pages/EditSet";
+import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -40,8 +41,9 @@ export default function Router (){
                 { path: '/changePassword', element: (<ProtectedRoute><ChangePassword /></ProtectedRoute>) },
                 { path: '/changePlan', element: (<ProtectedRoute><ChangePlan /></ProtectedRoute>) },
                 { path: '/editPiece', element: (<ProtectedRoute><EditPiece /></ProtectedRoute>) },
-                { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) } ,
+                { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) },
                 { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
+                { path: '/forgotPassword', element: <ForgotPassword /> },
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
                 { path: '/phases', element: <Payments /> },

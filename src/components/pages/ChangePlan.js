@@ -11,8 +11,9 @@ export default function ChangePlan () {
         <div className="account-wrapper">
             <h1 className="account-change-plan-text">
                 We are not offering paid services currently. If you are enjoying our platform and want to increase your subscription 
-                tier, shoot us an email at jarenworme@gmail.com and we'll upgrade you for free!
+                tier, dm us on Instagram and we'll upgrade you for free!
             </h1>
+            <a href="https://www.instagram.com/bricklogca/">bricklogca</a>
             <button className="account-btn" onClick={routeBack}>Back</button>
         </div>
     )

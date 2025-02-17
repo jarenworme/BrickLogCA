@@ -6,7 +6,7 @@ import ScrollToTop from './components/navigation/ScrollToTop';
 
 function App() {
   // Paths for the navbar to disappear
-  const noNavBarRoutes = ['/', '/about', '/payments', '/404'];
+  const noNavBarRoutes = ['/', '/about', '/payments', '/forgotPassword', '/404'];
 
   // Dynamic paths to match
   const dynamicRoutes = ['/auth/:register'];

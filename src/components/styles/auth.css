@@ -8,6 +8,7 @@
     --accent-saffron: #FFE601;
     --accent-forest-green: #228B22;
     --accent-lime: #54DD3E;
+    --accent-black: #000000;
     --accent-titanium-white: #FFFFFF;	
 }
 
@@ -40,6 +41,7 @@
     height: 70%;
     min-height: 350px;
     width: 70%;
+    padding: 12px 0;
     border-radius: 16px;
     background-color: var(--off-white);
     display: flex;
@@ -213,7 +215,7 @@
 }
 
 .auth-submit-btn {
-    height: 16%;
+    height: 14%;
     min-height: 48px;
     width: 100%;
     border: none;
@@ -238,9 +240,82 @@
     background-color: transparent;
 }
 
-.auth-toggle-register:hover {
+.auth-forgot-password-link {
+    height: 8%;
+    margin: -12px 0 8px 0;
+    border: none;
+    font-size: small;
+    color: var(--accent-crimson);
+    background-color: transparent;
+}
+
+.auth-toggle-register:hover, .auth-forgot-password-link:hover {
     cursor: pointer;
     text-decoration: underline;
+}
+
+.fp-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 36vh;
+    width: 36vw;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: var(--off-white);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.fp-title {
+    margin-top: 0;
+    font-size: xx-large;
+}
+
+.fp-input {
+    width: 80%;
+    margin: 0 0 16px 0;
+    padding: 8px;
+    border: 2px solid var(--secondary);
+    font-size: medium;
+    color: var(--secondary);
+    text-align: center;
+    background-color: transparent;
+}
+
+.fp-btn {
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+    padding: 8px 32px;
+    font-size: large;
+    color: var(--off-white);
+    background-color: var(--primary);
+}
+
+.fp-btn:hover {
+    cursor: pointer;
+    background-color: var(--primary-dark);
+}
+
+.fp-btn-back {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 32px;
+    font-size: large;
+    color: var(--off-white);
+    background-color: var(--secondary);
+}
+
+.fp-btn-back:hover {
+    cursor: pointer;
+    background-color: var(--accent-black);
+}
+
+.fp-text {
+    width: 80%;
+    text-align: center;
+    margin: 0 0 16px 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -273,5 +348,26 @@
         justify-content: flex-start;
         min-height: 50vh;
         width: 90%;
+    }
+    .fp-card {
+        height: 36vh;
+        min-height: fit-content;
+        width: 70vw;
+        padding: 32px;
+    }
+    .fp-title {
+        text-align: center;
+    }
+    .fp-input {
+        width: 90%;
+        padding: 16px;
+        font-size: larger;
+    }
+    .fp-btn, .fp-btn-back {
+        padding: 12px 40px;
+        font-size: x-large;
+    }
+    .fp-text {
+        font-size: large;
     }
 }
