@@ -1,15 +1,188 @@
-.account-wrapper {
+:root{
+    --primary: #0587D0;
+    --primary-dark: #0878ba;
+
+    --secondary: #222222;
+    --secondary-dark: #161616;
+
+    --accent-black: #000000;
+}
+
+.account-wrapper, .edit-profile-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 88vh;
+    min-height: fit-content;
+    width: 100%;
+    margin-top: 12vh;
+}
+
+.account-wrapper {
+    justify-content: center;
+}
+
+.edit-profile-wrapper {
+    justify-content: flex-start;
+}
+
+.account-profile-img-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account-profile-img-wrapper {
+    height: 200px;
+    width: 200px;
+}
+
+.account-profile-img {
+    object-fit: cover;
+    height: 100%;
     width: 100%;
 }
 
-.account-temp-btn {
-    width: 100px;
+.account-title {
+    font-size: xx-large;
+}
+
+.account-text-xl {
+    margin: 8px 0;
+    font-size: x-large;
+}
+
+.account-text-larger {
+    margin-top: 2px;
+    font-size: larger;
+}
+
+.account-text-large {
+    margin: 4px 0 8px 0;
+    font-size: large;
+    font-weight: normal;
+}
+
+.account-change-plan-text {
+    width: 50%;
+    text-align: center;
+    font-size: large;
+    font-weight: normal;
+}
+
+.account-divider {
+    height: 3px;
+    width: 400px;
+    border: none;
+    background-color: var(--secondary-dark);
+}
+
+.account-file-input {
+    margin: 10px 0;
+}
+
+.account-text-input {
+    min-width: 320px;
+    margin-bottom: 12px;
+    padding: 2px 0;
+    text-align: center;
+    font-size: large;
+    border: 2px solid var(--secondary);
+}
+
+.account-btn {
+    width: 200px;
     height: 30px;
+    border: 2px solid var(--secondary-dark);
     border-radius: 15px;
-    margin: 40px;
+    margin: 10px;
+    font-size: smaller;
+}
+
+.account-btn-secondary {
+    width: 200px;
+    height: 30px;
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    margin: 10px;
+    font-size: smaller;
+}
+
+.account-btn:hover {
+    cursor: pointer;
+    border: 3px solid var(--accent-black);
+}
+
+.account-btn-secondary:hover {
+    cursor: pointer;
+    border: 3px solid var(--primary-dark);
+}
+
+
+/***************************************************************************************************************************************/
+/* corrections for other screen sizes */
+/***************************************************************************************************************************************/
+
+
+@media screen and (max-height: 500px) {
+    .account-wrapper, .edit-profile-wrapper {
+        height: 83vh;
+        margin-top: 17vh;
+    }
+    .account-wrapper, .edit-profile-wrapper {
+        margin-bottom: 100px;
+    }
+    .account-profile-img-wrapper {
+        height: 210px;
+        width: 210px;
+    }
+    .account-title {
+        margin: 4px 0;
+    }
+    .account-change-plan-text {
+        width: 85%;
+        margin-top: -40px;
+    }
+    .account-text-input {
+        margin-top: 4px;
+        padding: 8px 0;
+    }
+    .account-btn, .account-btn-secondary {
+        width: 240px;
+        height: 36px;
+        border-radius: 18px;
+        font-size: medium;
+    }
+    
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .account-wrapper, .edit-profile-wrapper {
+        margin-bottom: 100px;
+    }
+    .account-profile-img-wrapper {
+        height: 250px;
+        width: 250px;
+    }
+    .account-title {
+        margin: 4px 0;
+    }
+    .account-change-plan-text {
+        width: 85%;
+        margin-top: -40px;
+    }
+    .account-divider {
+        display: none;
+    }
+    .account-text-input {
+        margin-top: 4px;
+        padding: 8px 0;
+    }
+    .account-btn, .account-btn-secondary {
+        width: 240px;
+        height: 36px;
+        border-radius: 18px;
+        font-size: medium;
+    }
 }

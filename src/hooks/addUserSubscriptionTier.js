@@ -7,20 +7,24 @@ import { db } from "../config/firebase-config";
 const useAddUserSubscriptionTier = () => {
     useEffect(() => {
         const auth = getAuth();
+
         const handleUserLogin = async (user) => {
             if (user) {
                 const userRef = doc(db, "users", user.uid);
                 const userSnapshot = await getDoc(userRef);
+                const defaultDisplayName = user.email.split("@")[0];
 
                 if (!userSnapshot.exists()) {
-                    // Add new user with default subscriptionTier
+                    // Add new user with default subscriptionTier and display name
                     await setDoc(userRef, {
                         email: user.email,
+                        displayName: defaultDisplayName,
                         subscriptionTier: 1, // Default tier
                         createdAt: new Date().toISOString(),
                     });
                 } else {
                     const userData = userSnapshot.data();
+                    
                     if (!userData.subscriptionTier) {
                         // Update existing user with default subscriptionTier if missing
                         await setDoc(userRef, { ...userData, subscriptionTier: 1 });

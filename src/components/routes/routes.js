@@ -8,7 +8,10 @@ import AddCustomSet from "../pages/AddCustomSet";
 import Auth from "../pages/Auth";
 import BrowsePieces from "../pages/BrowsePieces";
 import BrowseSets from "../pages/BrowseSets";
+import ChangePassword from "../pages/ChangePassword";
+import ChangePlan from "../pages/ChangePlan";
 import EditPiece from "../pages/EditPiece";
+import EditProfile from "../pages/EditProfile";
 import EditSet from "../pages/EditSet";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
@@ -28,17 +31,20 @@ export default function Router (){
             children: [
                 { path: '/', element: <LandingPage /> },
                 { path: '/about', element: <About /> },
-                { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>)},
+                { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>) },
                 { path: '/addCustomPiece/:setID', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
                 { path: '/auth/:register', element: <Auth />},
                 { path: '/browsePieces', element: (<ProtectedRoute><BrowsePieces /></ProtectedRoute>) },
                 { path: '/browseSets', element: (<ProtectedRoute><BrowseSets /></ProtectedRoute>) },
+                { path: '/changePassword', element: (<ProtectedRoute><ChangePassword /></ProtectedRoute>) },
+                { path: '/changePlan', element: (<ProtectedRoute><ChangePlan /></ProtectedRoute>) },
                 { path: '/editPiece', element: (<ProtectedRoute><EditPiece /></ProtectedRoute>) },
-                { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>)} ,
+                { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) } ,
+                { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
-                { path: '/phases', element: <Payments />},
+                { path: '/phases', element: <Payments /> },
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
                 { path: '/userPieces', element: (<ProtectedRoute><UserPieces /></ProtectedRoute>) },

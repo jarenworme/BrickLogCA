@@ -29,7 +29,7 @@ export default function UserPieces () {
     return (
         <div className="up-wrapper">
             <h1 className="up-title">Your Missing Pieces</h1>
-            <h3 className="up-subtitle">to add a missing piece, view the set it belongs to</h3>
+            <h3 className="up-subtitle">to add a missing piece, go to the set it belongs to</h3>
             <hr className="up-top-divider" />
             <div className="up-pieces-wrapper">
                 {pieces.map(piece => (
