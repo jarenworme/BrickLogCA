@@ -10,10 +10,10 @@ import image from "../../assets/images/missing-part-img-car.JPEG";
 export default function AddCustomPiece () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
+    const routeSetDetails = () => navigate(`/setDetails/${setID}`, { replace: false });
 
     // ref variable to only call useEffect once in testing
     const fetchCalled = useRef(false);    
-
 
     // variable to hold the user-entered piece name
     const [name, setName] = useState("");
@@ -25,11 +25,6 @@ export default function AddCustomPiece () {
     const [quantity, setQuantity] = useState(1);
     // variable to hold conditionally rendered error message for invalid missing pieces amount
     const [quantityError, setQuantityError] = useState("");
-    
-    
-    
-    const routeHome = () => navigate('/', { replace: false });
-    const routeSetDetails = () => navigate(`/setDetails/${setID}`, { replace: false });
 
     const { setID } = useParams();
 
@@ -58,11 +53,14 @@ export default function AddCustomPiece () {
         }
     }
 
-    const handleAddPiece = async () => {
+    const handleAddPiece = async (event) => {
+        event.preventDefault();
+
         let tempSetNum = set.set_num;
         if(set.theme_id === "MOC") {
             tempSetNum = `MOC${set.set_num}`;
         }
+
         const pieceData = {
             setID,
             set_num: tempSetNum,
