@@ -42,7 +42,7 @@ export default function Router (){
                 { path: '/changePlan', element: (<ProtectedRoute><ChangePlan /></ProtectedRoute>) },
                 { path: '/editPiece', element: (<ProtectedRoute><EditPiece /></ProtectedRoute>) },
                 { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) },
-                { path: '/editSet', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
+                { path: '/editSet/:setID', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
                 { path: '/forgotPassword', element: <ForgotPassword /> },
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },

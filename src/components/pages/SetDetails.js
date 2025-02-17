@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
@@ -7,34 +7,20 @@ import { useFetchSet } from "../../hooks/useFetchSet";
 import { useFetchSetPieces } from "../../hooks/useFetchSetPieces";
 import { useChangePieceQuantity } from "../../hooks/useChangePieceQuantity";
 import { useDeletePiece } from "../../hooks/useDeletePiece";
-// import { useEditSet } from "../../hooks/useEditSet";
 import '../styles/set-details.css';
 
 
 export default function SetDetails () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
+    const navigateUserSets = () => navigate('/userSets', { replace: false });
+    const navigateEditSet = () => navigate(`/editSet/${setID}`, { replace: false });
+    const navigateAddPiece = () => navigate(`/addCustomPiece/${setID}`, { replace: false });
     
     // ref variable to only call useEffect once in testing
-    const fetchCalled = useRef(false);    
-
-
-    // const { editSet } = useEditSet();
-
-    // const handleEdit = () => {
-    //     editSet("U3uY0ENyk3lE0A0ONUJz", {
-    //         setName: "Updated set",
-    //         pieceCount: 120,
-    //     });
-    // };
-
-    // state variables
-    
+    const fetchCalled = useRef(false);        
 
     const { setID } = useParams();
-
-    const navigateUserSets = () => navigate('/userSets', { replace: false });
-    const navigateAddPiece = () => navigate(`/addCustomPiece/${setID}`, { replace: false });
 
     const { set, loading, error, isMissingPieces, fetchSet } = useFetchSet();
 
@@ -42,7 +28,7 @@ export default function SetDetails () {
 
     const { changePieceQuantity } = useChangePieceQuantity();
 
-    const { deletePiece, loadingDelete, errorDelete } = useDeletePiece();
+    const { deletePiece } = useDeletePiece();
 
     useEffect(() => {
         if (!fetchCalled.current && pieces.length === 0) {
@@ -97,7 +83,7 @@ export default function SetDetails () {
                         <li className="sd-li">Year Released: {set.year}</li>
                         <li className="sd-li">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</li>
                     </ul>
-                    {set.theme_id === "MOC" && <button className="sd-btn" onClick={() => {console.log(set)}}>Edit Set</button>}
+                    {set.theme_id === "MOC" && <button className="sd-btn" onClick={navigateEditSet}>Edit Set</button>}
                 </div>
             </div>
             <div className="sd-piece-card">

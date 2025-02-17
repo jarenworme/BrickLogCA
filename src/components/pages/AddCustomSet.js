@@ -5,7 +5,6 @@ import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTi
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
 import { useGetNumMOCs } from "../../hooks/useGetNumMOCs";
-import '../styles/sets.css';
 import '../styles/add.css';
 
 import image from "../../assets/images/assembling-moc.JPEG";

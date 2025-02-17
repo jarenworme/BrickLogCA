@@ -1,15 +1,23 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
+
 export const useEditSet = () => {
+
     const editSet = async (setID, updatedData) => {
+        if (!setID) {
+            console.error("Error: No set ID provided for update.");
+            return;
+        }
+
+        const setDocRef = doc(db, "sets", setID);
+
         try {
-            const setDocRef = doc(db, "sets", setID);
             await updateDoc(setDocRef, {
                 ...updatedData,
             });
-        } catch (err) {
-            console.error("Error updating set:", err);
+        } catch (error) {
+            console.error("Error updating set:", error);
         }
     };
 
