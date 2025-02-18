@@ -46,7 +46,7 @@ export default function Router (){
                 { path: '/forgotPassword', element: <ForgotPassword /> },
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
                 { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
-                { path: '/phases', element: <Payments /> },
+                { path: '/payments', element: <Payments /> },
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },
                 { path: '/userPieces', element: (<ProtectedRoute><UserPieces /></ProtectedRoute>) },

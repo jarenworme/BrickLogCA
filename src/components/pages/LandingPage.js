@@ -22,12 +22,12 @@ export default function LandingPage () {
     const navigateAuth = () => navigate('/auth/2', { replace: false });
     const navigateAuthRegister = () => navigate('/auth/1', { replace: false });
     const navigateLandingPage = () => navigate('/', { replace: false });
-    const navigatePayments = () => navigate('/phases', { replace: false });
+    const navigatePayments = () => navigate('/payments', { replace: false });
 
     // state variables
     const [isScrolled, setIsScrolled] = useState(false);
 
-    // monitors if a user has scrolled any to trigger the alternate nav-bar styles
+    // function to monitor if a user has scrolled to trigger the alternate nav-bar styles
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
@@ -35,7 +35,6 @@ export default function LandingPage () {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
 
     return (
         <div className="lp-wrapper">
@@ -59,12 +58,12 @@ export default function LandingPage () {
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Your Virtual LEGO® Room</h2>
                     <p className="lp-block2-text">
-                        Track and explore your LEGO® collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy fun 
-                        insights like your total piece count and other stats.
+                        Track and explore your LEGO® collection with BrickLogCA. Organize your sets, uncover unique details, and enjoy 
+                        fun insights like your total piece count and other stats.
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
-                    <img src={boxes} alt="LEGO Boxes" className="lp-block2-img"/>
+                    <img src={boxes} alt="LEGO Boxes" className="lp-block2-img" />
                 </div>
             </div>
             <div className="lp-block-2 lp-reverse-display">
@@ -76,7 +75,7 @@ export default function LandingPage () {
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
-                    <img src={oldSet} alt="LEGO Boxes" className="lp-block2-img"/>
+                    <img src={oldSet} alt="LEGO Boxes" className="lp-block2-img" />
                 </div>
             </div>
             <div className="lp-block-2">
@@ -87,23 +86,23 @@ export default function LandingPage () {
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
-                    <img src={customSet} alt="LEGO Boxes" className="lp-block2-img"/>
+                    <img src={customSet} alt="LEGO Boxes" className="lp-block2-img" />
                 </div>
             </div>
             <div className="lp-block3-title-wrapper">
-                <h2 className="lp-block3-title">Our Development Schedule</h2>
+                <h2 className="lp-block3-title">Get the most out of BrickLogCA</h2>
             </div>
             <div className="lp-block-3">
                 <div className="lp-tier-card">
                     <h3 className="lp-tier-title">Brick Starter</h3>
                     <p className="lp-tier-subtitle">Everything you need to get started</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-large">Phase 1</span>
+                        <span className="lp-tier-span-large">Free</span>
                     </div>
                     <button className="lp-tier-btn lp-tier-btn-active" onClick={navigateAuthRegister}>Get Started</button>
                     <hr className="lp-tier-divider" />
                     <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check'/>
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Full Database Access</p>
                     </div>
                     <div className="lp-tier-feature">
@@ -119,20 +118,20 @@ export default function LandingPage () {
                         <p className="lp-tier-text">Unlimited Missing Pieces</p>
                     </div>
                     <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Community Tab</p>
+                    </div>
+                    <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
-                        <p className="lp-tier-text lp-greyed">Community Tab</p>
+                        <p className="lp-tier-text lp-greyed">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
-                        <p className="lp-tier-text lp-greyed">Minifigure Log</p>
-                    </div>
-                    <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
-                        <p className="lp-tier-text lp-greyed">Custom Picture Uploads</p>
+                        <p className="lp-tier-text lp-greyed">Custom Community Posts</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
@@ -143,7 +142,9 @@ export default function LandingPage () {
                     <h3 className="lp-tier-title">Avid Collector</h3>
                     <p className="lp-tier-subtitle">Level up with additional features.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-large">Phase 2</span>
+                        <span className="lp-tier-span-small">US$ </span>
+                        <span className="lp-tier-span-large">1.99</span>
+                        <span className="lp-tier-span-small">/mo*</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -165,19 +166,19 @@ export default function LandingPage () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Community Tab</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
-                        <p className="lp-tier-text">Community Tab</p>
+                        <p className="lp-tier-text">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
-                        <p className="lp-tier-text lp-greyed">Minifigure Log</p>
-                    </div>
-                    <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
-                        <p className="lp-tier-text lp-greyed">Custom Picture Uploads</p>
+                        <p className="lp-tier-text lp-greyed">Custom Community Posts</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
@@ -186,9 +187,11 @@ export default function LandingPage () {
                 </div>
                 <div className="lp-tier-card">
                     <h3 className="lp-tier-title">Brick Enthusiast</h3>
-                    <p className="lp-tier-subtitle">The Ultimate BrickLogCA experience.</p>
+                    <p className="lp-tier-subtitle">The Ultimate experience.</p>
                     <div className="lp-tier-span-wrapper">
-                        <span className="lp-tier-span-large">Phase 3</span>
+                        <span className="lp-tier-span-small">US$ </span>
+                        <span className="lp-tier-span-large">4.99</span>
+                        <span className="lp-tier-span-small">/mo*</span>
                     </div>
                     <button className="lp-tier-btn">Coming Soon</button>
                     <hr className="lp-tier-divider" />
@@ -210,41 +213,46 @@ export default function LandingPage () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
-                        <p className="lp-tier-text">Log Custom Sets</p>
-                    </div>
-                    <div className="lp-tier-feature">
-                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Community Tab</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
-                        <p className="lp-tier-text">Minifigure Log</p>
+                        <p className="lp-tier-text">Log Custom Sets</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
-                        <p className="lp-tier-text">Custom Picture Uploads</p>
+                        <p className="lp-tier-text">Custom Profile Picture</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Custom Community Posts</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Personal Agent to Order Your Missing Pieces</p>
                     </div>
                 </div>
+                <h4 className="lp-block3-subtext">
+                    * please note that we do not and will not accept payments. These prices are for resume project display purposes 
+                    only and BrickLogCA is completely free to use. If you reach a maximum number of sets, email us and we will upgrade 
+                    your plan.
+                </h4>
             </div>
             <div className="lp-block-2">
                 <div className="lp-block2-content-wrapper">
                     <h2 className="lp-block2-title">Track Your Missing Pieces</h2>
                     <p className="lp-block2-text">
-                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the Brick Enthusiast's 
-                        release, we'll source and order replacements for you at the best prices.
+                        Missing pieces? No problem. Log them in your sets and view them all in one place. With the Brick Enthusiast 
+                        plan, we'll source and order replacements for you at the best prices.
                     </p>
                 </div>
                 <div className="lp-block2-img-wrapper">
-                    <img src={missingPieces} alt="LEGO Boxes" className="lp-block2-img"/>
+                    <img src={missingPieces} alt="LEGO Boxes" className="lp-block2-img" />
                 </div>
             </div>
             <div className="lp-block-4">
                 <div className="lp-block4-img-wrapper">
-                    <img src={train2} alt="LEGO Boxes" className="lp-block2-img"/>
+                    <img src={train2} alt="LEGO Boxes" className="lp-block2-img" />
                 </div>
                 <div className="lp-block4-content-wrapper">
                     <h2 className="lp-block2-title">Give It a Try</h2>
@@ -256,34 +264,33 @@ export default function LandingPage () {
             </div>
             <div className="lp-footer">
                 <h3 className="lp-footer-text">
-                    BrickLogCA is redeveloping using a different backend framework. You can still create an account and view our home page
-                     at the moment. Thank you for your patience!
+                    LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site
                 </h3>
                 <div className="lp-footer-top-wrapper">
-                    <button className="lp-footer-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
+                    <button className="lp-footer-btn" onClick={navigateAboutUs}>About Us</button>
                     <div className="lp-footer-a-wrapper">
-                        <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
-                            target="_blank" rel="noopener noreferrer"
+                        <a 
+                            href="https://www.instagram.com/bricklogca/" 
+                            className="lp-footer-a" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
                         >
                             <FontAwesomeIcon icon={faInstagram} className='lp-icon-footer' size='2x' />
                         </a>
-                        <a href="https://www.instagram.com/legologca/" className="lp-footer-a" 
-                            target="_blank" rel="noopener noreferrer"
+                        <a 
+                            href="https://medium.com/@jarenworme/how-i-made-my-first-full-stack-web-application-575c125d1d38" 
+                            className="lp-footer-a" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
                         >
                             <FontAwesomeIcon icon={faMedium} className='lp-icon-footer' size='2x' />
                         </a>
                     </div>
                 </div>
-                <h3 className="lp-footer-text">BrickLogCa is in no way affiliated with the LEGO® Group or any of its subsidiaries.</h3>
-                <h3 className="lp-footer-text">LEGO® is a trademark of the LEGO Group of companies which does not sponsor, authorize or endorse this site</h3>
+                <h3 className="lp-footer-text">Thank you to Rebrickable for their LEGO® database</h3>
+                <h3 className="lp-footer-copyright-text">email us at bricklogca@gmail.com</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>
     );
 }
-
-/* 
-<span className="lp-tier-span-small">US$ </span>
-<span className="lp-tier-span-large">1.99</span>
-<span className="lp-tier-span-small">/mo</span>
-*/

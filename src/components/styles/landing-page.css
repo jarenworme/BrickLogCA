@@ -53,6 +53,10 @@
     margin-right: 12px;
 }
 
+.lp-nav-logo:hover {
+    cursor: pointer;
+}
+
 .lp-scrolled-logo {
     display: none;
 }
@@ -181,10 +185,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 62vh;
+    height: 60vh;
     min-height: fit-content;
     width: 70%;
-    padding: 0 15%;
+    padding: 32px 15% 0 15%;
     background-color: var(--off-white);
 }
 
@@ -236,7 +240,7 @@
     justify-content: center;
     height: 25vh;
     width: 70%;
-    padding: 0 15%;
+    padding: 0 15% 16px 15%;
     background-color: var(--primary);
 }
 
@@ -258,11 +262,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
+    height: fit-content;
     min-height: 80vh;
-    width: 70%;
-    padding: 0 15%;
+    width: 80%;
+    padding: 0 10% 16px 10%;
     background-color: var(--primary);
 }
 
@@ -271,7 +276,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: fit-content;
+    height: auto;
     width: 22%;
     min-width: 200px;
     margin: 0 1% 2vh 1%;
@@ -288,6 +293,7 @@
 }
 
 .lp-tier-subtitle {
+    flex-grow: 1;
     width: 100%;
     margin: 0;
     font-size: smaller;
@@ -375,6 +381,13 @@
     font-size: medium;
 }
 
+.lp-block3-subtext {
+    color: var(--off-white);
+    text-align: center;
+    font-size: medium;
+    font-weight: normal;
+}
+
 .lp-block-4 {
     display: flex;
     flex-direction: row;
@@ -402,7 +415,9 @@
 
 .lp-cta-bottom {
     height: 15%;
-    min-width: 48%;
+    min-height: 48px;
+    width: 48%;
+    min-width: 200px;
     margin-top: 10%;
     margin-right: 10%;
     border: 3px solid var(--primary);
@@ -431,12 +446,13 @@
     justify-content: center;
     height: fit-content;
     width: 70%;
-    padding: 5vh 15% 0 15%;
+    padding: 24px 15% 0 15%;
     background-color: var(--primary);
 }
 
 .lp-footer-text {
     width: 100%;
+    margin: 12px 0;
     font-size: large;
     font-weight: normal;
     color: var(--off-white);
@@ -445,14 +461,14 @@
 
 .lp-footer-top-wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 8vh;
-    width: 40%;
 }
 
 .lp-footer-btn {
-    min-width: 30%;
+    margin: 8px 0;
+    padding: 2px 16px;
     border: 2px solid var(--off-white);
     font-size: large;
     color: var(--off-white);
@@ -468,11 +484,11 @@
 .lp-footer-a-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 45%;
+    justify-content: center;
 }
 
 .lp-footer-a {
+    margin: 8px;
     color: var(--off-white);
     text-decoration: none;
 }
@@ -501,9 +517,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    min-height: 80vh;
+    min-height: 84vh;
     width: 100%;
-    padding: 20vh 0 0 0;
+    padding: 16vh 0 0 0;
     background-color: var(--primary);
 }
 
@@ -592,12 +608,16 @@
     background-color: var(--secondary);
 }
 
+
 /***************************************************************************************************************************************/
 /* corrections for other screen sizes */
 /***************************************************************************************************************************************/
 
 
 @media screen and (max-height: 500px) {
+    .lp-cta {
+        padding: 8px;
+    }
     .lp-block-2, .lp-block-4 {
         flex-direction: column;
         min-height: fit-content;
@@ -610,7 +630,7 @@
         width: 100%;
         margin-bottom: 4vh;
     }
-    .lp-block2-title, .lp-block2-text {
+    .lp-block2-title, .lp-block2-text, .lp-block2-title-about, .lp-block2-text-about {
         text-align: center;
     }
     .lp-block2-img-wrapper {
@@ -649,6 +669,9 @@
         height: 100vh;
         width: 100%;
     }
+    .lp-cta-bottom{
+        margin-right: 0;
+    }
     .lp-footer {
         width: 90%;
         padding: 2vh 5% 0 5%;
@@ -656,12 +679,18 @@
     .lp-footer-top-wrapper {
         width: 70%;
     }
+    .payments-wrapper {
+        padding-top: 80px;
+    }
 }
 
 @media (max-aspect-ratio: 1/1) {
     /* Styles for screens where width is less than height */
     .lp-nav-btn {
         display: none;
+    }
+    .lp-cta {
+        padding: 8px 16px;
     }
     .lp-block-2, .lp-block-4 {
         flex-direction: column;
@@ -675,7 +704,7 @@
         width: 100%;
         margin-bottom: 4vh;
     }
-    .lp-block2-title, .lp-block2-text {
+    .lp-block2-title, .lp-block2-text, .lp-block2-title-about, .lp-block2-text-about {
         text-align: center;
     }
     .lp-block2-img-wrapper {
@@ -713,5 +742,8 @@
     }
     .lp-footer-top-wrapper {
         width: 70%;
+    }
+    .about-cta-secondary {
+        margin-bottom: 32px;
     }
 }
