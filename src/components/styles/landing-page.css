@@ -513,10 +513,84 @@
 /***************************************************************************************************************************************/
 
 
-.about-wrapper {
+.about-block1 {
     display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 104px;
+    background-color: var(--off-white);
 }
 
+.about-block1-title {
+    width: 90%;
+    text-align: center;
+    font-weight: normal;
+    font-size: 270%;
+    margin: 16px 0;
+}
+
+.lp-block2-title-about {
+    width: 100%;
+    margin-top: 0;
+    font-size: xx-large;
+}
+
+.lp-block2-text-about {
+    margin-top: 0;
+    font-size: large;
+}
+
+.about-thank-you {
+    width: 60%;
+    margin: 0;
+    padding: 16px 20% 16px 20%;
+    text-align: center;
+    font-weight: normal;
+    font-size: larger;
+    background-color: var(--off-white);
+}
+
+.about-block3-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 40px 0;
+    background-color: var(--off-white);
+}
+
+.about-cta, .about-cta-secondary {
+    min-width: 320px;
+    margin: 0 48px;
+    padding: 12px 32px;
+    font-size: larger;
+    background-color: transparent;
+    transition: background-color 1s ease, color 1s ease;
+}
+
+.about-cta {
+    border: 3px solid var(--primary);
+    color: var(--secondary);
+}
+
+.about-cta-secondary {
+    border: 3px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.about-cta:hover {
+    cursor: pointer;
+    color: var(--off-white);
+    background-color: var(--primary);
+}
+
+.about-cta-secondary:hover {
+    cursor: pointer;
+    color: var(--off-white);
+    background-color: var(--secondary);
+}
 
 /***************************************************************************************************************************************/
 /* corrections for other screen sizes */

@@ -44,7 +44,7 @@ export default function LandingPage () {
                     <img src={logo} alt="logo" className="lp-nav-logo" />
                 </button>
                 <div className="lp-nav-right">
-                    <button className="lp-nav-btn" onClick={navigateAboutUs} disabled={true} >About Us</button>
+                    <button className="lp-nav-btn" onClick={navigateAboutUs} >About Us</button>
                     <button className="lp-nav-btn" onClick={navigatePayments}>Get Started</button>
                     <button className="lp-nav-btn-primary" onClick={navigateAuth}>Log In</button>
                 </div>

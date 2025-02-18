@@ -36,7 +36,7 @@ export default function Home () {
                         </button>
                     </div>
                     <div className="home-btn-wrapper">
-                        <button className="home-btn home-stats-image" onClick={navigateStats}>
+                        <button className="home-btn home-stats-image" onClick={navigateStats} disabled={true}>
                             Your Statistics
                         </button>
                     </div>
