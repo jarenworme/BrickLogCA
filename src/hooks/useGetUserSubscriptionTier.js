@@ -3,7 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../config/firebase-config";
 
-
+// this hook gets user metadata from the firebase user collection in the database
 export const useGetUserSubscriptionTier = () => {
     const [tier, setTier] = useState(null); // Store the subscription tier
     const [display, setDisplay] = useState(""); // Store the displayName
@@ -21,7 +21,7 @@ export const useGetUserSubscriptionTier = () => {
                     const userData = userDoc.data();
                     setTier(userData.subscriptionTier || 4); // Default to 4 if undefined
                     setDisplay(userData.displayName || "not found");
-                    setProfilePicURL(userData.photoURL || "not found");
+                    setProfilePicURL(userData.photoURL || "");
                 } else {
                     console.error("User document does not exist!");
                     setTier(1); // Default tier for new users

@@ -6,6 +6,8 @@ import { db } from "../config/firebase-config";
 const LOAD_SIZE = 12; 
 
 
+// this hook contains all the funtions to fetch sets from the global sets collection in firebase, as well as handling searching 
+// by name and set number, with pagination of LOAD_SIZE sets per fetch
 export const useFetchGlobalSets = () => {
     // state variables
     const [sets, setSets] = useState([]);
@@ -57,7 +59,6 @@ export const useFetchGlobalSets = () => {
             setLoading(false);
         }
     };
-
 
     // Search by name or set_num
     const searchSets = async (searchTerm, currentLastDoc = null, isNewSearch = false) => {

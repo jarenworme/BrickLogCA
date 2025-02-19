@@ -9,13 +9,18 @@ import profilePic from "../../assets/icons/usericon.svg";
 
 
 export default function Account () {
+    // init navigate variable for page navigation
     const navigate = useNavigate();
-    const routeChangePassword = () => navigate('/changePassword', { replace: false });
-    const routeEditProfile = () => navigate('/editProfile', { replace: false });
-    const routeChangePlan = () => navigate('/changePlan', { replace: false });
 
+    // routing functions
+    const navigateChangePassword = () => navigate('/changePassword', { replace: false });
+    const navigateEditProfile = () => navigate('/editProfile', { replace: false });
+    const navigateChangePlan = () => navigate('/changePlan', { replace: false });
+
+    // user metadata from hook call
     const { tier, display, profilePicURL } = useGetUserSubscriptionTier();
 
+    // function to signout a user
     const signout = async () => {
         try {
             await signOut(auth);
@@ -34,10 +39,10 @@ export default function Account () {
             <h2 className="account-text-xl">{display}</h2>
             <h3 className="account-text-large">tier {tier}</h3>
             <hr className="account-divider" />
-            <button className="account-btn" onClick={routeEditProfile}>Edit Profile</button>
-            <button className="account-btn" onClick={routeChangePassword}>Change Password</button>
-            <button className="account-btn" onClick={routeChangePlan}>Edit Subscription</button>
+            <button className="account-btn" onClick={navigateEditProfile}>Edit Profile</button>
+            <button className="account-btn" onClick={navigateChangePassword}>Change Password</button>
+            <button className="account-btn" onClick={navigateChangePlan}>Edit Subscription</button>
             <button className="account-btn-secondary" onClick={signout}>Sign Out</button>
         </div>
-    )
-}
+    );
+};

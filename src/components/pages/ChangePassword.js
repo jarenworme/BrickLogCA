@@ -5,14 +5,20 @@ import "../styles/account.css";
 
 
 export default function ChangePassword() {
+    // init navigate variable for page navigation
     const navigate = useNavigate();
+
+    // routing functions
     const routeAccount = () => navigate('/account', { replace: false });
 
+    // state variables
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
+    // hook data
     const { changePassword } = useChangePassword();
 
+    // function to handle password change logic
     const handlePasswordChange = () => {
         const hasNumber = /\d/;
         if (newPassword.length < 8) {

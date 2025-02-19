@@ -2,29 +2,33 @@ import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFetchPieces } from "../../hooks/useFetchPieces";
 import "../styles/user-pieces.css"
+import '../styles/loading.css';
 
 
 export default function UserPieces () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
+    // routing functions
+    const navigateSets = () => navigate('/userSets', { replace: false });
+    const navigateSetDetails = (ID) => navigate(`/setDetails/${ID}`, { replace: false });
+
     // ref variable to only call useEffect once in testing
     const fetchCalled = useRef(false);  
 
+    // hook data
     const { pieces, loadingPieces, fetchPieces } = useFetchPieces();
 
+    // populate pieces
     useEffect(() => {
         if (!fetchCalled.current && pieces.length === 0) {
             fetchPieces();
             fetchCalled.current = true;
         }
     }, [fetchPieces, pieces.length]);
-    
-    const navigateSets = () => navigate('/userSets', { replace: false });
-    const navigateSetDetails = (ID) => navigate(`/setDetails/${ID}`, { replace: false });
 
-    
-
+    // loading screen while it fetches all pieces from the database
+    if (loadingPieces) return <div className="loading-full-screen"><div className="loading-img" /></div>;
 
     return (
         <div className="up-wrapper">
@@ -61,7 +65,7 @@ export default function UserPieces () {
                     </div>
                 ))}
             </div>
-            {pieces.length === 0 && <button className="up-no-piece-btn" onClick={navigateSets}>view your sets</button>}
+            { pieces.length === 0 && <button className="up-no-piece-btn" onClick={navigateSets}>view your sets</button> }
         </div>
     );
 }

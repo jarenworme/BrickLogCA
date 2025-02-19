@@ -3,6 +3,7 @@
     --primary-light: #1e9be3;
     --primary-dark: #0878ba;
     --secondary: #222222;
+    --secondary-light: #555555;
     --off-white: #fcfcf8;
     --accent-crimson: #E23636;
     --accent-saffron: #FFE601;
@@ -38,16 +39,16 @@
 }
 
 .auth-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     height: fit-content;
     min-height: 350px;
     width: 70%;
     padding: 48px 0;
     border-radius: 16px;
     background-color: var(--off-white);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -101,10 +102,10 @@
 }
 
 .auth-middle-divider {
-    margin: 0;
-    width: 3px;
     height: 90%;
     min-height: 400px;
+    width: 3px;
+    margin: 0;
     background-color: var(--secondary);
 }
 
@@ -151,10 +152,10 @@
 }
 
 .auth-hr {
-    width: 40%;
     height: 2px;
-    background-color: var(--secondary);
+    width: 40%;
     border: none;
+    background-color: var(--secondary);
 }
 
 .auth-text {
@@ -189,9 +190,9 @@
     min-height: 48px;
     width: 100%;
     margin: 0 0 5% 0;
+    padding: 1% 3%;
     border: 1px solid var(--secondary);
     border-radius: 8px;
-    padding: 1% 3%;
 }
 
 .auth-input, .auth-input:focus, .auth-input-hover {
@@ -219,9 +220,9 @@
     height: 14%;
     min-height: 48px;
     width: 100%;
+    padding: 1% 2%;
     border: none;
     border-radius: 8px;
-    padding: 1% 2%;
     font-size: large;
     color: var(--off-white);
     background-color: var(--primary);
@@ -268,6 +269,26 @@
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
 }
 
+.fp-icon-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    width: 100%;
+    padding-left: 24px;
+}
+
+.fp-arrow {
+    padding: 2px;
+}
+
+.fp-arrow:hover {
+    cursor: pointer;
+    height: 36px;
+    padding: 0;
+}
+
 .fp-title {
     margin-top: 0;
     font-size: xx-large;
@@ -277,7 +298,7 @@
     width: 80%;
     margin: 0 0 16px 0;
     padding: 8px;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--secondary-light);
     font-size: medium;
     color: var(--secondary);
     text-align: center;
@@ -300,9 +321,9 @@
 }
 
 .fp-btn-back {
+    padding: 8px 32px;
     border: none;
     border-radius: 8px;
-    padding: 8px 32px;
     font-size: large;
     color: var(--off-white);
     background-color: var(--secondary);
@@ -315,9 +336,10 @@
 
 .fp-text {
     width: 80%;
-    text-align: center;
     margin: 0 0 16px 0;
+    text-align: center;
 }
+
 
 @media screen and (max-width: 1200px) {
     .auth-wrapper {

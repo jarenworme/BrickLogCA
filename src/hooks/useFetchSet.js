@@ -2,6 +2,8 @@ import { useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
+
+// this hook fetches a set from the user set collection in the Firestore database based on its setID
 export const useFetchSet = () => {
     const [set, setSet] = useState(null); // Holds the fetched set data
     const [loading, setLoading] = useState(false); // Indicates loading state

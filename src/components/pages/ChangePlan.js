@@ -6,7 +6,10 @@ import "../styles/account.css";
 
 
 export default function ChangePlan () {
+    // init navigate variable for page navigation
     const navigate = useNavigate();
+
+    // routing functions
     const routeBack = () => navigate('/account', { replace: false });
 
     return (
@@ -21,5 +24,5 @@ export default function ChangePlan () {
             </a>
             <button className="account-btn" onClick={routeBack}>Back</button>
         </div>
-    )
-}
+    );
+};

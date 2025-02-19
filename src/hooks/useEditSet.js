@@ -2,6 +2,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
 
+// hook to update a set doc with new used entered data
 export const useEditSet = () => {
 
     const editSet = async (setID, updatedData) => {

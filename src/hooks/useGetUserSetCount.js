@@ -3,6 +3,8 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
+
+// this hook calculates the amount of sets a user has for determining tier set limits 
 export const useGetUserSetCount = () => {
     const [setCount, setSetCount] = useState(0);
     const { userID } = useGetUserInfo();

@@ -8,6 +8,7 @@
     --secondary-light: #555555;
     --secondary-dark: #161616;
     --secondary-disabled: #DBDBDB;
+    --secondary-translucent: rgba(0, 0, 0, 0.6);
 
     --off-white: #fcfcf8;
 

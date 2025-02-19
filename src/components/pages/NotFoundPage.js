@@ -6,8 +6,10 @@ import image404 from "../../assets/images/lego-404.jpeg";
 
 
 export default function NotFoundPage() {
-    // set up varaibles to navigate back to the landing page
+    // init navigate variable for page navigation
     const navigate = useNavigate();
+
+    // routing functions
     const navigateLandingPage = () => navigate('/', { replace: false });
 
     return (

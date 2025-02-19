@@ -17,8 +17,6 @@ export default function NavBar () {
     const navigateAccount = () => navigate('/account', { replace: false });
     const navigateUserPieces = () => navigate('/userPieces', { replace: false });
     const navigateUserSets = () => navigate('/userSets', { replace: false });
-    
-
 
     return (
         <div className='nav-bar'>

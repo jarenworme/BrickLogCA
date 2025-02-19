@@ -102,8 +102,8 @@
     margin-right: 24px;
     font-size: larger;
     color: var(--off-white);
-    background-color: transparent;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: transparent;
 }
 
 .lp-nav-btn {
@@ -383,9 +383,9 @@
 
 .lp-block3-subtext {
     color: var(--off-white);
-    text-align: center;
     font-size: medium;
     font-weight: normal;
+    text-align: center;
 }
 
 .lp-block-4 {
@@ -405,12 +405,12 @@
 }
 
 .lp-block4-content-wrapper {
-    height: 50%;
-    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    height: 50%;
+    width: 40%;
 }
 
 .lp-cta-bottom {
@@ -539,10 +539,10 @@
 
 .about-block1-title {
     width: 90%;
-    text-align: center;
-    font-weight: normal;
-    font-size: 270%;
     margin: 16px 0;
+    font-size: 270%;
+    font-weight: normal;
+    text-align: center;
 }
 
 .lp-block2-title-about {
@@ -560,18 +560,18 @@
     width: 60%;
     margin: 0;
     padding: 16px 20% 16px 20%;
-    text-align: center;
-    font-weight: normal;
     font-size: larger;
+    font-weight: normal;
+    text-align: center;
     background-color: var(--off-white);
 }
 
 .about-block3-wrapper {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
     padding: 40px 0;
     background-color: var(--off-white);

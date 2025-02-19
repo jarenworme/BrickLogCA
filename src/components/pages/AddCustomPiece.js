@@ -10,28 +10,27 @@ import image from "../../assets/images/missing-part-img-car.JPEG";
 export default function AddCustomPiece () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
+
+    // routing functions
     const routeSetDetails = () => navigate(`/setDetails/${setID}`, { replace: false });
 
     // ref variable to only call useEffect once in testing
     const fetchCalled = useRef(false);    
 
-    // variable to hold the user-entered piece name
+    // state variables
     const [name, setName] = useState("");
-
-    // variable to hold the user-entered color
     const [color, setColor] = useState("");
-
-    // variable to hold the user-entered number of missing pieces for the set
     const [quantity, setQuantity] = useState(1);
-    // variable to hold conditionally rendered error message for invalid missing pieces amount
     const [quantityError, setQuantityError] = useState("");
 
+    // hook data
     const { setID } = useParams();
 
     const { set, loading, error, fetchSet } = useFetchSet(setID);
 
     const { addPiece } = useAddPiece();
 
+    // fetch set information used for error checking piece quantity and display name
     useEffect(() => {
         if (!fetchCalled.current) {
             fetchSet(setID);
@@ -53,6 +52,7 @@ export default function AddCustomPiece () {
         }
     }
 
+    // function to handle adding the piece on form submission
     const handleAddPiece = async (event) => {
         event.preventDefault();
 
@@ -84,10 +84,9 @@ export default function AddCustomPiece () {
     if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
     if (!set) return <p style={{marginTop: 100 + "px"}}>No set found.</p>;
 
-
     return (
         <div className="add-wrapper">
-            <h1 className="add-title">Add a missing piece to {set.name}</h1>
+            <h1 className="add-title">Add a missing piece to '{set.name}'</h1>
             <h3 className="add-subtitle">Try to describe the piece as best you can</h3>
             <div className="add-content-wrapper">
                 <div className="add-img-wrapper">

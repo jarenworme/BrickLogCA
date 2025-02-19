@@ -4,6 +4,8 @@ import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 
+// this hook calculates the amount of sets with the theme MOC that a user has
+// used for calculating the MOC number on adding a new one
 export const useGetNumMOCs = () => {
     const [numMOCs, setNumMOCs] = useState(-1);
     const [loading, setLoading] = useState(false);
@@ -33,11 +35,6 @@ export const useGetNumMOCs = () => {
             setLoading(false);
         }
     }
-    
 
-    return {
-        numMOCs,
-        loading,
-        fetchMOCs
-    }
+    return { numMOCs, loading, fetchMOCs }
 }

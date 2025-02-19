@@ -12,7 +12,7 @@ export default function Payments () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
 
-    // routing functions
+    // routing functions 
     const navigateAboutUs = () => navigate('/about', { replace: false });
     const navigateAuth = () => navigate('/auth/2', { replace: false });
     const navigateAuthRegister = () => navigate('/auth/1', { replace: false });
@@ -66,6 +66,10 @@ export default function Payments () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
+                        <p className="lp-tier-text lp-greyed">Wishlist</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
@@ -113,6 +117,10 @@ export default function Payments () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Wishlist</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
@@ -157,6 +165,10 @@ export default function Payments () {
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Custom Sets</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Wishlist</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />

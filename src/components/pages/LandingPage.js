@@ -24,7 +24,7 @@ export default function LandingPage () {
     const navigateLandingPage = () => navigate('/', { replace: false });
     const navigatePayments = () => navigate('/payments', { replace: false });
 
-    // state variables
+    // state variables 
     const [isScrolled, setIsScrolled] = useState(false);
 
     // function to monitor if a user has scrolled to trigger the alternate nav-bar styles
@@ -127,6 +127,10 @@ export default function LandingPage () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faMinus} className='lp-minus' />
+                        <p className="lp-tier-text lp-greyed">Wishlist</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faMinus} className='lp-minus' />
                         <p className="lp-tier-text lp-greyed">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
@@ -174,6 +178,10 @@ export default function LandingPage () {
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Wishlist</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Custom Profile Picture</p>
                     </div>
                     <div className="lp-tier-feature">
@@ -218,6 +226,10 @@ export default function LandingPage () {
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />
                         <p className="lp-tier-text">Log Custom Sets</p>
+                    </div>
+                    <div className="lp-tier-feature">
+                        <FontAwesomeIcon icon={faCheck} className='lp-check' />
+                        <p className="lp-tier-text">Wishlist</p>
                     </div>
                     <div className="lp-tier-feature">
                         <FontAwesomeIcon icon={faCheck} className='lp-check' />

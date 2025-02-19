@@ -64,9 +64,9 @@
 
 .account-change-plan-text {
     width: 50%;
-    text-align: center;
     font-size: large;
     font-weight: normal;
+    text-align: center;
 }
 
 .account-divider {
@@ -84,26 +84,26 @@
     min-width: 320px;
     margin-bottom: 12px;
     padding: 2px 0;
-    text-align: center;
     font-size: large;
+    text-align: center;
     border: 2px solid var(--secondary);
 }
 
 .account-btn {
-    width: 200px;
     height: 30px;
+    width: 200px;
+    margin: 10px;
     border: 2px solid var(--secondary-dark);
     border-radius: 15px;
-    margin: 10px;
     font-size: smaller;
 }
 
 .account-btn-secondary {
-    width: 200px;
     height: 30px;
+    width: 200px;
+    margin: 10px;
     border: 2px solid var(--primary);
     border-radius: 15px;
-    margin: 10px;
     font-size: smaller;
 }
 
@@ -116,6 +116,7 @@
     cursor: pointer;
     border: 3px solid var(--primary-dark);
 }
+
 
 @media screen and (max-height: 500px) {
     .account-wrapper, .edit-profile-wrapper {
@@ -141,8 +142,8 @@
         padding: 8px 0;
     }
     .account-btn, .account-btn-secondary {
-        width: 240px;
         height: 36px;
+        width: 240px;
         border-radius: 18px;
         font-size: medium;
     }
@@ -172,8 +173,8 @@
         padding: 8px 0;
     }
     .account-btn, .account-btn-secondary {
-        width: 240px;
         height: 36px;
+        width: 240px;
         border-radius: 18px;
         font-size: medium;
     }

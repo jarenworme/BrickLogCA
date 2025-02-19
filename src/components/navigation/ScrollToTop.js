@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// use this component to make sure a user loads each new page at the top.
+
+// use this component to make sure a user loads each new page at the top
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+    const { pathname } = useLocation();
 
-  useEffect(() => {
+    useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]); // Trigger scroll when the pathname changes
+    }, [pathname]); // Trigger scroll when the pathname changes
 
-  return null;
+    return null;
 };
 
 export default ScrollToTop;

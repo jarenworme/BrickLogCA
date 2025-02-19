@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "../styles/auth.css"
+
 
 export default function ForgotPassword () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
     const routeAuth = () => navigate('/auth/2', { replace: false });
 
+    // state variables
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
+    // function to send reset email
     const handleResetPassword = async () => {
         if (!email) {
             return;
@@ -35,12 +40,18 @@ export default function ForgotPassword () {
             { message 
                 ? 
                 <div className="fp-card">
+                    <div className="fp-icon-wrapper">
+                        <FontAwesomeIcon icon={faArrowLeft} className='fp-arrow' size='2x' onClick={routeAuth} />
+                    </div>
                     <h2 className="fp-title">Reset Your Password</h2>
                     <p className="fp-text">{message}</p>
                     <button className="fp-btn-back" onClick={routeAuth}>Back</button>
                 </div>
                 :
                 <div className="fp-card">
+                    <div className="fp-icon-wrapper">
+                        <FontAwesomeIcon icon={faArrowLeft} className='fp-arrow' size='2x' onClick={routeAuth} />
+                    </div>
                     <h2 className="fp-title">Reset Your Password</h2>
                     <input
                         className="fp-input"
@@ -50,11 +61,10 @@ export default function ForgotPassword () {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <button className="fp-btn" onClick={handleResetPassword} disabled={loading}>
-                        {loading ? "Sending..." : "Send Reset Email"}
+                        { loading ? "Sending..." : "Send Reset Email" }
                     </button>
                 </div>
             }
         </div>
     );
 };
-

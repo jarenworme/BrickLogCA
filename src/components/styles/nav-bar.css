@@ -108,6 +108,7 @@
     height: 30px;
 }
 
+
 @media screen and (max-width: 500px) {
     .nav-text {
         display: none;

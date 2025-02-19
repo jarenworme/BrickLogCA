@@ -3,6 +3,8 @@ import { db } from "../config/firebase-config";
 import { useState } from "react";
 
 
+// this hook handles deleting a piece from the database and recalculating the missing parts number of the set it belongs to
+// based on the quantity of the piece when deleted 
 export const useDeletePiece = () => {
     const [loadingDelete, setLoadingDelete] = useState(false);
     const [errorDelete, setErrorDelete] = useState(null);

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { auth, provider } from "../../config/firebase-config";
-import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import { auth, provider } from "../../config/firebase-config";
+import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import "../styles/auth.css"
 
 
 export default function Auth() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
-    const routeForgotPassword = () => navigate('/forgotPassword', { replace: false });
+    const navigateForgotPassword = () => navigate('/forgotPassword', { replace: false });
 
-    // input parameters for determining if to load register or login on mount
+    // input parameters for determining if to load register or login on mount (1 for register, 2 for login)
     const { register } = useParams();
 
     // state variables
@@ -24,14 +24,14 @@ export default function Auth() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    // set isRegistered based on parameters
+    // set isRegistered based on input parameters
     useEffect(() => {
         if(register === "1"){
             setIsRegistering(true);
         }
     }, [register]);
 
-    // validation for password to contain at least 8 characters and a number
+    // validation function for password to contain at least 8 characters and a number
     const validatePassword = (password) => {
         const hasNumber = /\d/;
         if (password.length < 8) {
@@ -43,7 +43,7 @@ export default function Auth() {
         return null;
     };
 
-    // Google login
+    // Google login function
     const signInGoogle = async () => {
         try {
             setError("");
@@ -65,8 +65,8 @@ export default function Auth() {
     // login / register logic
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try {
-            setError("");
             setError("");
 
             if (isRegistering) {
@@ -95,7 +95,6 @@ export default function Auth() {
         setError("");
     }
 
-
     return (
         <div className="auth-wrapper">
             <div className="auth-card">
@@ -112,10 +111,8 @@ export default function Auth() {
                 </div>
                 <div className="auth-middle-divider" />
                 <div className="auth-content-wrapper">
-                    {error && <p className="auth-signin-error">{error}</p>} 
-                    <button className="auth-google-btn" onClick={signInGoogle}>
-                        Continue with Google
-                    </button>
+                    { error && <p className="auth-signin-error">{error}</p> } 
+                    <button className="auth-google-btn" onClick={signInGoogle}>Continue with Google</button>
                     <div className="auth-spacer">
                         <hr className="auth-hr" />
                         <p className="auth-text">or</p>
@@ -124,14 +121,34 @@ export default function Auth() {
                     <h2 className="auth-subtitle">{isRegistering ? "Register" : "Sign in"} with Email</h2>
                     <form className="auth-form" onSubmit={handleSubmit}>
                         <div className="auth-input-wrapper">
-                            <input className="auth-input" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            <input 
+                                className="auth-input" 
+                                type="email" 
+                                placeholder="Enter email" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)} 
+                                required 
+                            />
                         </div>
                         <div className="auth-input-wrapper">
-                            <input className="auth-input" type={showPassword ? "text" : "password"} placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                            <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} className='auth-eye' size='xl' onClick={() => setShowPassword(!showPassword)}/>
+                            <input 
+                                className="auth-input" 
+                                type={showPassword ? "text" : "password"} 
+                                placeholder="Enter password" value={password} 
+                                onChange={(e) => setPassword(e.target.value)} 
+                                required 
+                            />
+                            <FontAwesomeIcon 
+                                icon={showPassword ? faEye : faEyeSlash} 
+                                className='auth-eye' 
+                                size='xl' 
+                                onClick={() => setShowPassword(!showPassword)}
+                            />
                         </div>
-                        <button type="button" className="auth-forgot-password-link" onClick={routeForgotPassword}>forgot password?</button>
-                        {isRegistering && (
+                        <button type="button" className="auth-forgot-password-link" onClick={navigateForgotPassword}>
+                            forgot password?
+                        </button>
+                        { isRegistering && (
                             <div className="auth-input-wrapper">
                                 <input
                                     type={showConfirmPassword ? "text" : "password"}
@@ -141,11 +158,18 @@ export default function Auth() {
                                     className="auth-input"
                                     required
                                 />
-                                    <FontAwesomeIcon icon={showConfirmPassword ? faEye : faEyeSlash} className='auth-eye' size='xl' onClick={() => setShowConfirmPassword(!showConfirmPassword)}/>
+                                    <FontAwesomeIcon 
+                                        icon={showConfirmPassword ? faEye : faEyeSlash} 
+                                        className='auth-eye' 
+                                        size='xl' 
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    />
                             </div>
-                        )}        
+                        ) }        
                         <button type="submit" className="auth-submit-btn">{isRegistering ? "Register" : "Login"}</button>
-                        <button type="button" className="auth-toggle-register" onClick={toggleRegister}>or {isRegistering ? "sign in" : "register"} here</button>
+                        <button type="button" className="auth-toggle-register" onClick={toggleRegister}>
+                            or {isRegistering ? "sign in" : "register"} here
+                        </button>
                     </form>       
                 </div>
             </div>

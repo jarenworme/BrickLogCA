@@ -9,6 +9,7 @@ import '../styles/add.css';
 
 import image from "../../assets/images/assembling-moc.JPEG";
 
+
 export default function AddCustomSet () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
@@ -17,9 +18,7 @@ export default function AddCustomSet () {
     const [img_url, setImg_url] = useState("");
     const [name, setName] = useState("");
     const [num_parts, setNum_parts] = useState("");
-    // variable to hold conditionally rendered error message for invalid set number
     const [numPartsError, setNumPartsError] = useState("");
-    // set up state for modal
     const [modalOpen, setModalOpen] = useState(false);
 
     // get number of MOCs to be used for calculating the "set num" of the new MOC
@@ -80,7 +79,6 @@ export default function AddCustomSet () {
     if (loadingUser || loading) return <div className="loading-full-screen"><div className="loading-img" /></div>;
     if (error) return <p>Error: {error}</p>;
 
-
     return (
         <div className="add-wrapper">
             <Modal
@@ -101,7 +99,7 @@ export default function AddCustomSet () {
             >
                 <div className="browse-modal-wrapper">
                     <h2 className="browse-modal-text">
-                        You are at your limit of 15 sets. Upgrade your plan or delete one of your current sets to add more.
+                        You are at your set limit for your tier. Upgrade your plan or delete one of your current sets to add more.
                     </h2>
                     <button className="browse-modal-button" onClick={() => setModalOpen(false)}>close</button>
                 </div>

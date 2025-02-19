@@ -9,29 +9,39 @@ import "../styles/account.css";
 
 
 export default function EditProfile() {
+    // init navigate variable for page navigation
     const navigate = useNavigate();
-    const routeAccount = () => navigate('/account', { replace: false });
 
+    // routing functions
+    const navigateAccount = () => navigate('/account', { replace: false });
+
+    // firebase data
     const auth = getAuth();
     const user = auth.currentUser;
+
+    //hook data
     const { tier, display } = useGetUserSubscriptionTier();
 
+    // state variables
     const [displayName, setDisplayName] = useState(display || "");
     const [profilePic, setProfilePic] = useState(null);
     const [preview, setPreview] = useState(user?.photoURL || "");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
+    // set display name when the display is loaded from hook
     useEffect(() => {    
         setDisplayName(display);
     }, [display]);
 
+    // function to handle the user inputted photo file
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setProfilePic(file);
         setPreview(URL.createObjectURL(file)); // Show image preview
     };
 
+    // function to save changes to a user profile
     const handleUpdateProfile = async () => {
         setLoading(true);
         try {
@@ -54,7 +64,7 @@ export default function EditProfile() {
             const userRef = doc(db, "users", user.uid);
             await updateDoc(userRef, { displayName, photoURL });
 
-            routeAccount();
+            navigateAccount();
         } catch (error) {
             setMessage("Error updating profile: " + error.message);
         }
@@ -70,7 +80,7 @@ export default function EditProfile() {
                 <h3 className="account-text-large">Tier 2 subscription required to change profile pic</h3>
                 :
                 <div className="account-profile-img-content-wrapper">
-                    { preview != "" && 
+                    { preview !== "" && 
                         <div className="account-profile-img-wrapper">
                             <img src={preview} alt="Profile Preview" className="account-profile-img" />
                         </div>
@@ -90,7 +100,7 @@ export default function EditProfile() {
                 { loading ? "Updating..." : "Save Changes" }
             </button>
             { message === "" && message }
-            <button className="account-btn" onClick={routeAccount}>Back</button>
+            <button className="account-btn" onClick={navigateAccount}>Back</button>
         </div>
     );
 }

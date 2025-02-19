@@ -15,7 +15,7 @@ export default function About () {
     // init navigate variable for page navigation
     const navigate = useNavigate();
     
-    // routing functions
+    // routing functions 
     const navigateAboutUs = () => navigate('/about', { replace: false });
     const navigateAuth = () => navigate('/auth/2', { replace: false });
     const navigateLandingPage = () => navigate('/', { replace: false });

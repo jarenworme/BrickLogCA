@@ -110,10 +110,9 @@ export default function UserSetsPage () {
         fetchSets(true, null, "none", "");
     }
 
-
     return (
         <div className="sets-wrapper">
-            {error && <p style={{ color: "red" }}>Error: {error}</p>}
+            { error && <p style={{ color: "red" }}>Error: {error}</p> }
             <div className="sets-title-wrapper">
                 <div className="sets-redirect-btn-wrapper" />
                 <h1 className="sets-title">Your Collection</h1>
@@ -128,28 +127,30 @@ export default function UserSetsPage () {
                     <form className="us-form" onSubmit={handleSort}>
                         <select id="sort-select" className="us-select" value={selectedSort} onChange={handleSortChange}>
                             <option value="createdAt">
-                            Date Added
+                                Date Added
                             </option>
                             <option value="num_parts">
-                            Piece Count
+                                Piece Count
                             </option>
                             <option value="set_num">
-                            Set Number
+                                Set Number
                             </option>
                             <option value="name">
-                            Name
+                                Name
                             </option>
                             <option value="year">
-                            Year
+                                Year
                             </option>
                         </select>
-                        {sortDirection === "asc" ?
+                        { sortDirection === "asc" 
+                        ?
                         <FontAwesomeIcon icon={faArrowUpWideShort} className="us-sort-icon" type="button" size="xl" 
-                        onClick={() => setSortDirection("desc")}/>
-                        : <FontAwesomeIcon icon={faArrowDownWideShort} className="us-sort-icon" type="button" size="xl" 
-                        onClick={() => setSortDirection("asc")}/>
+                        onClick={() => setSortDirection("desc")} />
+                        : 
+                        <FontAwesomeIcon icon={faArrowDownWideShort} className="us-sort-icon" type="button" size="xl" 
+                        onClick={() => setSortDirection("asc")} />
                         }
-                        <button type="submit" className="us-form-btn" >apply</button>
+                        <button type="submit" className="us-form-btn">apply</button>
                     </form>
                 </div>
                 <div className="us-form-wrapper">
@@ -159,16 +160,17 @@ export default function UserSetsPage () {
                         <select id="filter-select" className="us-select" value={selectedFilterCategory} 
                         onChange={handleFilterCategory}>
                             <option value="" disabled>
-                            -- Select Filter --
+                                -- Select Filter --
                             </option>
                             <option value="year">
-                            year
+                                year
                             </option>
                             <option value="theme_id">
-                            theme
+                                theme
                             </option>
                         </select>
-                        {selectedFilterCategory === "year" ? 
+                        { selectedFilterCategory === "year" 
+                        ? 
                         (<select id="year-select" className="us-select" value={selectedYear} onChange={handleYearChange}>
                         <option value="" disabled>
                         -- Select year --
@@ -179,10 +181,12 @@ export default function UserSetsPage () {
                             </option>
                         ))}
                         </select>) 
-                        :  selectedFilterCategory === "theme_id" ? 
+                        :  
+                            selectedFilterCategory === "theme_id" 
+                            ? 
                             (<select id="theme-select" className="us-select" value={selectedTheme} onChange={handleThemeChange}>
                             <option value="" disabled>
-                            -- Select Theme --
+                                -- Select Theme --
                             </option>
                             {filterThemes.map((theme) => (
                                 <option key={theme} value={theme}>
@@ -190,20 +194,26 @@ export default function UserSetsPage () {
                                 </option>
                             ))}
                             </select>) 
-                        : (<select id="theme-select" className="us-select" value={selectedTheme} onChange={handleThemeChange}>
+                            : 
+                            (<select id="theme-select" className="us-select" value={selectedTheme} onChange={handleThemeChange}>
                             <option value="" disabled>
                             -----
                             </option>
                             </select>)
                         }
-                        <button type="submit" className="us-form-btn" 
-                        disabled={(isYear && selectedYear === "") || (!isYear && selectedTheme === "")}>apply</button>
+                        <button 
+                            type="submit" 
+                            className="us-form-btn" 
+                            disabled={(isYear && selectedYear === "") || (!isYear && selectedTheme === "")}
+                        >
+                            apply
+                        </button>
                         <button type="button" className="us-form-btn us-secondary-btn" onClick={clearFilter}>clear</button>
                     </form>
                 </div>
             </div>
             <div className="sets-sets-wrapper">
-                {sets.map(set => (
+                { sets.map(set => (
                     <div key={set.id} className="sets-set">
                         <div className="sets-img-wrapper">
                             <img 
@@ -223,7 +233,7 @@ export default function UserSetsPage () {
                         <div className="sets-set-content-wrapper">
                             <hr className="sets-divider" />
                             <div className="sets-set-text-wrapper">
-                                {set.theme_id === "MOC" 
+                                { set.theme_id === "MOC" 
                                 ? <p className="us-set-text">#MOC{set.set_num}</p>
                                 : <p className="us-set-text">#{set.set_num}</p> }
                                 <div className="us-set-text-icon-group">
@@ -257,10 +267,12 @@ export default function UserSetsPage () {
                     </div>
                 ))}
             </div>
-            {sets.length === 0 && <div className="sets-no-sets">
-                <h2>{fetchFilterLoading ? "" : "You currently dont have any sets in your collection."}</h2>
-            </div>}
-            {fetchFilterLoading ? (
+            { sets.length === 0 && 
+                <div className="sets-no-sets">
+                    <h2>{fetchFilterLoading ? "" : "You currently dont have any sets in your collection."}</h2>
+                </div>
+            }
+            { fetchFilterLoading ? (
                 <p>Loading...</p>
             ) : moreSetsAvailable ? (
                 <button className="sets-load-more-btn" onClick={loadMoreSets}>Load More</button>

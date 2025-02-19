@@ -3,6 +3,7 @@ import { db } from "../config/firebase-config";
 import { useState } from "react";
 
 
+// this hook handles deleting a set from the user sets collection by its setId
 export const useDeleteSet = () => {
     const [loadingDelete, setLoadingDelete] = useState(false);
     const [error, setError] = useState(null);

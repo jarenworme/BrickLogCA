@@ -4,6 +4,7 @@ import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 
+// hook to get all pieces with the user ID of the logged in user
 export const useFetchPieces = () => {
     // state variables
     const [pieces, setPieces] = useState([]);
@@ -35,10 +36,5 @@ export const useFetchPieces = () => {
         }
     };
 
-
-    return {
-    pieces,
-    loadingPieces,
-    fetchPieces,
-    }
+    return { pieces, loadingPieces, fetchPieces }
 }

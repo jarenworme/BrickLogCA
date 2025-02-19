@@ -1,5 +1,7 @@
 import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 
+
+// this hook changes a user's password in Firebase if they provide their correct current password
 export const useChangePassword = () => {
     const auth = getAuth();
 
@@ -12,7 +14,7 @@ export const useChangePassword = () => {
             const credential = EmailAuthProvider.credential(user.email, currentPassword);
             await reauthenticateWithCredential(user, credential);
 
-            // If successful, update password
+            // If successful, update password 
             await updatePassword(user, newPassword);
             alert("Password updated successfully!");
         } catch (error) {

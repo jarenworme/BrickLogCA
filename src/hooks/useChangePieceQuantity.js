@@ -1,6 +1,8 @@
 import { doc, updateDoc, increment } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
+
+// this hook handles updating the database of the set and piece when incrementing or decrementing the amount missing of that one piece
 export const useChangePieceQuantity = () => {
     
     const changePieceQuantity = async ( setID, pieceID, direction ) => {
@@ -26,5 +28,5 @@ export const useChangePieceQuantity = () => {
     };
 
     
-    return {changePieceQuantity}
+    return { changePieceQuantity }
 }

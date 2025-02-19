@@ -1,6 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
+
+// file to redirect a user trying to access a protected page without being logged in
 export default function ProtectedRoute({ children }) {
     // Get auth state from local storage
     const auth = JSON.parse(localStorage.getItem("auth"));

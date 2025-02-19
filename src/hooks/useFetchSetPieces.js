@@ -4,6 +4,7 @@ import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 
+// this hook fetches all pieces in the pieces collection that have the setID of the current set being examined
 export const useFetchSetPieces = () => {
     // state variables
     const [pieces, setPieces] = useState([]);
@@ -37,9 +38,5 @@ export const useFetchSetPieces = () => {
     };
 
 
-    return {
-    pieces,
-    loadingPieces,
-    fetchPieces,
-    }
+    return { pieces, loadingPieces, fetchPieces }
 }

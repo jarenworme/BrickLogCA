@@ -4,6 +4,7 @@ import Router from './components/routes/routes';
 import NavBar from './components/navigation/NavBar';
 import ScrollToTop from './components/navigation/ScrollToTop';
 
+
 function App() {
   // Paths for the navbar to disappear
   const noNavBarRoutes = ['/', '/about', '/payments', '/forgotPassword', '/404'];

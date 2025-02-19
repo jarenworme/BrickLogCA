@@ -2,6 +2,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
+
+// this hook adds a set to firebase with the data inputted through the addSet function when used
 export const useAddSet = () => {
     const setCollectionRef = collection(db, "sets");
     const { userID } = useGetUserInfo();
@@ -19,7 +21,6 @@ export const useAddSet = () => {
             missing_parts: 0
         });
     };
-
     
-    return {addSet}
+    return { addSet }
 }

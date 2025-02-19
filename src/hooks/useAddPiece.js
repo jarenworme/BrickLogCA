@@ -2,6 +2,8 @@ import { doc, updateDoc, addDoc, collection, serverTimestamp } from "firebase/fi
 import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
+
+// this hook adds a new piece to the pieces collection based on the user, setID and user-entered information
 export const useAddPiece = () => {
     const setCollectionRef = collection(db, "pieces");
     const { userID } = useGetUserInfo();
@@ -9,7 +11,6 @@ export const useAddPiece = () => {
     const addPiece = async ({ setID, set_num, set_name, set_image, name, color, quantity, missing_parts }) => {
         try {
             // Validate input numbers
-            // console.log(set_num, quantity, missing_parts);
             const parsedQuantity = Number(quantity);
             const parsedMissingParts = Number(missing_parts);
 
@@ -38,12 +39,11 @@ export const useAddPiece = () => {
                 missing_parts: newMissing,
             });
 
-            console.log(`Successfully updated missing_parts for set ${setID}`);
+            // console.log(`Successfully updated missing_parts for set ${setID}`);
         } catch (err) {
             console.error("Error adding piece or updating set:", err);
         }
     };
 
-    
-    return {addPiece}
+    return { addPiece }
 }

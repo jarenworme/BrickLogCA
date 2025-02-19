@@ -7,6 +7,8 @@ import { useGetUserInfo } from "./useGetUserInfo";
 const LOAD_SIZE = 64; 
 
 
+// this hook contains all the functions used on the user sets page
+// it handles set fetching with LOAD_SIZE sets per page, and handles sorting and filtering through Firebase queries
 export const useGetFilterUserSets = () => {
     // state variables
     const [sets, setSets] = useState([]);

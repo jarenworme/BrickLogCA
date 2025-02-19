@@ -3,14 +3,24 @@
     --primary-light: #1e9be3;
 }
 
+@keyframes spin45 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .loading-full-screen {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 92vh;
     width: 100%;
-    padding-top: 8vh;
     margin: 0;
+    padding-top: 8vh;
     background-color: rgba(0,0,0,0.1);
 }
 
@@ -21,13 +31,4 @@
     background-position: center;
     background-size: cover;
     animation: spin45 2s linear infinite;
-}
-
-@keyframes spin45 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }

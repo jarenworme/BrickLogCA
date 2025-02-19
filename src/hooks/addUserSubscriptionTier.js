@@ -4,6 +4,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
 
+// this hook adds a user subscription tier and username based off the sign in email on first login or if the data is not there
 const useAddUserSubscriptionTier = () => {
     useEffect(() => {
         const auth = getAuth();
@@ -26,7 +27,7 @@ const useAddUserSubscriptionTier = () => {
                     const userData = userSnapshot.data();
                     
                     if (!userData.subscriptionTier) {
-                        // Update existing user with default subscriptionTier if missing
+                        // Update existing user with default subscriptionTier if missing 
                         await setDoc(userRef, { ...userData, subscriptionTier: 1 });
                     }
                 }

@@ -135,6 +135,7 @@
     background-size: cover;
 }
 
+
 @media (max-aspect-ratio: 1/1) {
     /* Styles for screens where width is less than height */
     .home-wrapper {

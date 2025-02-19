@@ -15,7 +15,7 @@ export default function Home () {
     const navigateBrowseSets = () => navigate('/browseSets', { replace: false });
     const navigateOnlineStats = () => navigate('/onlineStats', { replace: false });
 
-    // Ensure subscriptionTier is set
+    // ensure subscriptionTier is set
     useAddUserSubscriptionTier();
 
 

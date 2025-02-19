@@ -20,8 +20,10 @@ export default function SetDetails () {
     // ref variable to only call useEffect once in testing
     const fetchCalled = useRef(false);        
 
+    // get setID prop passed through navigation
     const { setID } = useParams();
 
+    //hook data
     const { set, loading, error, isMissingPieces, fetchSet } = useFetchSet();
 
     const { pieces, loadingPieces, fetchPieces } = useFetchSetPieces();
@@ -30,23 +32,28 @@ export default function SetDetails () {
 
     const { deletePiece } = useDeletePiece();
 
+    // fetch all pieces for the current set
     useEffect(() => {
         if (!fetchCalled.current && pieces.length === 0) {
             fetchSet(setID);
             fetchPieces(setID);
             fetchCalled.current = true;
         }
-    }, [fetchPieces, pieces.length]);
+    }, [fetchPieces, pieces.length, fetchSet, setID]);
 
+    // fetch set info
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         fetchSet(setID);
-    }, [pieces]);
+    }, [pieces, setID]);
 
+    // function to change the amount of pieces missing when clicking the increment ir decrement buttons
     const handleChangePieceQuantity = (pieceID, direction) => {
         changePieceQuantity(setID, pieceID, direction);
         fetchPieces(setID);
     }
 
+    // function to delete a missing piece, fetch over the set of missing pieces and recalculate the number of parts on the set
     const handleDeletePiece = (pieceID, quantity) => {
         deletePiece(setID, pieceID, quantity);
         fetchPieces(setID);
@@ -83,13 +90,13 @@ export default function SetDetails () {
                         <li className="sd-li">Year Released: {set.year}</li>
                         <li className="sd-li">Number of Parts: {set.num_parts - set.missing_parts}/{set.num_parts}</li>
                     </ul>
-                    {set.theme_id === "MOC" && <button className="sd-btn" onClick={navigateEditSet}>Edit Set</button>}
+                    { set.theme_id === "MOC" && <button className="sd-btn" onClick={navigateEditSet}>Edit Set</button> }
                 </div>
             </div>
             <div className="sd-piece-card">
-                {isMissingPieces && <h2 className="sd-piece-card-title">Missing Pieces</h2>}
+                { isMissingPieces && <h2 className="sd-piece-card-title">Missing Pieces</h2> }
                 <ul className="sd-piece-ul">
-                    {pieces.map(piece => (
+                    { pieces.map(piece => (
                         <li key={piece.id} className="sd-piece-li">
                             <div className="sd-piece-content">
                                 <p className="sd-piece-text">{piece.color} {piece.name} ({piece.quantity})</p>
@@ -98,7 +105,8 @@ export default function SetDetails () {
                                         icon={faCirclePlus} 
                                         className={`sd-icon ${(set.num_parts - set.missing_parts) <= 1 ? "sd-disabled-icon" : ""}`} 
                                         size="xl" 
-                                        onClick={(set.num_parts - set.missing_parts) > 1 ? () => handleChangePieceQuantity(piece.id, "up") : undefined} 
+                                        onClick={(set.num_parts - set.missing_parts) > 1 ? () => handleChangePieceQuantity
+                                            (piece.id, "up") : undefined} 
                                     />
                                     <FontAwesomeIcon 
                                         icon={faCircleMinus} 

@@ -2,13 +2,10 @@
     --primary: #0587D0;
     --primary-dark: #0878ba;
     --primary-disabled: #DEEDF5;
-
     --secondary: #222222;
     --secondary-light: #555555;
     --secondary-dark: #161616;
-
     --off-white: #fcfcf8;
-
     --accent-crimson: #E23636;
     --accent-titanium-white: #FFFFFF;	
 }
@@ -40,8 +37,8 @@
 }
 
 .sd-img-wrapper {
-    width: 40%;
     height: 80%;
+    width: 40%;
 }
 
 .sd-img {
@@ -191,9 +188,6 @@
     background-color: var(--primary-dark);
 }
 
-/***************************************************************************************************************************************/
-/* code for different screen sizes */
-/***************************************************************************************************************************************/
 
 @media screen and (max-height: 500px) {
     .sd-wrapper {
@@ -232,8 +226,8 @@
         width: 90%;
     }
     .sd-back-btn {
-        padding: 4px 72px;
         margin: 12px 0 48px 0;
+        padding: 4px 72px;
     }
 }
 
@@ -243,8 +237,8 @@
         width: 90%;
     }
     .sd-img-wrapper {
-        width: 80%;
         height: fit-content;
+        width: 80%;
     }
     .sd-set-content-wrapper {
         min-height: 0;

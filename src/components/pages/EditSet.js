@@ -7,30 +7,35 @@ import "../styles/loading.css"
 
 import image from "../../assets/images/assembling-moc.JPEG";
 
+
 export default function EditSet() {
     // init navigate variable for page navigation
     const navigate = useNavigate();
+
+    // routing functions
     const navigateSetDetails = () => navigate(`/setDetails/${setID}`, { replace: false });
 
+    // props from routing parameters
     const { setID } = useParams();
 
+    // hook data
     const { set, loading, error, fetchSet } = useFetchSet();
 
     // state variables
     const [img_url, setImg_url] = useState("");
     const [name, setName] = useState("");
     const [num_parts, setNum_parts] = useState("");
-    // variable to hold conditionally rendered error message for invalid set number
     const [numPartsError, setNumPartsError] = useState("");
-
 
     // use the edit set hook
     const { editSet } = useEditSet();
 
+    // fetch set data based on setID
     useEffect(() => {
         fetchSet(setID);
     }, []);
 
+    // populate fields with existing set data
     useEffect(() => {
         if(set) {
             setImg_url(set.img_url);
@@ -60,7 +65,6 @@ export default function EditSet() {
         }
     };
 
-
     // loading screen while it fills set data
     if (loading) return <div className="loading-full-screen"><div className="loading-img" /></div>;
     if (error) return <p>Error: {error}</p>;
@@ -88,7 +92,7 @@ export default function EditSet() {
                         onChange={(e) => setNum_parts(e.target.value)}
                         onBlur={validatePieceNum}
                     />
-                    {numPartsError && <p className="add-field-error">{numPartsError}</p>}
+                    { numPartsError && <p className="add-field-error">{numPartsError}</p> }
                     <div className="add-field-title-wrapper">
                         <label className="add-field-title">Display Image</label>
                     </div>

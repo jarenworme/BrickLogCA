@@ -6,11 +6,9 @@ import Account from "../pages/Account";
 import AddCustomPiece from "../pages/AddCustomPiece";
 import AddCustomSet from "../pages/AddCustomSet";
 import Auth from "../pages/Auth";
-import BrowsePieces from "../pages/BrowsePieces";
 import BrowseSets from "../pages/BrowseSets";
 import ChangePassword from "../pages/ChangePassword";
 import ChangePlan from "../pages/ChangePlan";
-import EditPiece from "../pages/EditPiece";
 import EditProfile from "../pages/EditProfile";
 import EditSet from "../pages/EditSet";
 import ForgotPassword from "../pages/ForgotPassword";
@@ -36,11 +34,9 @@ export default function Router (){
                 { path: '/addCustomPiece/:setID', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
                 { path: '/auth/:register', element: <Auth />},
-                { path: '/browsePieces', element: (<ProtectedRoute><BrowsePieces /></ProtectedRoute>) },
                 { path: '/browseSets', element: (<ProtectedRoute><BrowseSets /></ProtectedRoute>) },
                 { path: '/changePassword', element: (<ProtectedRoute><ChangePassword /></ProtectedRoute>) },
                 { path: '/changePlan', element: (<ProtectedRoute><ChangePlan /></ProtectedRoute>) },
-                { path: '/editPiece', element: (<ProtectedRoute><EditPiece /></ProtectedRoute>) },
                 { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) },
                 { path: '/editSet/:setID', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
                 { path: '/forgotPassword', element: <ForgotPassword /> },

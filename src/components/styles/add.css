@@ -146,12 +146,12 @@
         padding: 0 4%;
     }
     .add-title {
-        font-size: xx-large;
         margin-bottom: 8px;
+        font-size: xx-large;
     }
     .add-subtitle {
-        font-size: large;
         margin-bottom: 0px;
+        font-size: large;
     }
     .add-img-wrapper {
         display: none;
@@ -181,12 +181,12 @@
         padding: 0 4%;
     }
     .add-title {
-        font-size: xx-large;
         margin-bottom: 8px;
+        font-size: xx-large;
     }
     .add-subtitle {
-        font-size: large;
         margin-bottom: 0px;
+        font-size: large;
     }
     .add-img-wrapper {
         display: none;
@@ -209,4 +209,3 @@
         padding: 12px 4px;
     }
 }
-
