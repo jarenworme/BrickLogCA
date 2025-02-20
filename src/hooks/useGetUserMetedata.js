@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../config/firebase-config";
 
 // this hook gets user metadata from the firebase user collection in the database
-export const useGetUserSubscriptionTier = () => {
+export const useGetUserMetadata = () => {
     const [tier, setTier] = useState(null); // Store the subscription tier
     const [display, setDisplay] = useState(""); // Store the displayName
     const [profilePicURL, setProfilePicURL] = useState("true"); // Store Profile Pic URL
@@ -12,7 +12,7 @@ export const useGetUserSubscriptionTier = () => {
     const [error, setError] = useState(null); // Handle potential errors
 
     useEffect(() => {
-        const fetchSubscriptionTier = async (user) => {
+        const fetchUserMetadata = async (user) => {
             try {
                 const userDocRef = doc(db, "users", user.uid);
                 const userDoc = await getDoc(userDocRef);
@@ -36,7 +36,7 @@ export const useGetUserSubscriptionTier = () => {
 
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                fetchSubscriptionTier(user);
+                fetchUserMetadata(user);
             } else {
                 console.error("No user is logged in!");
                 setTier(null);

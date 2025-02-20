@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
-import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
+import { useGetUserMetadata} from "../../hooks/useGetUserMetedata";
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
 import { useGetNumMOCs } from "../../hooks/useGetNumMOCs";
@@ -25,7 +25,7 @@ export default function AddCustomSet () {
     const { numMOCs, loading, fetchMOCs } = useGetNumMOCs();
 
     // get info from hooks to determine if a user can add a new set given their sub tier
-    const { tier, loadingUser, error } = useGetUserSubscriptionTier();
+    const { tier, loadingUser, error } = useGetUserMetadata();
     const { setCount } = useGetUserSetCount();
     const { addSet } = useAddSet();
 

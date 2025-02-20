@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useFetchGlobalSets } from "../../hooks/useFetchGlobalSets";
-import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
+import { useGetUserMetadata} from "../../hooks/useGetUserMetedata";
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
 import '../styles/sets.css';
@@ -39,7 +39,7 @@ export default function BrowseSets() {
         toggleSearchByNum
     } = useFetchGlobalSets();
 
-    const { tier, loadingUser, error } = useGetUserSubscriptionTier();
+    const { tier, loadingUser, error } = useGetUserMetadata();
     const { setCount } = useGetUserSetCount();
     const { addSet } = useAddSet();
 

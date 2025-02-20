@@ -4,7 +4,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../../config/firebase-config";
-import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
+import { useGetUserMetadata} from "../../hooks/useGetUserMetedata";
 import "../styles/account.css";
 
 
@@ -20,7 +20,7 @@ export default function EditProfile() {
     const user = auth.currentUser;
 
     //hook data
-    const { tier, display } = useGetUserSubscriptionTier();
+    const { tier, display } = useGetUserMetadata();
 
     // state variables
     const [displayName, setDisplayName] = useState(display || "");

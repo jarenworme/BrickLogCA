@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase-config";
-import { useGetUserSubscriptionTier } from "../../hooks/useGetUserSubscriptionTier";
+import { useGetUserMetadata} from "../../hooks/useGetUserMetedata";
 import "../styles/account.css";
 
 import profilePic from "../../assets/icons/usericon.svg";
@@ -18,7 +18,7 @@ export default function Account () {
     const navigateChangePlan = () => navigate('/changePlan', { replace: false });
 
     // user metadata from hook call
-    const { tier, display, profilePicURL } = useGetUserSubscriptionTier();
+    const { tier, display, profilePicURL } = useGetUserMetadata();
 
     // function to signout a user
     const signout = async () => {

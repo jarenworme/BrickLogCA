@@ -41,7 +41,7 @@ export default function About () {
                     <h2 className="lp-block2-title-about">The Inspiration Behind It</h2>
                     <p className="lp-block2-text-about">
                         I'm Jaren, the creator of BrickLogCA, and this is me playing with one of the many LEGO® sets that just became 
-                        spare parts in a box over the years. After a whole summer of rebuilding all of my childhood LEGO® sets in 2023,
+                        spare parts in a box over the years. After an entire summer of rebuilding all of my childhood LEGO® sets in 2023,
                         I wanted a platform where I could track all of my sets in one place, know which were missing pieces and see 
                         all of the cool stats like my total piece count in one place. 
                     </p>
@@ -95,7 +95,7 @@ export default function About () {
                 </div>
             </div>
             <h3 className="about-thank-you">
-                Thanks to Bella, Kaiya and Zion for the photoshoots, and to my mom for the constant encouragement, and most of all to 
+                Thanks to Bella, Kaiya and Zion for the photoshoots, to my mom for the constant encouragement, and most of all to 
                 each person who finds use of the platform!
             </h3>
             <div className="about-block3-wrapper">
