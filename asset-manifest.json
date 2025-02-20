@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BrickLogCA/static/css/main.1daeaceb.css",
-    "main.js": "/BrickLogCA/static/js/main.6d3a2e72.js",
+    "main.js": "/BrickLogCA/static/js/main.91918fb2.js",
     "static/js/453.438a9bc3.chunk.js": "/BrickLogCA/static/js/453.438a9bc3.chunk.js",
     "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
     "static/media/boxes6.JPG": "/BrickLogCA/static/media/boxes6.4b9c50f5056b89bb5503.JPG",
@@ -28,11 +28,11 @@
     "index.html": "/BrickLogCA/index.html",
     "static/media/usericon.svg": "/BrickLogCA/static/media/usericon.693d24549d5ece7e7e94bcdfdd411870.svg",
     "main.1daeaceb.css.map": "/BrickLogCA/static/css/main.1daeaceb.css.map",
-    "main.6d3a2e72.js.map": "/BrickLogCA/static/js/main.6d3a2e72.js.map",
+    "main.91918fb2.js.map": "/BrickLogCA/static/js/main.91918fb2.js.map",
     "453.438a9bc3.chunk.js.map": "/BrickLogCA/static/js/453.438a9bc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1daeaceb.css",
-    "static/js/main.6d3a2e72.js"
+    "static/js/main.91918fb2.js"
   ]
 }
