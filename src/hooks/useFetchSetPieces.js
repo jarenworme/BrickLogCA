@@ -12,7 +12,7 @@ export const useFetchSetPieces = () => {
    
     const setsCollectionRef = collection(db, "pieces");
 
-    const { userID } = useGetUserInfo()
+    const { userID } = useGetUserInfo();
 
     const fetchPieces = async (setID) => {
         setLoadingPieces(true);
