@@ -128,6 +128,8 @@ export default function About () {
                     </div>
                 </div>
                 <h3 className="lp-footer-text">Thank you to Rebrickable for their LEGO® database</h3>
+                <h3 className="lp-footer-copyright-text">version 1.1</h3>
+                <h3 className="lp-footer-copyright-text">email us at bricklogca@gmail.com</h3>
                 <h3 className="lp-footer-copyright-text">&copy; 2024 Jaren Worme</h3>
             </div>
         </div>
