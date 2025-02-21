@@ -10,7 +10,7 @@ export const useFetchPieces = () => {
     const [pieces, setPieces] = useState([]);
     const [loadingPieces, setLoadingPieces] = useState(false);
    
-    const setsCollectionRef = collection(db, "pieces");
+    const piecesCollectionRef = collection(db, "pieces");
 
     const { userID } = useGetUserInfo()
 
@@ -18,7 +18,7 @@ export const useFetchPieces = () => {
         setLoadingPieces(true);
         try {
             const baseQuery = query(
-                setsCollectionRef,
+                piecesCollectionRef,
                 where("userID", "==", userID),
                 orderBy("createdAt", "desc")
             );

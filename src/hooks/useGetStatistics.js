@@ -6,7 +6,6 @@ import { useGetUserInfo } from "./useGetUserInfo";
 
 export const useGetStatistics = () => {
     const [userCreationDate, setUserCreationDate] = useState("");
-    const [userTier, setUserTier] = useState("");
     const [oldestSet, setOldestSet] = useState([]);
     const [firstSet, setFirstSet] = useState([]);
     const [firstSetDate, setFirstSetDate] = useState("");
@@ -18,8 +17,11 @@ export const useGetStatistics = () => {
     const [popThemeAmount, setPopThemeAmount] = useState(0);
     const [popYear, setPopYear] = useState(0);
     const [popYearAmount, setPopYearAmount] = useState(0);
+    const [numMOCs, setNumMOCs] = useState(-1);
+    const [numMissingPieces, setNumMissingPieces] = useState(-1);
 
     const setsCollectionRef = collection(db, "sets");
+    const piecesCollectionRef = collection(db, "pieces");
 
     const { userID } = useGetUserInfo();
 
@@ -28,17 +30,9 @@ export const useGetStatistics = () => {
 
         try {
 
-            // get user data and extract subscription tier and creation date 
+            // get user data and extract creation date 
             const userDocRef = doc(db, "users", userID);
             const userDoc = await getDoc(userDocRef);
-
-            if (userDoc.data().subscriptionTier === 1) {
-                setUserTier("Brick Starter");
-            } else if (userDoc.data().subscriptionTier === 2) {
-                setUserTier("Avid Collector");
-            } else {
-                setUserTier("LEGO Enthusiast");
-            }
 
             const tempUserDate = new Date(userDoc.data().createdAt);
             const userDate = tempUserDate.toLocaleDateString('en-US', { 
@@ -149,6 +143,31 @@ export const useGetStatistics = () => {
 
             setTotalPieces(countPieces);
 
+            // query to find number of mocs
+            const mocQuery = query(
+                setsCollectionRef,
+                where("userID", "==", userID),
+                where("theme_id", "==", "MOC")
+            );
+
+            const mocSnapshot = await getDocs(mocQuery);
+            const mocSets = mocSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
+            setNumMOCs(mocSets.length);
+
+            //
+            const missingPiecesQuery = query(
+                piecesCollectionRef,
+                where("userID", "==", userID),
+                orderBy("createdAt", "desc")
+            );
+
+            const missingPiecesSnapshot = await getDocs(missingPiecesQuery);
+
+            const newPieces = missingPiecesSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
+            setNumMissingPieces(newPieces.length);
+
         } catch (err) {
             console.error("Error fetching sets:", err);
         } finally {
@@ -159,7 +178,6 @@ export const useGetStatistics = () => {
 
     return {
         userCreationDate,
-        userTier,
         oldestSet,
         firstSet,
         firstSetDate,
@@ -171,6 +189,8 @@ export const useGetStatistics = () => {
         popTheme,
         popThemeAmount,
         popYear,
-        popYearAmount
+        popYearAmount,
+        numMOCs,
+        numMissingPieces
     }
 }
