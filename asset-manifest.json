@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/BrickLogCA/static/css/main.d2e9183e.css",
+    "main.css": "/BrickLogCA/static/css/main.9b32d321.css",
     "main.js": "/BrickLogCA/static/js/main.04b66b2f.js",
     "static/js/453.438a9bc3.chunk.js": "/BrickLogCA/static/js/453.438a9bc3.chunk.js",
     "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
@@ -14,11 +14,11 @@
     "static/media/legostore.jpeg": "/BrickLogCA/static/media/legostore.6aa1da17ad76eea9a491.jpeg",
     "static/media/stats-moc-full.JPEG": "/BrickLogCA/static/media/stats-moc-full.6bc7d7159f4532666a19.JPEG",
     "static/media/stats-moc.JPEG": "/BrickLogCA/static/media/stats-moc.2aca2d031e310a5c7b5c.JPEG",
+    "static/media/community-pic.JPEG": "/BrickLogCA/static/media/community-pic.cfb30712b2d43acc93e6.JPEG",
     "static/media/missing-part-img-car.JPEG": "/BrickLogCA/static/media/missing-part-img-car.eb20b057cf728d320b6c.JPEG",
     "static/media/blue-lego-bricks.jpeg": "/BrickLogCA/static/media/blue-lego-bricks.58225e410c59e72b0ac9.jpeg",
     "static/media/moc-display-image-blurred.jpeg": "/BrickLogCA/static/media/moc-display-image-blurred.73598ed6b43e5fecb94c.jpeg",
     "static/media/lego-404.jpeg": "/BrickLogCA/static/media/lego-404.a356adb08c582c03a1fc.jpeg",
-    "static/media/stormtrooper-computer-edited.jpeg": "/BrickLogCA/static/media/stormtrooper-computer-edited.24edff53256c3f39638d.jpeg",
     "static/media/Silka-Regular.otf": "/BrickLogCA/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
     "static/media/figma-icons.png": "/BrickLogCA/static/media/figma-icons.5ae85548a4d72df94384.png",
     "static/media/old-set.jpg": "/BrickLogCA/static/media/old-set.cde19bacd19889bffa98.jpg",
@@ -27,12 +27,12 @@
     "static/media/piece-primary.svg": "/BrickLogCA/static/media/piece-primary.fab5a45e80219681ed60.svg",
     "index.html": "/BrickLogCA/index.html",
     "static/media/usericon.svg": "/BrickLogCA/static/media/usericon.693d24549d5ece7e7e94bcdfdd411870.svg",
-    "main.d2e9183e.css.map": "/BrickLogCA/static/css/main.d2e9183e.css.map",
+    "main.9b32d321.css.map": "/BrickLogCA/static/css/main.9b32d321.css.map",
     "main.04b66b2f.js.map": "/BrickLogCA/static/js/main.04b66b2f.js.map",
     "453.438a9bc3.chunk.js.map": "/BrickLogCA/static/js/453.438a9bc3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2e9183e.css",
+    "static/css/main.9b32d321.css",
     "static/js/main.04b66b2f.js"
   ]
 }
