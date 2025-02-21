@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../../config/firebase-config";
+import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { useGetUserMetadata} from "../../hooks/useGetUserMetedata";
 import { useGetUserSetCount } from "../../hooks/useGetUserSetCount";
 import { useAddSet } from "../../hooks/useAddSet";
@@ -15,7 +18,8 @@ export default function AddCustomSet () {
     const navigate = useNavigate();
 
     // state variables
-    const [img_url, setImg_url] = useState("");
+    const [displayPic, setDisplayPic] = useState(null);
+    const [preview, setPreview] = useState("");
     const [name, setName] = useState("");
     const [num_parts, setNum_parts] = useState("");
     const [numPartsError, setNumPartsError] = useState("");
@@ -28,6 +32,7 @@ export default function AddCustomSet () {
     const { tier, loadingUser, error } = useGetUserMetadata();
     const { setCount } = useGetUserSetCount();
     const { addSet } = useAddSet();
+    const { userID } = useGetUserInfo();
 
     // ensures to fetch MOCs once only
     useEffect(() => {
@@ -35,6 +40,13 @@ export default function AddCustomSet () {
             fetchMOCs();
         }
     }, [fetchMOCs]);
+
+    // function to handle the user inputted photo file
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setDisplayPic(file);
+        setPreview(URL.createObjectURL(file)); // Show image preview
+    };
 
     // validation function to ensure a correct piece count in a valid range
     const validatePieceNum = () => {
@@ -63,6 +75,15 @@ export default function AddCustomSet () {
         const set_num = numMOCs + 1;
         const theme_id = "MOC";
         const year = new Date().getFullYear();
+        const MOCID = `${userID}_${set_num}`;
+        let img_url = "";
+                    
+        // Upload new profile picture to Firebase Storage
+        if (displayPic) {
+            const storageRef = ref(storage, `set_pictures/${MOCID}`);
+            await uploadBytes(storageRef, displayPic);
+            img_url = await getDownloadURL(storageRef);
+        }
 
         try {
             await addSet({ img_url, name, num_parts: parseInt(num_parts), set_num, theme_id, year });
@@ -130,13 +151,14 @@ export default function AddCustomSet () {
                     <div className="add-field-title-wrapper">
                         <label className="add-field-title">Display Image</label>
                     </div>
-                    <input 
-                        className="add-field-input" 
-                        type="text" 
-                        value={img_url} 
-                        placeholder="Optional - copy an ImageBB link here"
-                        onChange={(e) => setImg_url(e.target.value)} 
-                    />
+                    <div className="add-display-img-content-wrapper">
+                        { preview !== "" && 
+                            <div className="add-display-img-wrapper">
+                                <img src={preview} alt="Profile Preview" className="add-display-img" />
+                            </div>
+                        }
+                        <input className="add-file-input" type="file" onChange={handleFileChange} accept="image/*" />
+                    </div>
                     <div className="add-btn-wrapper">
                         <button 
                             className="add-submit-btn" 

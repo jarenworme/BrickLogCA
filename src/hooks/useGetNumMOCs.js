@@ -27,7 +27,13 @@ export const useGetNumMOCs = () => {
             const mocSnapshot = await getDocs(mocQuery);
             const mocSets = mocSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setNumMOCs(mocSets.length);
+            let tempMOCnum = 1;
+
+            if (mocSets.length > 0) {
+                tempMOCnum = mocSets.pop().set_num;
+            }
+
+            setNumMOCs(tempMOCnum);
             
         } catch (err) {
             console.error("Error fetching sets:", err);

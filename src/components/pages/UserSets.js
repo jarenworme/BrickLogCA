@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpWideShort, faArrowDownWideShort } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDays, faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import { useGetUserInfo } from "../../hooks/useGetUserInfo";
 import { useGetFilterUserSets } from "../../hooks/useGetFilterUserSets";
 import { useDeleteSet } from "../../hooks/useDeleteSet";
 import "../styles/sets.css"
@@ -31,6 +32,8 @@ export default function UserSetsPage () {
     // custom hook items
     const { deleteSet, loadingDelete, error } = useDeleteSet();
 
+    const { userID } = useGetUserInfo();
+
     const {
         sets,
         fetchFilterLoading,
@@ -57,11 +60,13 @@ export default function UserSetsPage () {
     }, [loadArrays, fetchSets, sets.length]);
 
     // delete the selected set from user sets and reload sets with the same criteria
-    const handleDelete = async (setId) => {
-        //if (window.confirm("Are you sure you want to delete this set?")) {
-            await deleteSet(setId);
+    const handleDelete = async (setId, theme, set_num) => {
+        const isMOC = theme === "MOC";
+        const imgID = `${userID}_${set_num}`;
+        if (window.confirm("Are you sure you want to delete this set?")) {
+            await deleteSet(setId, isMOC, imgID);
             updateSetsOnDelete();
-        //}
+        }
     };
 
     // fetches a new set list based on filter type with form submission
@@ -259,7 +264,7 @@ export default function UserSetsPage () {
                                     icon={faTrashCan} 
                                     className="us-delete-icon" 
                                     size="xl" 
-                                    onClick={() => handleDelete(set.id)} 
+                                    onClick={() => handleDelete(set.id, set.theme_id, set.set_num)} 
                                     disabled={loadingDelete}
                                 />
                             </div>
