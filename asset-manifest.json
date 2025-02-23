@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BrickLogCA/static/css/main.8a1e83c3.css",
-    "main.js": "/BrickLogCA/static/js/main.b13e4c07.js",
+    "main.css": "/BrickLogCA/static/css/main.e145e15a.css",
+    "main.js": "/BrickLogCA/static/js/main.e2bcd749.js",
     "static/js/453.438a9bc3.chunk.js": "/BrickLogCA/static/js/453.438a9bc3.chunk.js",
     "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
     "static/media/stats-background-1.jpeg": "/BrickLogCA/static/media/stats-background-1.a800061241711efe2634.jpeg",
@@ -32,12 +32,12 @@
     "static/media/pin-green.svg": "/BrickLogCA/static/media/pin-green.425598f20101898556759f2cc422c57d.svg",
     "static/media/pin-red.svg": "/BrickLogCA/static/media/pin-red.d04df2b976aa97a54c5e79cc5f6c2e1a.svg",
     "static/media/pin-yellow.svg": "/BrickLogCA/static/media/pin-yellow.090b36b8c01eaaad68a58f2b97fb92a6.svg",
-    "main.8a1e83c3.css.map": "/BrickLogCA/static/css/main.8a1e83c3.css.map",
-    "main.b13e4c07.js.map": "/BrickLogCA/static/js/main.b13e4c07.js.map",
+    "main.e145e15a.css.map": "/BrickLogCA/static/css/main.e145e15a.css.map",
+    "main.e2bcd749.js.map": "/BrickLogCA/static/js/main.e2bcd749.js.map",
     "453.438a9bc3.chunk.js.map": "/BrickLogCA/static/js/453.438a9bc3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a1e83c3.css",
-    "static/js/main.b13e4c07.js"
+    "static/css/main.e145e15a.css",
+    "static/js/main.e2bcd749.js"
   ]
 }
