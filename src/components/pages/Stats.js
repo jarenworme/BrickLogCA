@@ -14,14 +14,15 @@ export default function Stats () {
     
     // extract all variables from get statistics hook
     const {
+        fetchStats,
         userCreationDate,
         oldestSet,
         firstSet,
         firstSetDate,
         topPiecesSet,
         loading,
-        fetchStats,
         totalSets,
+        statsAvailable,
         totalPieces,
         popTheme,
         popThemeAmount,
@@ -40,7 +41,25 @@ export default function Stats () {
     }, [fetchStats, oldestSet.length]);
 
     // only load loading component when loading is true
-    if(loading) return <div className="loading-full-screen"><div className="loading-img" /></div>;
+    if (loading) return <div className="loading-full-screen"><div className="loading-img" /></div>;
+
+    if (!statsAvailable) {
+        return (
+            <div className="stats-nostats-wrapper">
+                <div className="stats-nostats-content-wrapper">
+                    <div className="stats-title-wrapper">
+                        <div className="stats-pin-icon-wrapper">
+                            <img src={pinBlue} alt="LEGO Piece" className="stats-pin-icon"/>
+                        </div>
+                        <div className="stats-pin-icon-wrapper">
+                            <img src={pinRed} alt="LEGO Piece" className="stats-pin-icon"/>
+                        </div>
+                    </div>
+                    <h2 className="stats-nostats-text">You must log at least three sets to view your statistics</h2>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="stats-wrapper">
@@ -130,7 +149,7 @@ export default function Stats () {
                 <h4 className="stats-content-text">Total MOCS: {numMOCs}</h4>
                 <h4 className="stats-content-text">Total Pieces: {totalPieces}</h4>
                 <h4 className="stats-content-text">Total Missing Pieces: {numMissingPieces}</h4>
-                <h4 className="stats-content-text">Total Minifigures: n/a</h4>
+                <h4 className="stats-content-text">Total Minifigures: {statsAvailable}</h4>
                 <h4 className="stats-content-text">Most Popular Theme: {popTheme} ({popThemeAmount})</h4>
                 <h4 className="stats-content-text">Most Popular Release Year: {popYear} ({popYearAmount})</h4>
             </div>

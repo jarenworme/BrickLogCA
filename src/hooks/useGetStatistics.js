@@ -13,6 +13,7 @@ export const useGetStatistics = () => {
     const [topPiecesSet, setTopPiecesSet] = useState([]);
     const [loading, setLoading] = useState(false);
     const [totalSets, setTotalSets] = useState(0);
+    const [statsAvailable, setStatsAvailable] = useState(true);
     const [totalPieces, setTotalPieces] = useState(0);
     const [popTheme, setPopTheme] = useState("");
     const [popThemeAmount, setPopThemeAmount] = useState(0);
@@ -54,7 +55,9 @@ export const useGetStatistics = () => {
             const oldestSnapshot = await getDocs(oldestQuery);
             const oldestSets = oldestSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setOldestSet(oldestSets[0]);
+            if (oldestSets.length > 0) {
+                setOldestSet(oldestSets[0]);
+            }
 
             const themeCounts = {};
 
@@ -91,16 +94,17 @@ export const useGetStatistics = () => {
             const firstSnapshot = await getDocs(firstQuery);
             const firstSets = firstSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setFirstSet(firstSets[0]);
+            if (firstSets.length > 0) {
+                const tempDate = new Date(firstSets[0].createdAt.seconds * 1000);
+                const fullDate = tempDate.toLocaleDateString('en-US', { 
+                    day: '2-digit', 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
 
-            const tempDate = new Date(firstSets[0].createdAt.seconds * 1000);
-            const fullDate = tempDate.toLocaleDateString('en-US', { 
-                day: '2-digit', 
-                month: 'long', 
-                year: 'numeric' 
-            });
-
-            setFirstSetDate(fullDate);
+                setFirstSetDate(fullDate);
+                setFirstSet(firstSets[0]);
+            }
 
             const yearCounts = {};
 
@@ -137,8 +141,13 @@ export const useGetStatistics = () => {
             const pieceSnapshot = await getDocs(pieceQuery);
             const pieceSets = pieceSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setTopPiecesSet(pieceSets[0]);
-            setTotalSets(pieceSets.length);
+            if (pieceSets.length > 0) {
+                setTopPiecesSet(pieceSets[0]);
+                setTotalSets(pieceSets.length);
+            }
+
+            // variable to decide if the stats are displayed or not if the user has at least 3 sets
+            setStatsAvailable(pieceSets.length >= 3);
 
             let countPieces = 0;
 
@@ -181,14 +190,15 @@ export const useGetStatistics = () => {
     }
     
     return {
+        fetchStats,
         userCreationDate,
         oldestSet,
         firstSet,
         firstSetDate,
         topPiecesSet,
         loading,
-        fetchStats,
         totalSets,
+        statsAvailable,
         totalPieces,
         popTheme,
         popThemeAmount,
