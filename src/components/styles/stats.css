@@ -1,31 +1,5 @@
 :root{
-    --primary: #0587D0;
-    --primary-light: #1e9be3;
-    --primary-dark: #0878ba;
-    --primary-disabled: #DEEDF5;
-
-    --secondary: #222222;
-    --secondary-light: #555555;
-    --secondary-dark: #161616;
-    --secondary-disabled: #DBDBDB;
-
-    --off-white: #fcfcf8;
-
-    --accent-crimson: #E23636;
-    --accent-saffron: #FFE601;
-    --accent-forest-green: #228B22;
-    --accent-lime: #54DD3E;
-    --accent-orange: #FFA800;
-    --accent-orange-dark: #ff9100;
-    --accent-orange-disabled: #ffe4ab;
-    --accent-pink: #F351A9;
-    --accent-purple: #9E07FA;
-    --accent-cobalt: #0047AB;
-    --accent-sky-blue: #87CEEB;
     --accent-titanium-white: #FFFFFF;	
-    --accent-black: #000000;
-    --accent-burnt-sienna: #AB4A13;
-    --accent-sand-green: #A0BCAC;
 }
 
 .stats-wrapper {
@@ -118,107 +92,45 @@
 }
 
 .stats-content-text {
+    margin: 12px 24px;
     font-size: larger;
     font-weight: normal;
-    margin: 12px 24px;
 }
+
 
 @media screen and (max-height: 500px) {
     .stats-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        height: 88vh;
-        min-height: fit-content;
-        width: 98%;
-        padding: 12vh 2% 0 0;
-        background-image: url(/src/assets/images/stats-background-1.jpeg);
-        background-position: center;
-        background-size: cover;
-    }
-    
-    .stats-set-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        width: 60%;
-        margin-top: 24px;
-    }
-    
-    .stats-set {
-        display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: flex-start;
-        height: fit-content;
-        width: fit-content;
-        min-width: 25%;
-        margin: 16px;
-        padding-bottom: 32px;
-        border-radius: 2px;
-        background-color: var(--accent-titanium-white);
-        box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.6);
+        width: 96%;
+        padding: 15vh 2% 0 2%;
     }
-    
-    .stats-pin-icon-wrapper {
-        height: 40px;
-        width: 40px;
-        margin: 8px;
-    }
-    
-    .stats-pin-icon {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-    .stats-img-wrapper {
-        height: 200px;
-        width: 200px;
-        margin: 0 24px;
-    }
-    
-    .stats-img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
-    
     .stats-content-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        min-width: 400px;
-        margin: 16px;
-        padding: 4px 8px 64px 0;
-        border-radius: 2px;
-        background-color: var(--accent-titanium-white);
-        box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.6);
+        width: 90%;
+        min-width: 300px;
+        margin: 0;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     }
-    
-    .stats-title-wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        width: 100%;
-    }
-    
     .stats-title {
-        margin: 24px;
+        margin: 24px 0;
         text-align: center;
     }
-    
-    .stats-content-text {
-        font-size: larger;
-        font-weight: normal;
-        margin: 12px 24px;
+    .stats-set-wrapper {
+        width: 90%;
     }
-    
+    .stats-set {
+        min-width: 100%;
+        margin: 0 0 24px 0;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+    }
+    .stats-img-wrapper {
+        height: 240px;
+        width: 240px;
+    }
+    .stats-content-text {
+        margin: 12px 40px;
+    }
 }
 
 @media (max-aspect-ratio: 1/1) {
@@ -229,73 +141,26 @@
         width: 96%;
         padding: 12vh 2% 0 2%;
     }
-    
-    .stats-set-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        width: 60%;
-        margin-top: 24px;
-    }
-    
-    .stats-set {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        height: fit-content;
-        width: fit-content;
-        min-width: 25%;
-        margin: 16px;
-        padding-bottom: 32px;
-        border-radius: 2px;
-        background-color: var(--accent-titanium-white);
-        box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.6);
-    }
-    
-    .stats-pin-icon-wrapper {
-        height: 40px;
-        width: 40px;
-        margin: 8px;
-    }
-    
-    .stats-pin-icon {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-    .stats-img-wrapper {
-        height: 200px;
-        width: 200px;
-        margin: 0 24px;
-    }
-    
-    .stats-img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
-    
     .stats-content-wrapper {
         width: 95%;
         min-width: 300px;
         margin: 0;
-        border-radius: 2px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     }
-    
     .stats-title {
         margin: 24px 0;
         text-align: center;
     }
-    
-    .stats-content-text {
-        font-size: larger;
-        font-weight: normal;
-        margin: 12px 24px;
+    .stats-set-wrapper {
+        width: 95%;
     }
-    
+    .stats-set {
+        min-width: 100%;
+        margin: 0 0 24px 0;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+    }
+    .stats-img-wrapper {
+        height: 240px;
+        width: 240px;
+    }
 }

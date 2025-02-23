@@ -4,6 +4,7 @@ import { db } from "../config/firebase-config";
 import { useGetUserInfo } from "./useGetUserInfo";
 
 
+// hook to calculate statistics for all statistics fields for the logged-in user
 export const useGetStatistics = () => {
     const [userCreationDate, setUserCreationDate] = useState("");
     const [oldestSet, setOldestSet] = useState([]);
@@ -40,6 +41,7 @@ export const useGetStatistics = () => {
                 month: 'long', 
                 year: 'numeric' 
             });
+
             setUserCreationDate(userDate);
 
             // query to sort by oldest year, extract first element, and find most popular theme
@@ -51,6 +53,7 @@ export const useGetStatistics = () => {
 
             const oldestSnapshot = await getDocs(oldestQuery);
             const oldestSets = oldestSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
             setOldestSet(oldestSets[0]);
 
             const themeCounts = {};
@@ -87,13 +90,16 @@ export const useGetStatistics = () => {
 
             const firstSnapshot = await getDocs(firstQuery);
             const firstSets = firstSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
             setFirstSet(firstSets[0]);
+
             const tempDate = new Date(firstSets[0].createdAt.seconds * 1000);
             const fullDate = tempDate.toLocaleDateString('en-US', { 
                 day: '2-digit', 
                 month: 'long', 
                 year: 'numeric' 
             });
+
             setFirstSetDate(fullDate);
 
             const yearCounts = {};
@@ -130,8 +136,8 @@ export const useGetStatistics = () => {
 
             const pieceSnapshot = await getDocs(pieceQuery);
             const pieceSets = pieceSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-            setTopPiecesSet(pieceSets[0]);
 
+            setTopPiecesSet(pieceSets[0]);
             setTotalSets(pieceSets.length);
 
             let countPieces = 0;
@@ -155,7 +161,7 @@ export const useGetStatistics = () => {
 
             setNumMOCs(mocSets.length);
 
-            //
+            // query to find number of missing pieces for the logged-in user
             const missingPiecesQuery = query(
                 piecesCollectionRef,
                 where("userID", "==", userID),
@@ -163,7 +169,6 @@ export const useGetStatistics = () => {
             );
 
             const missingPiecesSnapshot = await getDocs(missingPiecesQuery);
-
             const newPieces = missingPiecesSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
             setNumMissingPieces(newPieces.length);
@@ -175,7 +180,6 @@ export const useGetStatistics = () => {
         }
     }
     
-
     return {
         userCreationDate,
         oldestSet,

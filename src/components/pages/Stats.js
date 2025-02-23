@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useGetStatistics } from "../../hooks/useGetStatistics";
 import "../styles/stats.css"
 
-import pinIcon from "../../assets/icons/pin.svg";
 import pinBlue from "../../assets/icons/pin-blue.svg";
 import pinGreen from "../../assets/icons/pin-green.svg";
 import pinRed from "../../assets/icons/pin-red.svg";
