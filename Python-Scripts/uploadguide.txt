@@ -30,4 +30,6 @@ This is to ensure the sets are not sudplicated as the given ids are random.
 
 (9) Cleanup the folders by deleting the gz folders and csv files, and upload to GitHub if desired.
 
-If you get the success print after a few minutes, check that the data is now in the global-sets collection and you are done!
+If you get the success print after a few minutes, check that the data is now in the global-sets collection. Go through the newest sets
+on the site on the browse page and make sure that there are no malformed characters, and changed them in the database if you find any.
+Otherwise, you are done!
