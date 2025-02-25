@@ -178,7 +178,7 @@ export const useGetOnlineStatistics = () => {
 
             setTotalMOCs(MOCSets.length);
 
-            // query to get number of total users
+            // query to get number of missing pieces
             const missingPiecesQuery = query(
                 piecesCollectionRef
             );
@@ -186,7 +186,13 @@ export const useGetOnlineStatistics = () => {
             const missingPiecesSnapshot = await getDocs(missingPiecesQuery);
             const missingPieces = missingPiecesSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setTotalMissingPieces(missingPieces.length);
+            let totalMissing = 0;
+
+            missingPieces.forEach(element => {
+                totalMissing = totalMissing + element.quantity;
+            });
+
+            setTotalMissingPieces(totalMissing);
 
             // query to get number of total sets in the archive
             // can be run in admin to get number, but hard coded to save load time since the num won't change between database updates

@@ -26,9 +26,9 @@ export const useDeletePiece = () => {
                 missing_parts: increment(-quantity),
             });
 
-            console.log(`Piece with ID ${pieceID} has been successfully deleted.`);
+            // console.log(`Piece with ID ${pieceID} has been successfully deleted.`);
         } catch (err) {
-            console.error("Error deleting set:", err);
+            console.error("Error deleting piece:", err);
             setErrorDelete(err.message);
         } finally {
             setLoadingDelete(false);
