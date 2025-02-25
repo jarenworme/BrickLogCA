@@ -226,12 +226,12 @@ export default function UserSetsPage () {
                                 alt="set display" 
                                 className="sets-img" 
                                 onError={(e) => {
-                                e.target.style.display = "none"; // Hide the failed image
-                                const parent = e.target.parentNode; // Access the parent node
-                                const fallback = document.createElement("div"); // Create a fallback element
-                                fallback.className = "sets-no-image-message";
-                                fallback.innerText = "No image available";
-                                parent.appendChild(fallback); // Append fallback to the wrapper
+                                    e.target.style.display = "none"; // Hide the failed image
+                                    const parent = e.target.parentNode; // Access the parent node
+                                    const fallback = document.createElement("div"); // Create a fallback element
+                                    fallback.className = "sets-no-image-message";
+                                    fallback.innerText = "No image available";
+                                    parent.appendChild(fallback); // Append fallback to the wrapper
                                 }}
                             />
                         </div>
@@ -242,14 +242,14 @@ export default function UserSetsPage () {
                                 ? <p className="us-set-text">#MOC{set.set_num}</p>
                                 : <p className="us-set-text">#{set.set_num}</p> }
                                 <div className="us-set-text-icon-group">
-                                <div className="us-piece-icon-wrapper">
-                                    <img src={pieceIcon} alt="LEGO Piece" className="us-piece-icon"/>
-                                </div>
-                                <p className="us-set-text">{set.num_parts}</p>
+                                    <div className="us-piece-icon-wrapper">
+                                        <img src={pieceIcon} alt="LEGO Piece" className="us-piece-icon"/>
+                                    </div>
+                                    <p className="us-set-text">{set.num_parts}</p>
                                 </div>
                                 <div className="us-set-text-icon-group">
-                                <FontAwesomeIcon icon={faCalendarDays} className="us-cal-icon" size="sm"/>
-                                <p className="us-set-text">{set.year}</p>
+                                    <FontAwesomeIcon icon={faCalendarDays} className="us-cal-icon" size="sm"/>
+                                    <p className="us-set-text">{set.year}</p>
                                 </div>
                             </div>
                         </div>

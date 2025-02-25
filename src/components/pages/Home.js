@@ -13,7 +13,7 @@ export default function Home () {
     const navigatePieces = () => navigate('/userPieces', { replace: false });
     const navigateStats = () => navigate('/stats', { replace: false });
     const navigateBrowseSets = () => navigate('/browseSets', { replace: false });
-    const navigateOnlineStats = () => navigate('/onlineStats', { replace: false });
+    const navigateCommunity = () => navigate('/community', { replace: false });
 
     // ensure subscriptionTier is set
     useAddUserSubscriptionTier();
@@ -46,7 +46,7 @@ export default function Home () {
                         </button>
                     </div>
                     <div className="home-btn-wrapper">
-                        <button className="home-btn home-online-image" onClick={navigateOnlineStats} disabled={true}>
+                        <button className="home-btn home-online-image" onClick={navigateCommunity}>
                             Community
                         </button>
                     </div>

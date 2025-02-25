@@ -3,6 +3,7 @@ import { useRoutes, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import About from "../pages/About";
 import Account from "../pages/Account";
+import AddCommunityPost from "../pages/AddCommunityPost";
 import AddCustomPiece from "../pages/AddCustomPiece";
 import AddCustomSet from "../pages/AddCustomSet";
 import Auth from "../pages/Auth";
@@ -15,7 +16,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
 import LandingPage from "../pages/LandingPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import OnlineStats from "../pages/OnlineStats";
+import Community from "../pages/Community";
 import Payments from "../pages/Payments";
 import SetDetails from "../pages/SetDetails";
 import Stats from "../pages/Stats";
@@ -31,17 +32,18 @@ export default function Router (){
                 { path: '/', element: <LandingPage /> },
                 { path: '/about', element: <About /> },
                 { path: '/account', element: (<ProtectedRoute><Account /></ProtectedRoute>) },
+                { path: '/addCommunityPost', element: (<ProtectedRoute><AddCommunityPost /></ProtectedRoute>) },
                 { path: '/addCustomPiece/:setID', element: (<ProtectedRoute><AddCustomPiece /></ProtectedRoute>) },
                 { path: '/addCustomSet', element: (<ProtectedRoute><AddCustomSet /></ProtectedRoute>) },
                 { path: '/auth/:register', element: <Auth />},
                 { path: '/browseSets', element: (<ProtectedRoute><BrowseSets /></ProtectedRoute>) },
                 { path: '/changePassword', element: (<ProtectedRoute><ChangePassword /></ProtectedRoute>) },
                 { path: '/changePlan', element: (<ProtectedRoute><ChangePlan /></ProtectedRoute>) },
+                { path: '/community', element: (<ProtectedRoute><Community /></ProtectedRoute>) },
                 { path: '/editProfile', element: (<ProtectedRoute><EditProfile /></ProtectedRoute>) },
                 { path: '/editSet/:setID', element: (<ProtectedRoute><EditSet /></ProtectedRoute>) } ,
                 { path: '/forgotPassword', element: <ForgotPassword /> },
                 { path: '/home', element: (<ProtectedRoute><Home /></ProtectedRoute>) },
-                { path: '/onlineStats', element: (<ProtectedRoute><OnlineStats /></ProtectedRoute>) },
                 { path: '/payments', element: <Payments /> },
                 { path: '/setDetails/:setID', element: (<ProtectedRoute><SetDetails /></ProtectedRoute>) },
                 { path: '/stats', element: (<ProtectedRoute><Stats /></ProtectedRoute>) },

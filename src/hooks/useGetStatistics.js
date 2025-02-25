@@ -19,8 +19,8 @@ export const useGetStatistics = () => {
     const [popThemeAmount, setPopThemeAmount] = useState(0);
     const [popYear, setPopYear] = useState(0);
     const [popYearAmount, setPopYearAmount] = useState(0);
-    const [numMOCs, setNumMOCs] = useState(-1);
-    const [numMissingPieces, setNumMissingPieces] = useState(-1);
+    const [numMOCs, setNumMOCs] = useState(0);
+    const [numMissingPieces, setNumMissingPieces] = useState(0);
 
     const setsCollectionRef = collection(db, "sets");
     const piecesCollectionRef = collection(db, "pieces");

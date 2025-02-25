@@ -9,7 +9,7 @@
     --accent-crimson: #E23636;
 }
 
-.add-wrapper {
+.add-wrapper, .add-post-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +20,10 @@
     min-width: fit-content;
     margin-top: 12vh;
     padding: 0 15%;
+}
+
+.add-post-wrapper {
+    justify-content: center;
 }
 
 .add-title {
@@ -60,7 +64,7 @@
     width: 100%;
 }
 
-.add-form {
+.add-form, .add-post-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,6 +72,11 @@
     height: 100%;
     min-height: fit-content;
     width: 50%;
+}
+
+.add-post-form {
+    height: fit-content;
+    margin-top: 32px;
 }
 
 .add-field-title-wrapper {
@@ -117,6 +126,15 @@
     margin: 10px 0;
 }
 
+.add-post-textarea {
+    height: 200px;
+    width: 100%;
+    resize: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: large;
+}
+
 .add-btn-wrapper {
     display: flex;
     flex-direction: row;
@@ -127,7 +145,7 @@
     margin-top: 24px;
 }
 
-.add-submit-btn, .add-cancel-btn {
+.add-submit-btn, .add-cancel-btn, .add-post-submit-btn, .add-post-cancel-btn {
     width: fit-content;
     min-width: 45%;
     margin-bottom: 8px;
@@ -137,38 +155,41 @@
     font-size: large;
 }
 
-.add-submit-btn {
+.add-submit-btn, .add-post-submit-btn {
     color: var(--off-white);
     background-color: var(--primary);
 }
 
-.add-submit-btn:hover {
+.add-submit-btn:hover, .add-post-submit-btn:hover {
     cursor: pointer;
     background-color: var(--primary-dark);
 }
 
-.add-submit-btn:disabled {
+.add-submit-btn:disabled, .add-post-submit-btn:disabled {
     cursor: not-allowed;
     background-color: var(--primary-disabled);
 }
 
-.add-cancel-btn {
+.add-cancel-btn, .add-post-cancel-btn {
     color: var(--off-white);
     background-color: var(--secondary);
 }
 
-.add-cancel-btn:hover {
+.add-cancel-btn:hover, .add-post-cancel-btn:hover {
     cursor: pointer;
     background-color: var(--secondary-dark);
 }
 
 
 @media screen and (max-height: 500px) {
-    .add-wrapper {
+    .add-wrapper, .add-post-wrapper {
         height: fit-content;
         width: 92%;
         margin-top: 15vh;
         padding: 0 4%;
+    }
+    .add-post-wrapper {
+        margin-top: 18vh;
     }
     .add-title {
         margin-bottom: 8px;
@@ -189,13 +210,16 @@
         height: fit-content;
         width: 100%;
     }
+    .add-post-form {
+        width: 80%;
+    }
     .add-field-title-wrapper {
         width: 80%;
-    }    
+    }   
     .add-btn-wrapper {
         margin-bottom: 48px;
     }
-    .add-submit-btn, .add-cancel-btn {
+    .add-submit-btn, .add-cancel-btn, .add-post-submit-btn, .add-post-cancel-btn {
         padding: 12px 4px;
     }
 }
@@ -205,6 +229,10 @@
         width: 92%;
         padding: 0 4%;
     }
+    .add-post-wrapper {
+        justify-content: flex-start;
+        padding-top: 32px;
+    }
     .add-title {
         margin-bottom: 8px;
         font-size: xx-large;
@@ -220,17 +248,30 @@
         height: fit-content;
         margin-top: 0;
     }
-    .add-form {
+    .add-form, .add-post-form {
         height: fit-content;
         width: 100%;
     }
     .add-field-title-wrapper {
         width: 80%;
     }    
+    .add-post-textarea {
+        height: 300px;
+        width: 100%;
+        resize: none;
+        padding: 16px;
+        border-radius: 8px;
+        font-size: large;
+    } 
     .add-btn-wrapper {
+        width: 100%;
         margin-bottom: 48px;
     }
-    .add-submit-btn, .add-cancel-btn {
+    .add-submit-btn, .add-cancel-btn, .add-post-submit-btn, .add-post-cancel-btn {
         padding: 12px 4px;
+    }
+    .add-post-submit-btn, .add-post-cancel-btn {
+        width: 100%;
+        margin: 8px 0;
     }
 }
