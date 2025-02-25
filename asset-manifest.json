@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BrickLogCA/static/css/main.73a3841a.css",
-    "main.js": "/BrickLogCA/static/js/main.8ca97561.js",
+    "main.js": "/BrickLogCA/static/js/main.567a5a14.js",
     "static/js/453.438a9bc3.chunk.js": "/BrickLogCA/static/js/453.438a9bc3.chunk.js",
     "static/media/train1.png": "/BrickLogCA/static/media/train1.7784009d66ac9c72b102.png",
     "static/media/stats-background-1.jpeg": "/BrickLogCA/static/media/stats-background-1.a800061241711efe2634.jpeg",
@@ -33,11 +33,11 @@
     "static/media/pin-red.svg": "/BrickLogCA/static/media/pin-red.d04df2b976aa97a54c5e79cc5f6c2e1a.svg",
     "static/media/pin-yellow.svg": "/BrickLogCA/static/media/pin-yellow.090b36b8c01eaaad68a58f2b97fb92a6.svg",
     "main.73a3841a.css.map": "/BrickLogCA/static/css/main.73a3841a.css.map",
-    "main.8ca97561.js.map": "/BrickLogCA/static/js/main.8ca97561.js.map",
+    "main.567a5a14.js.map": "/BrickLogCA/static/js/main.567a5a14.js.map",
     "453.438a9bc3.chunk.js.map": "/BrickLogCA/static/js/453.438a9bc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73a3841a.css",
-    "static/js/main.8ca97561.js"
+    "static/js/main.567a5a14.js"
   ]
 }
