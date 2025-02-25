@@ -1,6 +1,8 @@
 import csv
 from themes import THEMES
 
+# python script to remove all 'unnecessary' sets to decrease the csv size and alter the set attributes to the form needed
+
 # Open the original file for reading
 with open('sets.csv', newline='') as csvfile:
     reader = csv.reader(csvfile)
@@ -9,8 +11,11 @@ with open('sets.csv', newline='') as csvfile:
     with open('filtered_sets.csv', mode='w', newline='') as outfile:
         writer = csv.writer(outfile)
         i = 0
+        # counter = 0
 
         for row in reader:
+            # counter = counter + 1
+            # print(counter)
             if i == 0:                                      # ignore checks for the first row (labels) and write it as is
                 writer.writerow(row)
                 i = 1
@@ -29,3 +34,5 @@ with open('sets.csv', newline='') as csvfile:
                 theme_lookup = THEMES[int(row[3])][1]       # change the theme_id to a string theme of only parent themes
                 row[3] = theme_lookup
                 writer.writerow(row)                        # Write the updated row to the new file
+        
+        print("csv trimmed successfully")

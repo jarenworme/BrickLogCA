@@ -1,0 +1,33 @@
+(1) Download sets and themes folders from the site at https://rebrickable.com/downloads/
+
+(2) Place the zipped downloaded folders in the Python-Scripts folder.
+
+(3) Navigate to the folder in the terminal and activate the virtual environment:
+	cd OneDrive\Desktop\legologv2\Python-Scripts
+	virt\Scripts\activate.bat
+
+(4) Run extractgz.py for themes, changing the file name in the python file if necessary for extracting sets.
+(since for whatever reason you can open and extract the data from sets to get the csv)
+	python extractgz.py
+
+(5) Run parsethemes.py , legocsvtrimmer.py then csvtojson.py.
+	python parsethemes.py
+	python legocsvtrimmer.py
+	python csvtojson.py
+
+There may be some undefined char errors when running legocsvtrimmer.py so open the sets.csv file and delete anything that is missing
+manually. There are a couple near the top, set 752437W-1 and the rest are in the set numbers that start with letters so delete all of
+those directly. If there are more issues, uncomment the print line in the script so you can see where any remaining probem areas are.
+
+(6) Copy paste the sets.json generated to the scripts folder in the repo.
+
+(7) Open the firebase console and delete the global-sets collection. Then make a new one with the same name with one dummy doc.
+This is to ensure the sets are not sudplicated as the given ids are random.
+
+(8) Open a new terminal (?) and run the following:
+	cd OneDrive\Desktop\legologv2\scripts
+	node importdata.js
+
+(9) Cleanup the folders by deleting the gz folders and csv files, and upload to GitHub if desired.
+
+If you get the success print after a few minutes, check that the data is now in the global-sets collection and you are done!

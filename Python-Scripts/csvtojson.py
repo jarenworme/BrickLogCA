@@ -15,3 +15,5 @@ with open("filtered_sets.csv", newline="") as csvfile:
 
     with open("sets.json", "w") as jsonfile:
         json.dump(data, jsonfile, indent=4)
+
+print("converted filtered_sets.csv to sets.json sucessfully")

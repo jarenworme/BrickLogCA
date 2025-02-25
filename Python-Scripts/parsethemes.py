@@ -44,6 +44,8 @@ with open("themes.py", "w") as file:
     file.write("THEMES = ")  # Write the variable name
     file.write(f"{theme_array}")       # Write the array as a Python list    
 
+print("themes parsed sucessfully")
+
     
     
 
