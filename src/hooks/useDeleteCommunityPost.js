@@ -20,7 +20,7 @@ export const useDeleteCommunityPost = () => {
             const postDocRef = doc(db, "community-posts", postID);
             await deleteDoc(postDocRef);
             
-            console.log(`Post with ID ${postID} has been successfully deleted.`);
+            // console.log(`Post with ID ${postID} has been successfully deleted.`);
         } catch (err) {
             console.error("Error deleting post:", err);
             setErrorDelete(err.message);

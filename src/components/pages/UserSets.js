@@ -60,9 +60,12 @@ export default function UserSetsPage () {
     }, [loadArrays, fetchSets, sets.length]);
 
     // delete the selected set from user sets and reload sets with the same criteria
-    const handleDelete = async (setId, theme, set_num) => {
+    const handleDelete = async (setId, theme, set_num, img_url) => {
         const isMOC = theme === "MOC";
-        const imgID = `${userID}_${set_num}`;
+        let imgID = `${userID}_${set_num}`;
+        if (img_url === "") {
+            imgID = "";
+        }
         if (window.confirm("Are you sure you want to delete this set?")) {
             await deleteSet(setId, isMOC, imgID);
             updateSetsOnDelete();
@@ -264,7 +267,7 @@ export default function UserSetsPage () {
                                     icon={faTrashCan} 
                                     className="us-delete-icon" 
                                     size="xl" 
-                                    onClick={() => handleDelete(set.id, set.theme_id, set.set_num)} 
+                                    onClick={() => handleDelete(set.id, set.theme_id, set.set_num, set.img_url)} 
                                     disabled={loadingDelete}
                                 />
                             </div>

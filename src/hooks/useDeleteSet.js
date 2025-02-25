@@ -41,7 +41,7 @@ export const useDeleteSet = () => {
             });
 
             // then delete the associated image in storage if it is a moc and a pic is set
-            if (isMOC) {
+            if (isMOC && imgID !== "") {
                 const imageRef = ref(storage, `set_pictures/${imgID}`);
                 await deleteObject(imageRef);
             }

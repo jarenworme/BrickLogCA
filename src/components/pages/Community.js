@@ -79,8 +79,7 @@ export default function Community () {
     } = useGetUserInfo();
 
     const {
-        deletePost,
-        loadingDelete
+        deletePost
     } = useDeleteCommunityPost();
 
     // call fetch stats to get all stat variables populated on mount
@@ -91,6 +90,7 @@ export default function Community () {
         }
     }, [fetchOnlineStats, getCommunityPosts, totalSets]);
 
+    // function to change variables and fetch data for the community voice tab
     const handleVoiceClick = () => {
         setInStatsTab(false);
         setInMOCTab(false);
@@ -101,6 +101,7 @@ export default function Community () {
         }
     }
 
+    // function to change variables and fetch data for the global stats tab
     const handleStatsClick = () => {
         setInPostTab(false);
         setInMOCTab(false);
@@ -112,6 +113,7 @@ export default function Community () {
         }
     }
 
+    // function to change variables and fetch data for the newest mocs tab
     const handleMOCsClick = () => {
         setInPostTab(false);
         setInStatsTab(false);
@@ -122,6 +124,7 @@ export default function Community () {
         }
     }
 
+    // function to delete a post belonging to the logged in user
     const handleDeletePost = (postID) => {
         deletePost(postID);
         getCommunityPosts();
@@ -228,9 +231,19 @@ export default function Community () {
                                 <h3 className="com-stats-card-text">Missing Pieces Logged: {totalMissingPieces}</h3>
                                 <h3 className="com-stats-card-text">Most Popular Theme: {popTheme} ({popThemeAmount})</h3>
                                 <h3 className="com-stats-card-text">Sets in Archive: {totalGlobalSets}</h3>
-
                             </div>
-                            <div className="com-stats-card-small">
+                            <div className="com-stats-card-small-mobile">
+                                <div className="com-pin-icon-wrapper">
+                                    <img src={pinGreen} alt="LEGO Piece" className="com-pin-icon"/>
+                                </div>
+                                <h2 className="com-stats-card-small-title">Most Sets Logged</h2>
+                                <div className="com-stats-card-small-img-wrapper">
+                                    <img src={mostSetsImgUrl || blankProfileImage} alt="Profile Pic" className="com-stats-card-small-img" />
+                                </div>
+                                <h3 className="com-stats-card-text">{mostSetsUsername}</h3>
+                                <h3 className="com-stats-card-text">{mostSetsNumber} sets</h3>
+                            </div>
+                            <div className="com-stats-card-small-unaffected">
                                 <div className="com-pin-icon-wrapper">
                                     <img src={pinYellow} alt="LEGO Piece" className="com-pin-icon"/>
                                 </div>

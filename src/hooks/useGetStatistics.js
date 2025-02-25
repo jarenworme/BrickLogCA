@@ -180,7 +180,13 @@ export const useGetStatistics = () => {
             const missingPiecesSnapshot = await getDocs(missingPiecesQuery);
             const newPieces = missingPiecesSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
-            setNumMissingPieces(newPieces.length);
+            let totalMissing = 0;
+
+            newPieces.forEach(element => {
+                totalMissing = totalMissing + element.quantity;
+            });
+
+            setNumMissingPieces(totalMissing);
 
         } catch (err) {
             console.error("Error fetching sets:", err);
